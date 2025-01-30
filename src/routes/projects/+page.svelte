@@ -31,7 +31,7 @@
 
   <div class="grid md:grid-cols-2 gap-8">
     {#each projects as project}
-      <a href={project.link}>
+      <a href={project.link} target="_blank" rel="noopener noreferrer">
         <div
           class="group relative bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-md hover:shadow-lg
                  transition-all duration-300 hover:-translate-y-1 border border-white/20"

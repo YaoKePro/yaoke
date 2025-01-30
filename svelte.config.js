@@ -1,17 +1,34 @@
-import { mdsvex } from "mdsvex";
-import adapter from '@sveltejs/adapter-auto';
+import adapter from "@sveltejs/adapter-auto";
+
+import { mdsvex, escapeSvelte } from "mdsvex";
+import { createHighlighter } from "shiki";
+
+const theme = "github-dark";
+const highlighter = await createHighlighter({
+  themes: [theme],
+  langs: ["javascript", "typescript"],
+});
+
+const mdsvexOptions = {
+  highlight: {
+    highlighter: async (code, lang = "text") => {
+      const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme }));
+      return `{@html \`${html}\` }`;
+    },
+  },
+};
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-    kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-		adapter: adapter()
-	},
+  kit: {
+    // adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
+    // If your environment is not supported, or you settled on a specific environment, switch out the adapter.
+    // See https://svelte.dev/docs/kit/adapters for more information about adapters.
+    adapter: adapter(),
+  },
 
-    preprocess: [mdsvex()],
-    extensions: [".svelte", ".svx"]
+  preprocess: [mdsvex(mdsvexOptions)],
+  extensions: [".svelte", ".svx"],
 };
 
 export default config;

@@ -2,16 +2,16 @@
 <div
   class="flex flex-col items-center justify-center min-h-screen text-center px-4"
 >
-  <h1 class="animated-text text-5xl md:text-6xl font-bold text-gray-800 mb-4">
-    <span class="greeting block">Hi there, I'm Yao!</span>
-    <span class="name block mt-2"
-      >Welcome to my <span class="name-highlight">page</span></span
+  <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
+    <span class="greeting block"
+      >Hello there, I'm <span class="name-highlight">Yao</span></span
     >
+    <span class="name block mt-2">Welcome to my page</span>
   </h1>
 
   <p class="subtitle text-lg md:text-xl text-gray-600 mt-6">
-    I enjoy programming and solving hard problems.<br />
-    In my down time I enjoy training martial arts, playing guitar and taking photos!
+    I enjoy solving hard problems and suck at CSS. <br />
+    All the CSS here is AI generated!
   </p>
 </div>
 
@@ -24,9 +24,6 @@
     50% {
       transform: translateY(-10px);
     }
-  }
-  .animated-text {
-    animation: float 3s ease-in-out infinite;
   }
 
   .name-highlight {

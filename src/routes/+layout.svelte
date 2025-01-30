@@ -21,9 +21,10 @@
 <style>
   .glass-nav {
     backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #ffffff5b;
   }
   .nav-link {
+    color: #ff997d;
     transition: all 0.3s ease;
   }
   .nav-link:hover {

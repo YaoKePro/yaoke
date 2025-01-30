@@ -36,6 +36,16 @@
 
         <p class="text-gray-600 mb-4">{post.metadata.description}</p>
 
+        <div class="flex flex-wrap gap-2 mb-4">
+          {#each post.metadata.tags as tag}
+            <span
+              class="px-3 py-1 bg-blue-100/50 text-blue-600 rounded-full text-sm"
+            >
+              {tag}
+            </span>
+          {/each}
+        </div>
+
         <div class="flex items-center text-sm text-blue-500 space-x-2">
           <svg
             class="w-4 h-4"
