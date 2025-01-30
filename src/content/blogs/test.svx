@@ -1,0 +1,21 @@
+---
+title: "My Svelte-Powered Post"
+date: 2024-02-20
+---
+
+### Welcome to MDsveX!
+
+<script>
+  let count = 0;
+</script>
+
+<button on:click={() => count++}>
+Clicks: {count}
+</button>
+
+<style>
+  button {
+    color: white;
+    background: #ff3e00;
+  }
+</style>
