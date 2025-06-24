@@ -1,7 +1,29 @@
 <script>
+  import { onMount } from "svelte";
+
   let { data } = $props();
   const { component: Post, metadata } = data.post;
+
+  let scrollProgress = $state(0);
+
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+    scrollProgress = (scrollTop / docHeight) * 100;
+  }
+
+  onMount(() => {
+    window.addEventListener("scroll", updateProgress);
+    updateProgress();
+    return () => window.removeEventListener("scroll", updateProgress);
+  });
 </script>
+
+<div
+  class="fixed top-0 left-0 h-1 bg-blue-500 z-50 transition-all"
+  style="width: {scrollProgress}%"
+></div>
 
 <div class="max-w-3xl mx-auto px-4 py-28">
   <!-- Article Header -->
@@ -35,36 +57,6 @@
   <!-- MDSvex Content -->
   <article class="prose prose-lg max-w-none">
     <Post />
-
-    <!-- Custom MDsvex Styling -->
-    <!-- <style global>
-      :global(.prose) {
-        --tw-prose-body: #374151;
-        --tw-prose-headings: #1f2937;
-        --tw-prose-links: #3b82f6;
-        --tw-prose-code: #1f2937;
-      }
-
-      :global(.prose a) {
-        @apply gradient-underline transition-all duration-300;
-      }
-
-      :global(.prose pre) {
-        @apply bg-gray-800 text-gray-100 rounded-xl p-6 my-6 shadow-lg;
-      }
-
-      :global(.prose code:not(pre code)) {
-        @apply px-2 py-1 bg-blue-50 text-blue-600 rounded-md before:content-[''] after:content-[''];
-      }
-
-      :global(.prose img) {
-        @apply rounded-xl shadow-md my-8;
-      }
-
-      :global(.prose blockquote) {
-        @apply border-l-4 border-green-400 bg-green-50 rounded-r-lg italic;
-      }
-    </style> -->
   </article>
 </div>
 

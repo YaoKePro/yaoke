@@ -1,0 +1,218 @@
+{
+  "main": {
+    "id": "90cfc77bbcaae438",
+    "type": "split",
+    "children": [
+      {
+        "id": "38ded579eb5ecb1a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dc5d4b8a814623c7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Architecting.svx",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Architecting"
+            }
+          },
+          {
+            "id": "804d9b136698c651",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Specialness.svx",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Specialness"
+            }
+          },
+          {
+            "id": "7116328c2f5d478a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Architecting.svx",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Architecting"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "dbd1156e5b9a9561",
+    "type": "split",
+    "children": [
+      {
+        "id": "b1eb58dabae92fcd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "57b5a256e0499b6b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "84bd1ea3e33c4a3d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "081d1afbbc68ac64",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 222.5
+  },
+  "right": {
+    "id": "7e40e14eea82c8de",
+    "type": "split",
+    "children": [
+      {
+        "id": "4e2a568b9690f5be",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3fb38469837d0dca",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "13-06-2025.svx",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 13-06-2025"
+            }
+          },
+          {
+            "id": "0a061a30bbf5639e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "13-06-2025.svx",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 13-06-2025"
+            }
+          },
+          {
+            "id": "048d0b6bd7d3c51f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "18a5e349459d620d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "13-06-2025.svx",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 13-06-2025"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "templater-obsidian:Templater": false,
+      "publish:Publish changes...": false
+    }
+  },
+  "active": "7116328c2f5d478a",
+  "lastOpenFiles": [
+    "Tool Choice.svx",
+    "Specialness.svx",
+    "Templates/frontmatter.md",
+    "Architecting.svx",
+    "Extended C4-Flow Specification 0.1.svx",
+    "BlueprintLang.svx",
+    "Extended C4-Flow Specification 0.1.md",
+    "BlueprintLang.md",
+    "Untitled.canvas",
+    "2025-06-20.md",
+    "Templates",
+    "13-06-2025.md",
+    "30-01-2025.md"
+  ]
+}

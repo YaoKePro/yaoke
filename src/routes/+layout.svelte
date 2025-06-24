@@ -10,9 +10,9 @@
     <a href="/blogs" class="nav-link text-gray-700 hover:text-green-500"
       >Blogs</a
     >
-    <a href="/projects" class="nav-link text-gray-700 hover:text-teal-500"
+    <!-- <a href="/projects" class="nav-link text-gray-700 hover:text-teal-500"
       >Projects</a
-    >
+    > -->
   </nav>
 
   {@render children()}

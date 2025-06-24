@@ -1,6 +1,17 @@
 <script>
   let { data } = $props();
   const posts = data.posts;
+
+  // Extract all unique categories
+  const categories = ["coding", "life"];
+
+  // Selected category (default to first one or 'All')
+  let selectedCategory = $state(categories[0]);
+
+  // Filtered posts based on selection
+  let filteredPosts = $derived(
+    posts.filter((post) => post.metadata.category === selectedCategory)
+  );
 </script>
 
 <div class="max-w-4xl mx-auto px-4 py-20">
@@ -13,8 +24,23 @@
     ></div>
   </h1>
 
+  <div class="flex justify-center gap-4 mb-12 flex-wrap">
+    {#each categories as category}
+      <button
+        onclick={() => (selectedCategory = category)}
+        class="px-4 py-2 text-sm rounded-full border transition
+        duration-200
+        {selectedCategory === category
+          ? 'bg-blue-500 text-white border-blue-500'
+          : 'bg-white text-blue-500 border-blue-200 hover:bg-blue-50'}"
+      >
+        {category}
+      </button>
+    {/each}
+  </div>
+
   <div class="grid gap-8">
-    {#each posts as post}
+    {#each filteredPosts as post}
       <a
         href={`/blogs/${post.slug}`}
         class="group relative bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-md hover:shadow-lg transition-all
@@ -63,6 +89,10 @@
           <span class="text-gray-500"
             >{new Date(post.metadata.date).toLocaleDateString()}</span
           >
+          <span class="text-gray-500">Last Edited:</span>
+          <span class="text-gray-500"
+            >{new Date(post.metadata.date).toLocaleDateString()}</span
+          >
         </div>
       </a>
     {/each}
@@ -70,29 +100,4 @@
 </div>
 
 <style>
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .animate-fade-in {
-    animation: fade-in 0.6s ease-out forwards;
-  }
-
-  /* Gradient underline animation for links */
-  .gradient-underline {
-    background-image: linear-gradient(90deg, #4fd1c5, #81e6d9);
-    background-size: 0% 2px;
-    background-position: left bottom;
-    background-repeat: no-repeat;
-    transition: background-size 0.3s ease;
-  }
-  .gradient-underline:hover {
-    background-size: 100% 2px;
-  }
 </style>

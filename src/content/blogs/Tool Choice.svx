@@ -1,0 +1,144 @@
+---
+title: "Human: Tool Choice"
+description: Are you chosing tools for yourself, or for the AI?
+date: 2025-01-30
+edited: 2025-06-24
+tags:
+  - coding
+  - tools
+  - stack
+  - opinion
+category: coding
+---
+<script>
+  import Talent from "./Talent.svelte";
+  let count = $state(0);
+  let talented = $state(true);
+</script>
+
+I am a big fan of Svelte. It allows you to quickly code something like this:
+
+<button onclick={() => count++}>
+Clicks: {count}
+</button>
+
+<style>
+  button {
+    color: white;
+    background: #012169;
+  }
+</style>
+
+```js
+<script>
+  let count = $state(0);
+  let talented = $state(true);
+</script>
+
+<button on:click={() => count++}>
+Clicks: {count}
+</button>
+
+<style>
+  button {
+    color: white;
+    background: #012169;
+  }
+</style>
+```
+
+Having tried React before, this is a much simpler way to code. The way you can
+use simple _if_ statements in `html`  is just beautiful.
+
+<Talent />
+
+```js
+<script>
+  let talented = $state(true);
+</script>
+
+You are {talented ? "" : "not"} talented.
+{#if talented}
+  Now you need hard work!
+{:else}
+  You need work even harder!
+{/if}
+```
+
+As I was reading Svelte 5's documentation I noticed something interesting,
+a page with `.txt` files for LLMs to crawl [svelte.dev](https://svelte.dev/docs/llms).
+
+This got me thinking, as more and more code is written by AI, how will this affect
+the tooling we choose. This applies in all sorts of areas, but especially in
+terms of programming languages. Consider the following points:
+
+## Popularity
+
+The elephant in the room for choosing any technology is popularity. React is
+popular because React is popular. Once a tool is established as commonplace and
+the de facto standard, it tends to cement itself until a generational improvement.
+
+This is with good reason too. Popularity means proven, popularity means better
+tooling, popularity means better support, popularity means more educational
+material, popularity means more jobs/employees.
+
+**Popularity means better AI code generation.**
+
+Since AI is trained on all the code on the public internet, having seen more examples of a popular technology such as React, it'll understand it better and be able to apply it to more diverse situations.
+
+## Quality
+
+The quality of the codebase online is also very, very important. The old adage
+remains true:
+
+> Garbage in, garbage out.
+
+Althought a technology like React is popular, it also means that there is more
+than enough spaghetti code online written in it. This can significantly impact
+the model's performance if the model's trainers did not carefully curate the data
+or otherwise combat low quality training data.
+
+Whilst languages like Haskell are niche, it may actually be much more suited for
+LLM code generation since the *dozens* of Haskell coders are nerds who write high quality
+code!
+
+## Adoption
+
+Although the migration from Svelte 4 to Svelte 5 is generally an improvement,
+one hilarity I encountered is that no matter how much I specified "use Svelte 5",
+the models will continue to use Svelte 4.
+
+It seems that in the modern age, we not only need to convince humans to switch,
+but machines too!
+
+## Imperative vs Declarative Tooling
+
+Recently I've been writing a bit of SwiftUI code, and the experience is totally
+different. Since the layout and structure shown on the page is so declarative, it's so much easier to just generate correct code on the first go without some funky formatting issue.
+
+> Note that declarative means more "here's what I want", instead of "follow this step by step". This is more of a continuum/spectrum rather than classification. C is declarative compared to assembly, and Python is comparative compared to C.
+
+It's akin to the much higher quality of AI code in languages like Python and Swift, compared to lower level languages like C. I suppose this is true even for human programmers, but even truer for AI which struggles to think continuously across long contexts. As such, the design choices made in the tooling itself, whether that be languages or frameworks, can significantly impact the quality of AI generation. I've yet to see AI mess up PyTorch code because it's just so declarative.
+
+In the future, we may even see AI friendliness as a core trade-off when designing new tooling.
+
+# Final Thoughts
+
+I do not know what will actually be optimal tech stack as your decisions will
+be affected by some weighted combination of the above factors. Never mind the
+fact that choosing a tech stack was already a chore before AI.
+
+Tools development in the future will need to take AI into consideration and alway provide as much training data and explanation as it can. This not only allows AI
+generation, but stronger automated feedback and debugging too.
+
+Ultimately, the **right** tool will always prove to be the easiest to work with, whether by human or AI. I personally would rather just use the easiest tool **I prefer**, but your mileage may vary. Maybe some esoteric stack like Haskell backend, Flutter frontend is the future of AI web development.
+
+I wish I could've ended on a more definitive note, but I suppose a more objective measure of the tools AI is next to impossible. Perhaps I can end on on list of questions for the reader to explore:
+
+- How much autonomy does the AI have in your workflow? If more than 50%, then maybe it takes priority in your choice of tools?
+- Are LLMs actually self-aware of what tools they excel at using?
+- Are tools easier for humans easier for LLMs too?
+- Do you have an emotional connection to a tool? Will that affect your motivation and willingness to vet the AI code?
+- How will adoption of new tools change? If BigCorp releases BigCorpLang, and an accompanying LLM, then adoption/learning cost is drastically reduced!
+- Can we ever expect to measure the performance of LLMs on a tool by tool, language by language basis in a feasible and cost effective way?
+- Will LLMs ever be able to learn on the job? Can we effectively teach it new tools and not just shove a huge .txt file into its system prompt and limited context window?

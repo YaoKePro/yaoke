@@ -96,10 +96,6 @@
     }
   }
 
-  .animate-fade-in {
-    animation: fade-in 0.6s ease-out forwards;
-  }
-
   /* Gradient underline animation */
   .bg-gradient-to-r.from-blue-400.to-green-400 {
     transition: background-size 0.3s ease;

@@ -6,12 +6,14 @@
     <span class="greeting block"
       >Hello there, I'm <span class="name-highlight">Yao</span></span
     >
-    <span class="name block mt-2">Welcome to my page</span>
+    <span class="name block mt-2"></span>
   </h1>
 
   <p class="subtitle text-lg md:text-xl text-gray-600 mt-6">
-    I enjoy solving hard problems and suck at CSS. <br />
-    All the CSS here is AI generated!
+    This is where you can read my thoughts on life, programming, startups and
+    more. <br />
+    I enjoy composing creative solutions and suck at CSS. All the CSS here is AI
+    generated!
   </p>
 </div>
 
