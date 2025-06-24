@@ -71,17 +71,17 @@ As such, I believe the most powerful AI coding tools in the future will intellig
 
 ## Tips for programmers
 
-Perhaps it is time to shift away from the keyboard. I know, this sounds like sacrilege. But perhaps the flowchart diagram zealots were right all along.
+Perhaps it is time to shift away from the keyboard. I know, this sounds like sacrilege. But perhaps the flowchart zealots were right all along.
 
 There is of course no substitute for complete beginners typing out every character of the code just as a beginner in maths should learn to add and multiply by hand. But now we enter a new age where our new "calculator", generative AI, has dropped. Now we don't need to do the calculations by hand anymore. So what should we be doing instead?
 
-I think pen and paper design, or something to that effect. But not just for behavioural diagrams and flow charts. Something in between code and specification. Something where implementation is shaping, but not concrete. Where structs are labelled in detail, constructors and destructors are well defined with responsibilities, and inheritance hierarchies are clear.
+I think pen and paper design, or something to that effect. But not just for behavioural diagrams and flow charts. Something in between code and specification. Something where implementation is shaping, but not concrete. Where structs are labelled in detail, constructors and destructors are well defined with responsibilities, inheritance hierarchies, mutations are clearly labelled...
 
 In other words, you paint the detailed skeleton of the code, and the AI fleshes it out. The more detailed the technical the skeleton, the better.
 
-# Conclusion
+## Conclusion
 
-Whilst typing every single character may be a thing of the past, high level understanding and concrete reasoning of design has never been more important. Having a solid grasp of key language concepts allow you to quickly get up to speed in any lanugage regardless of the syntax with AI generated code.
+Whilst typing every single character may be a thing of the past, high level understanding and concrete reasoning of design has never been more important. Having a solid grasp of key language concepts allow you to quickly get up to speed in any language regardless of the syntax with AI generated code.
 
 Understanding, integrating and designing said code will continue, in the forseeable future, be a challenging _human_ endeavour. 
 
