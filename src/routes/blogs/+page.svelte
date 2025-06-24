@@ -91,7 +91,7 @@
           >
           <span class="text-gray-500">Last Edited:</span>
           <span class="text-gray-500"
-            >{new Date(post.metadata.date).toLocaleDateString()}</span
+            >{new Date(post.metadata.edited).toLocaleDateString()}</span
           >
         </div>
       </a>

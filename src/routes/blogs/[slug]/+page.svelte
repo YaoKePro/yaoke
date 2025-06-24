@@ -51,6 +51,10 @@
       </svg>
       <time class="text-sm">{new Date(metadata.date).toLocaleDateString()}</time
       >
+      <span class="text-gray-500">Last Edited:</span>
+      <span class="text-gray-500"
+        >{new Date(metadata.edited).toLocaleDateString()}</span
+      >
     </div>
   </header>
 
