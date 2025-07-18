@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Why LLMs are misunderstood.md",
+                "file": "Read More.svx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Why LLMs are misunderstood"
+              "title": "Read More"
             }
           }
         ],
@@ -228,15 +228,15 @@
   },
   "active": "2e60d36c19db8d38",
   "lastOpenFiles": [
-    "Architecting.svx",
-    "Concrete LLM Use Cases.md",
-    "Hiring.svx",
-    "LLMs Evaluated.md",
     "New Project- Blueprint.svx",
-    "Read More.md",
+    "Read More.svx",
     "Specialness.svx",
     "Tool Choice.svx",
-    "Why LLMs are misunderstood.md",
+    "Why LLMs are misunderstood.svx",
+    "Architecting.svx",
+    "Concrete LLM Use Cases.svx",
+    "Hiring.svx",
+    "LLMs Evaluated.svx",
     "New Project- Blueprint.md",
     "Hiring.md",
     "Templates/frontmatter.md",
@@ -246,7 +246,6 @@
     "BlueprintLang.md",
     "Untitled.canvas",
     "2025-06-20.md",
-    "Templates",
     "13-06-2025.md",
     "30-01-2025.md"
   ]
