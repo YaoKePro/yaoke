@@ -13,6 +13,7 @@
 		"shiki": "^2.1.0"
 	},
 	"devDependencies": {
+		"@sveltejs/adapter-cloudflare": "^7.1.0",
 		"@sveltejs/adapter-auto": "^4.0.0",
 		"@sveltejs/kit": "^2.16.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
