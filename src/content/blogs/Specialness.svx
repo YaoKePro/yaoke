@@ -8,7 +8,7 @@ tags:
   - relationship
   - philosophy
   - life
-category: life
+category: life TODO
 ---
 I am by no means a relationship expert. I haven't been on that many dates, I have not studied relationships deeply, nor am I particularly interested in romantic partnerships. 
 

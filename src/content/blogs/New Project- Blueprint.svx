@@ -6,3 +6,7 @@ edited: 2025-06-24
 tags: 
 category:
 ---
+An architecture first IDE for humans and LLMs.
+
+Doesn't need to actually work better than Cursor, just need to be on par and more transparent.
+

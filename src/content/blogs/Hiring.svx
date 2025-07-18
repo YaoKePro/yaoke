@@ -1,10 +1,33 @@
 ---
-title: Hiring
-description: TODO
-date: 2025-06-24
-edited: 2025-06-24
-tags: 
+title: What Are The Key Signals in Startup Hiring
+description: How to find the best candidates
+date: 2025-07-01
+edited: 2025-07-01
+tags:
+  - hiring
+  - hr
+  - startup
+  - people
 category: startup
 ---
+Hiring is arguably the most important part of any startup. When you have no money, no assets, no brand, and a fledgling of an idea, the people are the ones who make it happen. They have to do everything from engineering, to marketing, to running around solving random crises. 
 
-TODO
+Q: If there was one metric to hire a person by, what would it be?
+
+A: A good startup hire has to be "relentless". What I mean by this is, they need to be willing to go to extreme lengths to accomplish their goals and remain motivated. Once they are given a problem to solve, they will do everything in their power to make it happen. Make phone calls, read papers, brainstorm for hours. Anything less than that, they would not thrive in a startup environment. It's simply too much work and hardship for such little reward at the beginning and unless your are extremely self-driven and motivated, you will not enjoy the experience at all.
+
+Q: What are some other qualities that are important for a good startup founder/employee?
+
+A: One thing that is very underrated in general in STEM is not problem solving, but research. Most problems have already A) been solved, B) been proven to be unsolvable, C) been solved in some other domain, D) had certain solutions proven to not work. In other words, most problems worth solving, especially in the start up space, requires deep knowledge of existing solutions, the root cause of the problem, and where the new product fits into the landscape. It is so easy to dream up an "ideal app" and pat yourself on the back for being a genius. I've done so myself. Many times. But it's a hard learnt lesson that whatever you've thought of, probably has been conceived, executed, launched, marketed in one capacity or another. Someone who's good at research will allow the whole team to understand the existing problems and solutions much deeply, and avoid many headaches and foot guns along the way.  
+
+Next on the list I would say is problem solving, and *creative* problem solving specifically. A lot of what makes a start-up solution successful is thinking outside of the box. A new innovative idea requires a bit of imagination. How can the UI/UX be designed differently. How can we save development time in the backend architecture? What are some new innovative ideas that can be applied to this hardware? The solution space is massive. To navigate it effectively, one needs a deadly combination of creativity and scientific rigour. 
+
+Q: Do marks matter? What about natural intelligence
+
+A: Marks and natural intelligence both matter. However, these are both merely prerequisites indicating that a candidate is capable or problem solving. It does not guarantee anything. Beyond these basic metrics, personality, relentlessness and creative problem solving are far more important qualities in predicting success. 
+
+Another essential blend of a strong startup founder is openness to new things with a strong critical mindset. There is a lot of hype, snake-oil, true wisdom, breakthroughs and flops in the cutting edge of any industry. If you are not receptive to what's around the corner, you'll simply be left behind. But if you take everything as advertised and at face value, you'll buy into too many things that waste your time and energy. 
+
+Q: Any red flags to watch out for?
+
+A: Just like any relationship, you should be wary of sketchy characters. Scammers, cheats, gurus, the lot. 
