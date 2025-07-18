@@ -9,7 +9,7 @@ tags:
   - evaluation
 category: coding
 ---
-One of the most upvoted posts in r/ChatGPT is this post titled [After 147 failed ChatGPT prompts, I had a breakdown and accidentally discovered something](https://www.reddit.com/r/ChatGPT/comments/1lnfcnt/after_147_failed_chatgpt_prompts_i_had_a/). It is essentially a prompt made to help people make prompts. A *meta-prompt*.
+One of the most upvoted posts (21K!) in r/ChatGPT is this post titled [After 147 failed ChatGPT prompts, I had a breakdown and accidentally discovered something](https://www.reddit.com/r/ChatGPT/comments/1lnfcnt/after_147_failed_chatgpt_prompts_i_had_a/). It is essentially a prompt made to help people make prompts. A *meta-prompt*.
 
 And it's intrinsically linked to Lex Fridman's interview with Anthropic AI researcher Amanda Askell's [description of AI personas](https://www.youtube.com/watch?v=ugvHCXCOmm4).
 
@@ -25,4 +25,4 @@ LLMs however, lack these skills. By default LLM providers have to ship a "vanill
 
 We can escape this feeling by leveraging their incredible ability of one-shot learning, where including examples or giving instructions as part of the input can trigger internal neural activations inside the model, causing it to mimic our autonomous social context. 
 
-This is why the next decade will be the decade of **prompting**. Not because we can achieve everything just by prompting models, but because we can extract different types of performance out of existing models in completely new ways. The newest released model Kimi K2 has a whopping one **TRILLION** parameters, out of which some will activate in response to your query. Happy prompting, and stay skeptical of the conversation around AI, whether it's praise or criticism. 
+This is why the next decade will be the decade of **prompting**. Not because we can achieve everything just by prompting models, but because we can extract different types of performance out of existing models in completely new ways. We can turn the average of humanity into the *best* of humanity. The newest released model Kimi K2 has a whopping one **TRILLION** parameters, out of which some will activate in response to your query. Happy prompting, and stay skeptical of the conversation around AI, whether it's praise or criticism. 
