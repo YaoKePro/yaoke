@@ -1,4 +1,4 @@
-import adapter from "@sveltejs/adapter-cloudflare";
+import adapter from "@sveltejs/adapter-auto";
 
 import { mdsvex, escapeSvelte } from "mdsvex";
 import { createHighlighter } from "shiki";
