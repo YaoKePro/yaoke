@@ -69,7 +69,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rust Impressions.md",
+                "file": "Rust Impressions.svx",
                 "mode": "source",
                 "source": false
               },
@@ -226,10 +226,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e60d36c19db8d38",
+  "active": "57b5a256e0499b6b",
   "lastOpenFiles": [
     "Read More.svx",
-    "Rust Impressions.md",
+    "Rust Impressions.svx",
     "New Project- Blueprint.svx",
     "Specialness.svx",
     "Tool Choice.svx",

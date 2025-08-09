@@ -1,6 +1,14 @@
 <script>
   const projects = [
     {
+      title: "Markdown UI",
+      link: "https://markdown-ui.yaoke.pro",
+      timeframe: "2025 - Ongoing",
+      description:
+        "A micro-spec for embedding interactive UI widgets in Markdown for LLMs.",
+      stack: ["svelte", "react", "marked", "spec", "oss"],
+    },
+    {
       title: "Thymelake QR Code Ordering",
       link: "https://app.thymelake.com/shop/S0VPARWD9H4RV/customer",
       timeframe: "2023 - Ongoing",
@@ -8,14 +16,14 @@
         "QR code ordering system for Ambi's Chai with full Square integration using SvelteKit and Firebase. Sends SMS notifications when orders are ready.",
       stack: ["SvelteKit", "Firebase", "Square API", "Twilio"],
     },
-    {
-      title: "LunarLink",
-      link: "https://lunarlinkai.com",
-      timeframe: "2024 - Ongoing",
-      description:
-        "Web client for comparing AI model responses from OpenAI, Google, and Anthropic. Built with SvelteKit, Go, and PostgreSQL.",
-      stack: ["SvelteKit", "Go", "PostgreSQL", "LLM Orchestration"],
-    },
+    // {
+    //   title: "LunarLink",
+    //   link: "https://lunarlinkai.com",
+    //   timeframe: "2024 - Ongoing",
+    //   description:
+    //     "Web client for comparing AI model responses from OpenAI, Google, and Anthropic. Built with SvelteKit, Go, and PostgreSQL.",
+    //   stack: ["SvelteKit", "Go", "PostgreSQL", "LLM Orchestration"],
+    // },
   ];
 </script>
 
