@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Read More.svx",
+                "file": "Rust Impressions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Read More"
+              "title": "Rust Impressions"
             }
           }
         ],
@@ -228,8 +228,9 @@
   },
   "active": "2e60d36c19db8d38",
   "lastOpenFiles": [
-    "New Project- Blueprint.svx",
     "Read More.svx",
+    "Rust Impressions.md",
+    "New Project- Blueprint.svx",
     "Specialness.svx",
     "Tool Choice.svx",
     "Why LLMs are misunderstood.svx",
@@ -241,7 +242,6 @@
     "Hiring.md",
     "Templates/frontmatter.md",
     "Extended C4-Flow Specification 0.1.svx",
-    "BlueprintLang.svx",
     "Extended C4-Flow Specification 0.1.md",
     "BlueprintLang.md",
     "Untitled.canvas",
