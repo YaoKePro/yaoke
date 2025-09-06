@@ -76,9 +76,35 @@
               "icon": "lucide-file",
               "title": "Rust Impressions"
             }
+          },
+          {
+            "id": "ade27760b6e38961",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.9.12"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.9.12"
+            }
+          },
+          {
+            "id": "3ee1b02201e6c93a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Concrete LLM Use Cases.svx",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Concrete LLM Use Cases"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -217,6 +243,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -226,8 +253,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "57b5a256e0499b6b",
+  "active": "3ee1b02201e6c93a",
   "lastOpenFiles": [
+    "Coding is dead; Designing is alive;.svx",
+    "Post.svx",
+    "Concrete LLM Use Cases.svx",
     "Read More.svx",
     "Rust Impressions.svx",
     "New Project- Blueprint.svx",
@@ -235,13 +265,10 @@
     "Tool Choice.svx",
     "Why LLMs are misunderstood.svx",
     "Architecting.svx",
-    "Concrete LLM Use Cases.svx",
     "Hiring.svx",
-    "LLMs Evaluated.svx",
     "New Project- Blueprint.md",
     "Hiring.md",
     "Templates/frontmatter.md",
-    "Extended C4-Flow Specification 0.1.svx",
     "Extended C4-Flow Specification 0.1.md",
     "BlueprintLang.md",
     "Untitled.canvas",

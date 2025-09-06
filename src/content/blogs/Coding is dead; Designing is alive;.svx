@@ -1,0 +1,33 @@
+---
+title: Coding is dead; Designing is alive;
+description: I just entered flow state prompting Claude Code
+date: 2025-09-06
+edited: 2025-09-06
+tags:
+  - coding
+  - vibe-coding
+  - flow-state
+  - design
+category: coding
+---
+Something surreal happened a few days ago as I was using Claude Code. I did not think it was possible. I entered flow state prompting CC to create a complex NLP web app for me.
+
+When GPT 3 first came out (late 2022), I was a firm believer that it'll take AI a long time before it can reliably replace all coding jobs. This was true all the way up until a few days ago.
+
+So how did my opinion change? Watching CC accurately call tools I was not even aware of, surgically edit specific parts of the code, and make reasonable architectural choices just blew me out of the water.
+
+I was just imagining new features, prompting it and then testing the new features, and it just kept doing it right! This went on for hours. I made the same level of progress I would've made in months without CC (btw I tried this later with Codex and Warp, they are just as good...).
+
+And this is not the rambling of a non-technical person. I consider myself a serious programmer and checked of many of the files it created, it's just what I would've done if not better!
+
+I truly believe we are entering a new era. The market around software, and other industries in the future will be completely disrupted. If this level of productivity enters fields like medicine, economics, robotics etc. the world will not be the same.
+
+Just to be clear, doing two months worth of work in two days would not have been feasible if I was not already very experienced in creating the type of app it was creating. Sometimes it would go in the wrong direction, but it's like a game of ice curling where you constantly nudge it in the right direction. Use tool x to remove the boiler plate, use library y. Refactor the bloated file. etc. etc. All things I would have done manually in hours now done in minutes. 
+
+I am now more of a product designer, and tester, than a programmer. This 30k line code base is completely maintained by AI. I can focus on the more interesting aspects like product design, critical aspects like security and boring aspects like testing. This marks an inflection point in history, typing out code has become a thing of the past. Even in large complex projects, we can express coding more in natural language thoughts and goals, rather than specific programming language symbols. People have been saying this online for a while now, but I believe the performance from AI has just recently achieved the required level for this to be true. Currently we still need to review, adjust and verify the code, but in the future even this might not be necessary.
+
+If you are a skeptic, please be open minded and try the newest ai tools and models out there. The performance extracted out of them with better function calling, context management and prompting is mind boggling and unthinkable even a few months ago. I've personally tested CC, Warp, and Codex and they seem to be on par. Other open source projects like OpenCode and OpenHands seem to be catching up.
+
+Your mileage may vary in terms of your programming domain. I had a very poor experience coding a C project using AI earlier this year, but have not tested anything like that as of late.
+
+Times are changing, and it's changing faster than I could've imagine...
