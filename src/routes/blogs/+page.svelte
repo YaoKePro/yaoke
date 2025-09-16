@@ -14,90 +14,130 @@
   );
 </script>
 
-<div class="max-w-4xl mx-auto px-4 py-20">
-  <h1
-    class="text-5xl font-bold text-gray-800 mb-12 text-center animate-fade-in"
-  >
-    Blogs
-    <div
-      class="w-24 h-1 bg-gradient-to-r from-blue-400 to-green-400 mx-auto mt-4 rounded-full"
-    ></div>
-  </h1>
+<div class="max-w-6xl mx-auto px-6 py-16">
+  <!-- Header -->
+  <div class="text-center mb-16">
+    <h1 class="font-serif text-4xl md:text-5xl font-bold text-primary mb-4">
+      Blog
+    </h1>
+    <p class="text-lg text-secondary max-w-2xl mx-auto">
+      Thoughts on programming, startups, and building things that might actually matter.
+    </p>
+  </div>
 
-  <div class="flex justify-center gap-4 mb-12 flex-wrap">
+  <!-- Category Filter -->
+  <div class="flex justify-center gap-3 mb-12">
     {#each categories as category}
       <button
         onclick={() => (selectedCategory = category)}
-        class="px-4 py-2 text-sm rounded-full border transition
-        duration-200
-        {selectedCategory === category
-          ? 'bg-blue-500 text-white border-blue-500'
-          : 'bg-white text-blue-500 border-blue-200 hover:bg-blue-50'}"
+        class="category-filter {selectedCategory === category ? 'active' : ''}"
       >
         {category}
       </button>
     {/each}
   </div>
 
+  <!-- Blog Posts -->
   <div class="grid gap-8">
     {#each filteredPosts as post}
-      <a
-        href={`/blogs/${post.slug}`}
-        class="group relative bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-md hover:shadow-lg transition-all
-              duration-300 hover:-translate-y-1 border border-white/20 hover:border-blue-100/30"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-green-50/30 rounded-xl opacity-0
-                   group-hover:opacity-100 transition-opacity duration-300 -z-10"
-        ></div>
+      <article class="blog-card group">
+        <div class="flex flex-col">
+          <!-- Post Header -->
+          <div class="mb-4">
+            <h2 class="text-2xl font-semibold text-primary group-hover:text-primary-hover transition-colors mb-2">
+              <a href={`/blogs/${post.slug}`} class="blog-link">
+                {post.metadata.title}
+              </a>
+            </h2>
 
-        <h2 class="text-2xl font-semibold text-gray-800 mb-2">
-          {post.metadata.title}
-          <span
-            class="bg-gradient-to-r from-blue-400 to-green-400 bg-[length:0%_2px] bg-left-bottom
-                      bg-no-repeat transition-[background-size] duration-300 group-hover:bg-[length:100%_2px]"
-          >
-          </span>
-        </h2>
+            <!-- Meta Info -->
+            <div class="flex items-center space-x-4 text-sm text-tertiary">
+              <time>{new Date(post.metadata.date).toLocaleDateString()}</time>
+              {#if post.metadata.edited}
+                <span>• Updated {new Date(post.metadata.edited).toLocaleDateString()}</span>
+              {/if}
+            </div>
+          </div>
 
-        <p class="text-gray-600 mb-4">{post.metadata.description}</p>
+          <!-- Description -->
+          <p class="text-secondary mb-4 leading-relaxed">
+            {post.metadata.description}
+          </p>
 
-        <div class="flex flex-wrap gap-2 mb-4">
-          {#each post.metadata.tags as tag}
-            <span
-              class="px-3 py-1 bg-blue-100/50 text-blue-600 rounded-full text-sm"
-            >
-              {tag}
-            </span>
-          {/each}
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-2">
+            {#each post.metadata.tags as tag}
+              <span class="tag">
+                {tag}
+              </span>
+            {/each}
+          </div>
         </div>
-
-        <div class="flex items-center text-sm text-blue-500 space-x-2">
-          <svg
-            class="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-            />
-          </svg>
-          <span class="text-gray-500"
-            >{new Date(post.metadata.date).toLocaleDateString()}</span
-          >
-          <span class="text-gray-500">Last Edited:</span>
-          <span class="text-gray-500"
-            >{new Date(post.metadata.edited).toLocaleDateString()}</span
-          >
-        </div>
-      </a>
+      </article>
     {/each}
   </div>
+
+  <!-- Empty State -->
+  {#if filteredPosts.length === 0}
+    <div class="text-center py-16">
+      <p class="text-tertiary">No posts found in this category yet.</p>
+    </div>
+  {/if}
 </div>
 
 <style>
+  .category-filter {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+    text-transform: capitalize;
+  }
+
+  .category-filter:hover {
+    border-color: var(--color-border-hover);
+    background-color: var(--color-bg-secondary);
+  }
+
+  .category-filter.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .blog-card {
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: var(--transition-base);
+  }
+
+  .blog-card:hover {
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-md);
+  }
+
+  .blog-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .blog-link:hover {
+    text-decoration: none;
+  }
+
+  .tag {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-tertiary);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: var(--font-mono);
+  }
 </style>

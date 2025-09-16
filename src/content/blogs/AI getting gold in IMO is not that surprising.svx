@@ -1,0 +1,23 @@
+---
+title: AI getting gold in IMO is not that surprising
+description: AI has completely flattened the human informational landscape.
+date: 2025-09-16
+edited: 2025-09-16
+tags:
+  - programming
+  - ai
+  - maths
+  - llm
+category: coding
+---
+I remember last year reading the news of AI getting gold in the International Maths Olympiad and feeling a strong sense of dread. I was always good at maths growing up, but not IMO gold good. Now an artificial, scalable model can crush my in one of my core proficiencies.
+
+But this got me wondering, how does the IMO actually work? From what I’ve found, the IMO problems aren’t just random puzzles or cutting edge research. They’re carefully designed challenges that echo the flavor of deeper mathematics. A mathematician or problem composer will take an interesting mathematical idea, strip it down to a high-school accessible form, and craft it into a problem that’s tough but solvable, while still keeping the spark of what makes the original idea compelling.
+
+So in a sense, the IMO is less about memorising formulas and more about testing a competitor’s ability to move flexibly within high school math, spotting hidden structures, and mapping creative paths to a solution. 
+
+And therein lies the key insight. AI getting gold in the IMO demonstrates their exceptional ability in navigating within the bounds of known human knowledge. Through careful prompting, they can effectively move within know problem and solution spaces even with significant challenges placed by professional mathematicians.
+
+In some sense, AI is a fast vehicle exploring the known digital, and by extension, informational world. Where as previous transport like Google relied on the searcher's expertise to teleport to the answer, AI is more like an omni-terrain pod which can carefully guide the user throughout the entirely of human knowledge. It can do this with high level instructions and remain on task and relevant. 
+
+LLM technology will completely transform the informational landscape, akin to how the invention of airplanes changed our perception of travel.

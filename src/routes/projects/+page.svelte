@@ -6,7 +6,7 @@
       timeframe: "2025 - Ongoing",
       description:
         "A micro-spec for embedding interactive UI widgets in Markdown for LLMs.",
-      stack: ["svelte", "react", "marked", "spec", "oss"],
+      stack: ["Svelte", "React", "Marked", "Spec", "OSS"],
     },
     {
       title: "Thymelake QR Code Ordering",
@@ -27,85 +27,91 @@
   ];
 </script>
 
-<div class="max-w-6xl mx-auto px-4 py-28">
-  <h1
-    class="text-5xl font-bold text-gray-800 mb-12 text-center animate-fade-in"
-  >
-    Projects
-    <div
-      class="w-24 h-1 bg-gradient-to-r from-blue-400 to-green-400 mx-auto mt-4 rounded-full"
-    ></div>
-  </h1>
+<div class="max-w-6xl mx-auto px-6 py-16">
+  <!-- Header -->
+  <div class="text-center mb-16">
+    <h1 class="font-serif text-4xl md:text-5xl font-bold text-primary mb-4">
+      Projects
+    </h1>
+    <p class="text-lg text-secondary max-w-2xl mx-auto">
+      A collection of things I've built, experiments I've run, and problems I've tried to solve.
+    </p>
+  </div>
 
-  <div class="grid md:grid-cols-2 gap-8">
+  <!-- Projects Grid -->
+  <div class="grid gap-8">
     {#each projects as project}
-      <a href={project.link} target="_blank" rel="noopener noreferrer">
-        <div
-          class="group relative bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-md hover:shadow-lg
-                 transition-all duration-300 hover:-translate-y-1 border border-white/20"
-        >
-          <div
-            class="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-green-50/30 rounded-xl
-                   opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
-          ></div>
-
-          <h2 class="text-2xl font-semibold text-gray-800 mb-2">
-            {project.title}
-            <span
-              class="bg-gradient-to-r from-blue-400 to-green-400 bg-[length:0%_2px] bg-left-bottom
-                      bg-no-repeat transition-[background-size] duration-300 group-hover:bg-[length:100%_2px]"
-            >
-            </span>
-          </h2>
-
-          <div class="flex items-center text-sm text-blue-500 space-x-2 mb-4">
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <span class="text-gray-500">{project.timeframe}</span>
-          </div>
-
-          <p class="text-gray-600 mb-6">{project.description}</p>
-
-          <div class="flex flex-wrap gap-2">
-            {#each project.stack as tech}
-              <span
-                class="px-3 py-1 bg-blue-100/50 text-blue-600 rounded-full text-sm"
-              >
-                {tech}
+      <div class="project-card group">
+        <div class="flex flex-col md:flex-row md:items-start gap-6">
+          <!-- Project Info -->
+          <div class="flex-1">
+            <div class="flex items-start justify-between mb-3">
+              <h2 class="text-2xl font-semibold text-primary group-hover:text-primary-hover transition-colors">
+                {project.title}
+              </h2>
+              <span class="text-sm text-tertiary bg-tertiary px-3 py-1 rounded-full whitespace-nowrap">
+                {project.timeframe}
               </span>
-            {/each}
+            </div>
+
+            <p class="text-secondary mb-6 leading-relaxed">
+              {project.description}
+            </p>
+
+            <!-- Tech Stack -->
+            <div class="flex flex-wrap gap-2 mb-4">
+              {#each project.stack as tech}
+                <span class="tag">
+                  {tech}
+                </span>
+              {/each}
+            </div>
+
+            <!-- Link -->
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center text-primary hover:text-primary-hover text-sm font-medium transition-colors"
+            >
+              View Project
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
           </div>
         </div>
-      </a>
+      </div>
     {/each}
+  </div>
+
+  <!-- More Projects Coming -->
+  <div class="text-center mt-16 pt-16 border-t border-border">
+    <p class="text-tertiary text-sm">More projects in development...</p>
   </div>
 </div>
 
 <style>
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .project-card {
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: var(--transition-base);
   }
 
-  /* Gradient underline animation */
-  .bg-gradient-to-r.from-blue-400.to-green-400 {
-    transition: background-size 0.3s ease;
+  .project-card:hover {
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-md);
+  }
+
+  .tag {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-tertiary);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: var(--font-mono);
   }
 </style>
