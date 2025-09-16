@@ -1,6 +1,30 @@
 <script>
   const projects = [
     {
+      title: "Theory of Mind AI",
+      link: "https://github.com/BlueprintLabIO/theory-of-mind-ai",
+      timeframe: "2025 - Active",
+      description:
+        "TypeScript library for building AI agents with dynamic theory of mind capabilities, featuring real-time understanding of human mental states during conversations.",
+      stack: ["TypeScript", "SvelteKit", "OpenAI GPT-5", "Tailwind CSS"],
+    },
+    {
+      title: "Time AI",
+      link: "https://github.com/BlueprintLabIO/time-ai",
+      timeframe: "2025 - Active",
+      description:
+        "Time-aware utilities for LLM applications. Parse natural language dates, add temporal context to prompts, and handle timezone-aware date operations.",
+      stack: ["TypeScript", "Chrono-node", "LLM Integration"],
+    },
+    {
+      title: "Prompt Injector",
+      link: "https://github.com/BlueprintLabIO/prompt-injector",
+      timeframe: "2025 - Active",
+      description:
+        "Minimal TypeScript library for generating multi-turn prompt injection attack conversations to test AI system security vulnerabilities.",
+      stack: ["TypeScript", "Svelte", "Security Testing", "AI Safety"],
+    },
+    {
       title: "Markdown UI",
       link: "https://markdown-ui.yaoke.pro",
       timeframe: "2025 - Ongoing",
@@ -16,14 +40,6 @@
         "QR code ordering system for Ambi's Chai with full Square integration using SvelteKit and Firebase. Sends SMS notifications when orders are ready.",
       stack: ["SvelteKit", "Firebase", "Square API", "Twilio"],
     },
-    // {
-    //   title: "LunarLink",
-    //   link: "https://lunarlinkai.com",
-    //   timeframe: "2024 - Ongoing",
-    //   description:
-    //     "Web client for comparing AI model responses from OpenAI, Google, and Anthropic. Built with SvelteKit, Go, and PostgreSQL.",
-    //   stack: ["SvelteKit", "Go", "PostgreSQL", "LLM Orchestration"],
-    // },
   ];
 </script>
 
