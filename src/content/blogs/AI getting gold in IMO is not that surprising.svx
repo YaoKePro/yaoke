@@ -20,4 +20,4 @@ And therein lies the key insight. AI getting gold in the IMO demonstrates their 
 
 In some sense, AI is a fast vehicle exploring the known digital, and by extension, informational world. Where as previous transport like Google relied on the searcher's expertise to teleport to the answer, AI is more like an omni-terrain pod which can carefully guide the user throughout the entirely of human knowledge. It can do this with high level instructions and remain on task and relevant. 
 
-LLM technology will completely transform the informational landscape, akin to how the invention of airplanes changed our perception of travel.
+LLM technology will completely transform the informational landscape, akin to how the invention of airplanes changed our perception of travel. As for me, I'll stick to creative problem solving, and let AI stick to known mathematics. Who knows, maybe I'll try to beat it at maths one day.
