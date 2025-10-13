@@ -1,0 +1,15 @@
+This is a handbook designed to help coders transition from the old ways of handwriting code to leveraging AI tools as the primary way to develop.
+
+For the completely non-technical readers, this guide is designed to be easy to understand and equip you with the skills of a proficient *engineer* to build cool stuff reliably and securely with gen ai.
+
+What the heck is "Jocky Coding"? Well I'm coining this term for 2 reasons:
+1. Coding with genai is much like riding a horse, it's much faster than walking but occasionally throws you off its back or jolts in a completely wrong direction. A useful programmer should be an excellent *jockey*, someone who can command, communicate and steer the ai to get to exactly where they want to, without the meandering around in random directions.
+2. The other reason is to embrace the meme from **A Minecraft Movie**. 
+
+But the overall point is that "vibe coding" implies letting go, the horse is making all the decisions and where you end up is where you end up. This is ok for simpler apps but larger apps require complex tradeoffs and decisions along the way which can make the rest of you journey much easier or near impossible. 
+
+Central to the "jockey coding" methodology is the idea of *source of truth*. We want to mark key milestones between where we are and where we want to be. This way we nudge the AI horse to stay in the correct path, with our business logic and tradeoffs in mind, and efficiently takes us to our destination.
+
+In the past 3 months I have spend $500USD and countless hours prompting, editing, guiding and swearing at every AI tool out there and gain many experiences which I'll distill and summarise in this series. Since this is a methodology/guide, I will not be recommending any specific AI tools, since the learnings should be able to generalise to any.
+
+I will be publishing new chapters weekly in my blog for free. If this series has helped you, please consider buying me a coffee. 

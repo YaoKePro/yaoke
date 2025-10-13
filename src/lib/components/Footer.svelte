@@ -7,7 +7,7 @@
           Yao Ke
         </h3>
         <p class="text-sm text-secondary max-w-xs">
-          Developer building solutions to problems that are about to exist.
+          I enjoy solving problems with creativity.
         </p>
       </div>
 

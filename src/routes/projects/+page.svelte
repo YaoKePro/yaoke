@@ -1,6 +1,22 @@
 <script>
   const projects = [
     {
+      title: "Design Analyser",
+      link: "https://design-analyser.blueprintlab.io/",
+      timeframe: "2025 - Active",
+      description:
+        "Web tool that extracts and analyzes design systems from websites, providing implementation-ready design briefs with colors, typography, spacing, and layout systems.",
+      stack: ["SvelteKit", "Design Systems", "Web Scraping", "UI/UX"],
+    },
+    {
+      title: "AI Impersonator",
+      link: "https://ai-impersonator.blueprintlab.io/",
+      timeframe: "2025 - Active",
+      description:
+        "Platform featuring detailed AI role-play prompts for famous programmers like Linus Torvalds, Chris Lattner, and Guido van Rossum, capturing their technical expertise and communication styles.",
+      stack: ["SvelteKit", "AI Prompts", "Character Design", "LLM"],
+    },
+    {
       title: "Theory of Mind AI",
       link: "https://github.com/BlueprintLabIO/theory-of-mind-ai",
       timeframe: "2025 - Active",
@@ -31,6 +47,14 @@
       description:
         "A micro-spec for embedding interactive UI widgets in Markdown for LLMs.",
       stack: ["Svelte", "React", "Marked", "Spec", "OSS"],
+    },
+    {
+      title: "LunarLink",
+      link: "https://lunarlinkai.com",
+      timeframe: "2024 - Ongoing",
+      description:
+        "Web client for comparing AI model responses from OpenAI, Google, and Anthropic. Built with SvelteKit, Go, and PostgreSQL.",
+      stack: ["SvelteKit", "Go", "PostgreSQL", "LLM Orchestration"],
     },
     {
       title: "Thymelake QR Code Ordering",
