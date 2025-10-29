@@ -4,7 +4,7 @@ export async function load({ params }) {
   const posts = await loadBlogPosts();
   const post = posts.find((p) => p.slug === params.slug);
 
-  return post ? { post } : { status: 404 };
+  return post ? { post, allPosts: posts } : { status: 404 };
 }
 
 export const prerender = true;

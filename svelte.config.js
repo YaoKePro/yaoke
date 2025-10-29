@@ -10,6 +10,7 @@ const highlighter = await createHighlighter({
 });
 
 const mdsvexOptions = {
+  extensions: [".svx", ".md"],
   highlight: {
     highlighter: async (code, lang = "text") => {
       const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme }));
@@ -28,7 +29,7 @@ const config = {
   },
 
   preprocess: [mdsvex(mdsvexOptions)],
-  extensions: [".svelte", ".svx"],
+  extensions: [".svelte", ".svx", ".md"],
 };
 
 export default config;

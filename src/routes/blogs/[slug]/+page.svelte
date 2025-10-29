@@ -1,8 +1,11 @@
 <script>
   import { onMount } from "svelte";
+  import SeriesNav from "$lib/components/SeriesNav.svelte";
 
   let { data } = $props();
-  const { component: Post, metadata } = data.post;
+  const Post = $derived(data.post.component);
+  const metadata = $derived(data.post.metadata);
+  const allPosts = $derived(data.allPosts);
 
   let scrollProgress = $state(0);
 
@@ -80,6 +83,15 @@
   <article class="prose-content">
     <Post />
   </article>
+
+  <!-- Series Navigation (if part of a series) -->
+  {#if metadata.series}
+    <SeriesNav
+      series={metadata.series}
+      currentChapter={metadata.chapter}
+      allPosts={allPosts}
+    />
+  {/if}
 
   <!-- Back to Blog Footer -->
   <footer class="mt-16 pt-8 border-t border-border text-center">

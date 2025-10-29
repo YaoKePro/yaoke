@@ -1,9 +1,10 @@
 export async function loadBlogPosts() {
-  const modules = import.meta.glob("/src/content/blogs/*.{svx,md}", {
+  const modules = import.meta.glob("/src/content/blogs/**/*.{svx,md}", {
     eager: true,
   });
 
   return Object.entries(modules)
+    .filter(([path]) => !path.includes("/Templates/")) // Exclude template files
     .map(([path, module]) => {
       const slug = path
         .split("/")

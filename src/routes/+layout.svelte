@@ -18,6 +18,7 @@
         <div class="flex items-center space-x-8">
           <a href="/" class="nav-link">Home</a>
           <a href="/blogs" class="nav-link">Blog</a>
+          <a href="/deep-dives" class="nav-link">Deep Dives</a>
           <a href="/projects" class="nav-link">Projects</a>
         </div>
       </div>

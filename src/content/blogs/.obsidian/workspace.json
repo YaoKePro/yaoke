@@ -95,30 +95,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI getting gold in IMO is not that surprising.svx",
+                "file": "The Jockey Coding Handbook/Chapter 0 - Is this for you.svx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AI getting gold in IMO is not that surprising"
-            }
-          },
-          {
-            "id": "3976a19088b309fc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "The Jockey Coding Handbook/Chapter 1, Data, data, data.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Chapter 1, Data, data, data"
+              "title": "Chapter 0 - Is this for you"
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -267,21 +253,23 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "3976a19088b309fc",
+  "active": "3ee1b02201e6c93a",
   "lastOpenFiles": [
-    "The Jockey Coding Handbook/Chapter 0, Is this for you?.md",
+    "AI getting gold in IMO is not that surprising.svx",
+    "The Jockey Coding Handbook/Chapter 2 - Choose your tools.svx",
+    "The Jockey Coding Handbook/Chapter 1 - Data data data.svx",
+    "The Jockey Coding Handbook/Chapter 0 - Is this for you.svx",
+    "The Jockey Coding Handbook/Chapter 2, Choose your tools.md",
+    "The Jockey Coding Handbook/Chapter 2, Choose your tools.svx",
+    "The Jockey Coding Handbook/Chapter 1, Data, data, data.svx",
+    "The Jockey Coding Handbook/Chapter 0, Is this for you?.svx",
     "The Jockey Coding Handbook/Chapter 1, Data, data, data.md",
+    "The Jockey Coding Handbook/Chapter 0, Is this for you?.md",
     "The Jockey Coding Handbook",
     "Coding is dead; Designing is alive;.svx",
     "AI getting gold in IMO is not that surprising.md",
-    "AI getting gold in IMO is not that surprising.svx",
     "LLMs Evaluated.svx",
     "Concrete LLM Use Cases.svx",
-    "Post.svx",
-    "Read More.svx",
-    "Rust Impressions.svx",
-    "New Project- Blueprint.svx",
-    "Specialness.svx",
     "New Project- Blueprint.md",
     "Hiring.md",
     "Templates/frontmatter.md",

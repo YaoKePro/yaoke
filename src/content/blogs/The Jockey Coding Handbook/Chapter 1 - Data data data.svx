@@ -1,3 +1,18 @@
+---
+title: "The Jockey Coding Handbook - Chapter 1: Data, data, data"
+description: "Understanding the foundation of all apps - database design and schema as the critical source of truth for AI-assisted development."
+date: 2025-10-29
+category: coding
+tags:
+  - programming
+  - ai
+  - handbook
+  - database
+  - architecture
+series: "The Jockey Coding Handbook"
+chapter: 1
+---
+
 Most apps are CRUD apps. This is a fancy way of saying, most apps just create instances of something, read it, update it and then delete it. For instance you might create users, read users, update users and delete users.
 
 Hence, the core to every app, rather unsurprisingly, is data. We want to store how many shoes we have in stock, or messages send in our social media app. This guide does not dive into defining business logic. I assume you already have a billion dollar idea ready to be implemented. 
@@ -9,3 +24,9 @@ For instance, a car dealership has 5 locations, and each location has a number o
 The database is the foundation of all apps. This is where all the information is stored. If its design is shaky or poorly thought out, you'll waste huge amounts of time running in circles and refactoring old code (speaking from experience). Therefore it is crucial you have a document with the actual database schema, whether SQL or no-SQL, and a list of common operations clearly defined for the AI to look at. 
 
 Later on when the AI is building business logic, as long as it reads this document, it'll be highly unlikely for it to hallucinate or get something totally wrong. 
+
+It is also important to note that at this point in time, we want to really understand what we are building! Nowadays since building is a lot quicker, understanding the system, talking to clients and carefully designing the solution requires a lot more effort.
+
+Start with your database schema, define basic operations. You'll be well set up for the rest of your coding journey. Does each dealership have fields like name? How do we know which cars are in which dealership? How do we move cars between dealerships?
+
+This is also reminiscent of Domain Driven Development.
