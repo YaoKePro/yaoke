@@ -1,5 +1,5 @@
 ---
-title: "The Jockey Coding Handbook - Chapter 2: Choose your tools"
+title: "Jockey Coding - Chapter 2: Choose your tools"
 description: "Maximizing AI potential through strategic tool selection - balancing imperative instructions with declarative frameworks."
 date: 2025-10-29
 category: coding
@@ -9,10 +9,9 @@ tags:
   - handbook
   - tools
   - architecture
-series: "The Jockey Coding Handbook"
+series: "Jockey Coding"
 chapter: 2
 ---
-
 With AI at the helm and actually coding with tools like Postgres, Redis, Rust and Svelte, it is important that we choose the correct tools that can maximise the AI's potential. An important piece of terminology here is imperative vs declarative coding. Rather than thinking of them as binary concepts, we can think of them as a gradient. 
 
 Machine code is imperative to the CPU, it tells the CPU exactly what it needs to do, and assembly is declarative, as it's more human readable and provides abstractions on top of the machine code. We are describing what we want to be achieved. But compared to C code, assembly is a lot more imperative and C provides a nice layer of abstraction on top. Similarly Python provides even more niceties and abstractions on top of C.
@@ -27,6 +26,8 @@ Code: behaves predictably
 
 Notice how in this sandwich, the most shaky layer is the AI. It could do a fantastic job compiling English into code, or it could totally mess it up. The more declarative the code or library, the easier it is for the ai to code and the less code the ai has to write. The more imperative the human is, the fewer assumptions the ai has to make to fill in the gaps. 
 
-We are trying to squish the AI layer to do as little work as possible for maximum reliability, predictability and performance. 
+We are trying to squish the AI layer to do as little work as possible for maximum reliability, predictability and performance.
+
+TLDR: Give AI tools that are as easy to use as possible, with as little manual configuration/logic as possible. Give instructions to the AI in as much detail as possible. Let the horse walk on relatively flat land and guide it constantly along the way.
 
 

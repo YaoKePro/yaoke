@@ -1,5 +1,5 @@
 ---
-title: "The Jockey Coding Handbook - Chapter 0: Is this for you?"
+title: "Jockey Coding - Chapter 0: Is this for you?"
 description: "Introduction to jockey coding methodology - learning to command and steer AI tools effectively rather than letting them wander aimlessly."
 date: 2025-10-29
 category: coding
@@ -8,10 +8,9 @@ tags:
   - ai
   - handbook
   - methodology
-series: "The Jockey Coding Handbook"
+series: "Jockey Coding"
 chapter: 0
 ---
-
 This is a handbook designed to help coders transition from the old ways of handwriting code to leveraging AI tools as the primary way to develop.
 
 For the completely non-technical readers, this guide is designed to be easy to understand and equip you with the skills of a proficient *engineer* to build cool stuff reliably and securely with gen ai.
