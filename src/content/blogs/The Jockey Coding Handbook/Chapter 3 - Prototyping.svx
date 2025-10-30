@@ -1,0 +1,21 @@
+---
+title: "Jockey Coding - Chapter 4: Prototyping"
+description: Getting to working code fast - using prototypes as living documentation and source of truth for AI-assisted development.
+date: 2025-10-29
+category: coding
+tags:
+  - programming
+  - ai
+  - handbook
+  - prototyping
+  - architecture
+series: Jockey Coding
+chapter: 3
+---
+The best type of documentation, is working code. This is more true than ever with AI being able to instantly parse and "understand" huge chunks of code. Therefore working code becomes the source of truth for later enhancement.
+
+We want to get to a working prototype as quickly as possible so the code itself can guide future sophistications. For instance, if you are building a car dealership software, can you build a working app without authentication, fast load time, or anything fancy that allows a user to quickly browse through 5 dealerships?
+
+This is where Platform as a Service tools like Firebase, Supabase, Appwrite, Pocketbase etc... can come in really handy. You can simply set up most backend functionality extremely quickly to get *some* semblance of what we are trying to build. then in the future we can always consult the AI to swap out certain parts or make improvements, but since the core is built and working, it helps define future versions of your code. 
+
+WIP...

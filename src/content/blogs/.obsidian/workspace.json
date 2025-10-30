@@ -95,12 +95,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "The Jockey Coding Handbook/Chapter 2 - Choose your stack.svx",
+                "file": "The Jockey Coding Handbook/Chapter 3 - Prototyping.svx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chapter 2 - Choose your stack"
+              "title": "Chapter 3 - Prototyping"
             }
           }
         ],
@@ -255,10 +255,12 @@
   },
   "active": "3ee1b02201e6c93a",
   "lastOpenFiles": [
+    "The Jockey Coding Handbook/Chapter 2 - Choose your stack.svx",
+    "The Jockey Coding Handbook/Chapter 4 - Prototyping.md",
+    "The Jockey Coding Handbook/Chapter 3 - Prototyping.svx",
     "AI getting gold in IMO is not that surprising.svx",
     "The Jockey Coding Handbook/Chapter 0 - Is this for you.svx",
     "The Jockey Coding Handbook/Chapter 1 - Data data data.svx",
-    "The Jockey Coding Handbook/Chapter 2 - Choose your stack.svx",
     "The Jockey Coding Handbook/Chapter 2, Choose your tools.md",
     "The Jockey Coding Handbook/Chapter 2, Choose your tools.svx",
     "The Jockey Coding Handbook/Chapter 1, Data, data, data.svx",
@@ -268,8 +270,6 @@
     "The Jockey Coding Handbook",
     "Coding is dead; Designing is alive;.svx",
     "AI getting gold in IMO is not that surprising.md",
-    "LLMs Evaluated.svx",
-    "Concrete LLM Use Cases.svx",
     "New Project- Blueprint.md",
     "Hiring.md",
     "Templates/frontmatter.md",

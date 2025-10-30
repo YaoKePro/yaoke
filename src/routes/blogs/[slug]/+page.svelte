@@ -30,13 +30,13 @@
 ></div>
 
 <div class="max-w-4xl mx-auto px-6 py-16">
-  <!-- Back to Blog Link -->
+  <!-- Back Link -->
   <div class="mb-8">
-    <a href="/blogs" class="back-link">
+    <a href={metadata.series ? "/deep-dives" : "/blogs"} class="back-link">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
       </svg>
-      Back to Blog
+      {metadata.series ? "Back to Deep Dives" : "Back to Blog"}
     </a>
   </div>
 
@@ -93,10 +93,10 @@
     />
   {/if}
 
-  <!-- Back to Blog Footer -->
+  <!-- Footer -->
   <footer class="mt-16 pt-8 border-t border-border text-center">
-    <a href="/blogs" class="back-link">
-      ← Back to all posts
+    <a href={metadata.series ? "/deep-dives" : "/blogs"} class="back-link">
+      ← {metadata.series ? "Back to Deep Dives" : "Back to all posts"}
     </a>
   </footer>
 </div>

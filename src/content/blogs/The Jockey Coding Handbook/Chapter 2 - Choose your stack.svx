@@ -20,9 +20,9 @@ My experience coding with AI is that we want to speak English in as imperative a
 
 So if we think about development like a sandwich and assume the human is a true expert. We have something like this:
 
-Human: Source of truth, generally correct
-AI coding tool: transforming human English into code
-Code: behaves predictably 
+- Human: Source of truth, assumed to be correct
+- AI coding tool: transforming human English into code
+- Code: behaves predictably 
 
 Notice how in this sandwich, the most shaky layer is the AI. It could do a fantastic job compiling English into code, or it could totally mess it up. The more declarative the code or library, the easier it is for the ai to code and the less code the ai has to write. The more imperative the human is, the fewer assumptions the ai has to make to fill in the gaps. 
 
