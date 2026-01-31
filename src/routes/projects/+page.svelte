@@ -132,8 +132,9 @@
     </FloatingElement>
     <ScrollReveal delay={0.3}>
       <p class="text-lg text-secondary max-w-2xl mx-auto">
-        A collection of things I've built, experiments I've run, and problems
-        I've tried to solve.
+        Things I've built.
+        <br>Experiments I've run, 
+        <br>Problems I've tried to solve.
       </p>
     </ScrollReveal>
   </div>
