@@ -30,7 +30,7 @@
         <h4 class="text-sm font-semibold text-primary mb-4">Connect</h4>
         <div class="flex space-x-2">
           <a 
-             href="https://github.com/BlueprintLabIO/"
+             href="https://github.com/yail259/"
              target="_blank"
              rel="noopener noreferrer"
              class="social-link"

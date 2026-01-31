@@ -142,7 +142,7 @@
   <div class="grid gap-8">
     {#each projects as project, i}
       <ScrollReveal delay={0.08 * i} direction="up">
-        <div class="project-card group">
+        <a href={project.link} target="_blank" rel="noopener noreferrer" class="project-card group block">
           <div class="flex flex-col md:flex-row md:items-start gap-6">
             <!-- Project Info -->
             <div class="flex-1">
@@ -191,7 +191,7 @@
               </span>
             </div>
           </div>
-        </div>
+        </a>
       </ScrollReveal>
     {/each}
   </div>
