@@ -5,20 +5,12 @@
 
   const projects = [
     {
-      title: "Pterodactyl",
-      link: "https://github.com/yail259/pterodactyl",
-      timeframe: "2025",
+      title: "Hoist",
+      link: "https://github.com/yail259/Hoist",
+      timeframe: "2026",
       description:
-        "A CLI-based alternative (think shadcn) to Docusaurus for Svelte. A documentation framework for SvelteKit that gets out of your way.",
-      stack: ["SvelteKit", "CLI", "Documentation", "OSS"],
-    },
-    {
-      title: "Playertwo",
-      link: "https://github.com/yail259/martini",
-      timeframe: "2025",
-      description:
-        "A simple, declarative library for easily building multiplayer games with peer connection support. Build games like Agar.io, Fireboy & Watergirl, or Among Us without writing a single line of sync or networking code.",
-      stack: ["Multiplayer", "Peer-to-Peer", "Game Dev", "OSS"],
+        "A DSL inspired by the Recursive Language Model paper. Guarantees termination, limits execution scope, and allows expressive exploration of large string prompts — the right level of abstraction for AI agent tool use.",
+      stack: ["Programming Languages", "DSL", "AI Agents"],
     },
     {
       title: "Overnight",
@@ -29,68 +21,12 @@
       stack: ["Claude Code", "Automation", "AI Agents"],
     },
     {
-      title: "rlint",
-      link: "https://github.com/yail259/renderlint",
-      timeframe: "2026",
+      title: "Playertwo",
+      link: "https://github.com/yail259/martini",
+      timeframe: "2025",
       description:
-        "A visual CSS bug checker for websites. Features a CLI mode for inspecting individual pages and a proxy mode that flags overflow, overlapping, and other CSS issues as you navigate your site.",
-      stack: ["CSS", "Visual Testing", "CLI", "Proxy"],
-    },
-    {
-      title: "Hoist",
-      link: "https://github.com/yail259/Hoist",
-      timeframe: "2026",
-      description:
-        "A DSL inspired by the Recursive Language Model paper. Guarantees termination, limits execution scope, and allows expressive exploration of large string prompts — the right level of abstraction for AI agent tool use.",
-      stack: ["Programming Languages", "DSL", "AI Agents"],
-    },
-    {
-      title: "Tipos",
-      link: "#",
-      timeframe: "2026",
-      description:
-        "An online, 3D, MMO, Pokemon-esque game built with Rust and Bevy. Leverages the Rust compiler and Clippy for automatic verification instead of manual QA testing.",
-      stack: ["Rust", "Bevy", "3D", "Multiplayer", "Game Dev"],
-    },
-    {
-      title: "Design Analyser",
-      link: "https://design-analyser.blueprintlab.io/",
-      timeframe: "2025 - Active",
-      description:
-        "Web tool that extracts and analyzes design systems from websites, providing implementation-ready design briefs with colors, typography, spacing, and layout systems.",
-      stack: ["SvelteKit", "Design Systems", "Web Scraping", "UI/UX"],
-    },
-    {
-      title: "AI Impersonator",
-      link: "https://ai-impersonator.blueprintlab.io/",
-      timeframe: "2025 - Active",
-      description:
-        "Platform featuring detailed AI role-play prompts for famous programmers like Linus Torvalds, Chris Lattner, and Guido van Rossum, capturing their technical expertise and communication styles.",
-      stack: ["SvelteKit", "AI Prompts", "Character Design", "LLM"],
-    },
-    {
-      title: "Theory of Mind AI",
-      link: "https://github.com/BlueprintLabIO/theory-of-mind-ai",
-      timeframe: "2025 - Active",
-      description:
-        "TypeScript library for building AI agents with dynamic theory of mind capabilities, featuring real-time understanding of human mental states during conversations.",
-      stack: ["TypeScript", "SvelteKit", "OpenAI GPT-5", "Tailwind CSS"],
-    },
-    {
-      title: "Time AI",
-      link: "https://github.com/BlueprintLabIO/time-ai",
-      timeframe: "2025 - Active",
-      description:
-        "Time-aware utilities for LLM applications. Parse natural language dates, add temporal context to prompts, and handle timezone-aware date operations.",
-      stack: ["TypeScript", "Chrono-node", "LLM Integration"],
-    },
-    {
-      title: "Prompt Injector",
-      link: "https://github.com/BlueprintLabIO/prompt-injector",
-      timeframe: "2025 - Active",
-      description:
-        "Minimal TypeScript library for generating multi-turn prompt injection attack conversations to test AI system security vulnerabilities.",
-      stack: ["TypeScript", "Svelte", "Security Testing", "AI Safety"],
+        "A simple, declarative library for easily building multiplayer games with peer connection support. Build games like Agar.io, Fireboy & Watergirl, or Among Us without writing a single line of sync or networking code.",
+      stack: ["Multiplayer", "Peer-to-Peer", "Game Dev", "OSS"],
     },
     {
       title: "Markdown UI",
@@ -101,12 +37,76 @@
       stack: ["Svelte", "React", "Marked", "Spec", "OSS"],
     },
     {
+      title: "Pterodactyl",
+      link: "https://github.com/yail259/pterodactyl",
+      timeframe: "2025",
+      description:
+        "A CLI-based alternative (think shadcn) to Docusaurus for Svelte. A documentation framework for SvelteKit that gets out of your way.",
+      stack: ["SvelteKit", "CLI", "Documentation", "OSS"],
+    },
+    {
+      title: "Prompt Injector",
+      link: "https://github.com/BlueprintLabIO/prompt-injector",
+      timeframe: "2025 - Active",
+      description:
+        "Minimal TypeScript library for generating multi-turn prompt injection attack conversations to test AI system security vulnerabilities.",
+      stack: ["TypeScript", "Svelte", "Security Testing", "AI Safety"],
+    },
+    {
+      title: "rlint",
+      link: "https://github.com/yail259/renderlint",
+      timeframe: "2026",
+      description:
+        "A visual CSS bug checker for websites. Features a CLI mode for inspecting individual pages and a proxy mode that flags overflow, overlapping, and other CSS issues as you navigate your site.",
+      stack: ["CSS", "Visual Testing", "CLI", "Proxy"],
+    },
+    {
+      title: "Tipos",
+      link: "#",
+      timeframe: "2026",
+      description:
+        "An online, 3D, MMO, Pokemon-esque game built with Rust and Bevy. Leverages the Rust compiler and Clippy for automatic verification instead of manual QA testing.",
+      stack: ["Rust", "Bevy", "3D", "Multiplayer", "Game Dev"],
+    },
+    {
+      title: "Theory of Mind AI",
+      link: "https://github.com/BlueprintLabIO/theory-of-mind-ai",
+      timeframe: "2025 - Active",
+      description:
+        "TypeScript library for building AI agents with dynamic theory of mind capabilities, featuring real-time understanding of human mental states during conversations.",
+      stack: ["TypeScript", "SvelteKit", "OpenAI GPT-5", "Tailwind CSS"],
+    },
+    {
+      title: "AI Impersonator",
+      link: "https://ai-impersonator.blueprintlab.io/",
+      timeframe: "2025 - Active",
+      description:
+        "Platform featuring detailed AI role-play prompts for famous programmers like Linus Torvalds, Chris Lattner, and Guido van Rossum, capturing their technical expertise and communication styles.",
+      stack: ["SvelteKit", "AI Prompts", "Character Design", "LLM"],
+    },
+    {
+      title: "Design Analyser",
+      link: "https://design-analyser.blueprintlab.io/",
+      timeframe: "2025 - Active",
+      description:
+        "Web tool that extracts and analyzes design systems from websites, providing implementation-ready design briefs with colors, typography, spacing, and layout systems.",
+      stack: ["SvelteKit", "Design Systems", "Web Scraping", "UI/UX"],
+    },
+    {
       title: "LunarLink",
       link: "https://lunarlinkai.com",
       timeframe: "2024 - Ongoing",
       description:
         "Web client for comparing AI model responses from OpenAI, Google, and Anthropic. Built with SvelteKit, Go, and PostgreSQL.",
       stack: ["SvelteKit", "Go", "PostgreSQL", "LLM Orchestration"],
+    },
+    {
+      title: "Time AI",
+      link: "https://github.com/BlueprintLabIO/time-ai",
+      timeframe: "2025 - Active",
+      description:
+        "Time-aware utilities for LLM applications. Parse natural language dates, add temporal context to prompts, and handle timezone-aware date operations.",
+      stack: ["TypeScript", "Chrono-node", "LLM Integration"],
     },
     {
       title: "Thymelake QR Code Ordering",
