@@ -16,6 +16,7 @@ export async function load() {
         component: module.default,
       };
     })
+    .filter((post) => post.metadata?.date)
     .sort((a, b) => new Date(b.metadata.date) - new Date(a.metadata.date))
     .slice(0, 2); // Get only the 2 most recent posts
 

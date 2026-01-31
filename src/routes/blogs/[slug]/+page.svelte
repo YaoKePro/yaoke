@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import SeriesNav from "$lib/components/SeriesNav.svelte";
+  import ScrollReveal from "$lib/components/ScrollReveal.svelte";
 
   let { data } = $props();
   const Post = $derived(data.post.component);
@@ -8,6 +9,7 @@
   const allPosts = $derived(data.allPosts);
 
   let scrollProgress = $state(0);
+  let contentRef = $state();
 
   function updateProgress() {
     const scrollTop = window.scrollY;
@@ -19,6 +21,40 @@
   onMount(() => {
     window.addEventListener("scroll", updateProgress);
     updateProgress();
+    
+    // Add scroll reveal to article content elements
+    if (contentRef) {
+      const headings = contentRef.querySelectorAll('h2, h3, h4');
+      const paragraphs = contentRef.querySelectorAll('p');
+      const lists = contentRef.querySelectorAll('ul, ol');
+      const blocks = contentRef.querySelectorAll('pre, blockquote');
+      
+      const allElements = [...headings, ...paragraphs, ...lists, ...blocks];
+      
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      );
+      
+      allElements.forEach((el, i) => {
+        el.classList.add('article-reveal');
+        el.style.transitionDelay = `${Math.min(i * 0.03, 0.3)}s`;
+        observer.observe(el);
+      });
+      
+      return () => {
+        window.removeEventListener("scroll", updateProgress);
+        observer.disconnect();
+      };
+    }
+    
     return () => window.removeEventListener("scroll", updateProgress);
   });
 </script>
@@ -80,7 +116,7 @@
   </header>
 
   <!-- Article Content -->
-  <article class="prose-content">
+  <article class="prose-content" bind:this={contentRef}>
     <Post />
   </article>
 

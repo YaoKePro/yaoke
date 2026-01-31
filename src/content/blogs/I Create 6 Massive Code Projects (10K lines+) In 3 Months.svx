@@ -1,0 +1,35 @@
+---
+title: I Create 6 Massive Code Projects (10K lines+) In 3 Months
+description: Been playing around with Claude Code a lot lately
+date: 2026-01-31
+edited: 2026-01-31
+tags:
+  - claude-code
+  - opus
+  - programming
+  - coding
+  - ai
+category: coding
+---
+Haven't posted in a while. Was MIA dealing with various life things and also just taking a small break from side projects to get some fresh ideas on what to hack on next. But I'm back now!
+
+I've got quite a few exciting ideas lined up to release over the next week. Partly because I was inspired by random thoughts and problems I've encountered in my life and partly because I bought Claude Max 20X on Monday and don't know what else to do with it. I think it's a great demo of Opus 4.5's quite amazing capabilities. It has definitely cross some kind of invisible line. 
+
+It used to be that about 3-4 times of out 10, I needed to interrupt 4.5 Sonnet with some critical intervention with projects which often requires some back and forth. Now with 4.5 Opus, it is more like 1 time in 20, and really long back and forth is maybe 1 time in 40. Times are definitely changing, and with all the innovations in new architectures (Hierarchical Reasoning Models), attention mechanisms (Deepseek Linear Attention), reinforcement learning (parallelised specialists training main LLM), LLM harness (Recursive Language Models) etc. etc., it is hard to imagine what software, or even society will look like when Claude 5 or Deepseek V4 releases!
+
+Whilst the below ideas are mine and they are largely supervised by me, the code are all 100% CC written and it's both an interesting demonstration of AI coding capabilities and also an experiment in seeing how the community will come to perceive these new class of weekend projects. ClaudeBot -> Moltbot -> Openclaw, seems to be doing quite well (I've yet to try it since it's too much of a security risk even for my adventurous personality... maybe on my old linux laptop...).
+
+I will dive deeper into individual projects in subsequent posts but here's the high level overview
+
+Some unreleased projects built with 4.5 Sonnet from a while back that I'm releasing now:
+- Pterodactyl: a CLI based alternative (think shadcn) to Docusaurus for Sveltem. Finally a good (I hope) documentation framework for SvelteKit! (https://github.com/yail259/pterodactyl)
+- Playertwo: a simple, declarative library for easily building simple multiplayer games, with peer connection support. Think coding Agar.io, remote Fireboy & Watergirl, Among Us, that type of social/party multiplayer games without having to write a single line of sync or networking code. (https://github.com/yail259/martini)
+
+Some new projects with various scopes created with Opus 4.5 (all are still preview and lack testing/maturity, but feel free to browse around):
+- Overnight: yet another Claude Code harness but for my very specific and opinionated use case of running CC overnight fully autonomously and securely. This one is largely for my own curiosity of whether it's possible to build a CC harness that is self-repairing and fully autonomous. Since I (the human) am always the bottleneck when it comes to progress when Jockey Coding, can we reduce my involvement to once every 10 minutes to once every 10 hours? (https://github.com/yail259/overnight)
+- rlint: a visual CSS bug checker for websites. Claude Code is great at backend, and about half the pages it creates will have some overflow issue or overlapping issue or just otherwise atrocious CSS bug. This tool has two modes, a CLI mode where you can inspect individual pages and a proxy mode, which will flag issues as you navigate the site via the rlint proxy. One issue I encountered that I hadn't anticipated is, how do you verify the auth protected pages?!?! Read to find out -> (https://github.com/yail259/renderlint)
+- Hoist: a DSL inspired by the Recursive Language Model (https://arxiv.org/html/2512.24601v1) paper. One thing immediately stood out to me in the paper, which is that it allows for arbitrary Python code execution! Sounds like an invitation for unpredictable runtime bugs, infinite loops and security vulnerabilities. This does lead into something else I've been meaning to write about, which is how we'll have programming language design catered more for AI agents in the future. Hoist is an initial experiment that guarantees termination, limits execution scope and allows expressive exploration of a large string prompt. That last point is why tools are actually terrible for LLM agents. They are forced to clunkily chain dozens of tools in sequential calls due to how they are limited in expression. This is ok in more discrete tool usage but with a domain like string manipulation, a programming language is the right level of abstraction (it's also a great excuse for me to work on my great love for programming languages). (https://github.com/yail259/Hoist)
+- Tipos: an online, 3D, MMO, pokemon-esque game built with Rust and Bevy. I've been meaning to learn Bevy for the longest time and just never got around to it and never had a good excuse since I can't do art or graphics. But now I don't have to! I picked this stack since the Rust compiler and Clippy checkers can do most of the verification automatically and I don't have to spend hours QA testing this thing. (release TBD).
+
+As you can tell, the projects are hugely varied in scope and domains. They are clearly beyond my abilities as a human both in sheer lines of code and in expertise. But with my transferable skills in taste, design and architecting, they can be created in an extremely short span of time! Maintaining is a whole another beast (headache) and perhaps a good follow up blog. It really seems like imagination is more of the bottleneck in software now compared to raw skill or resources, although of course I was already a solid coder before all of this AI stuff so I'm biased here. Anyhow, I don't have any conclusions on this, take from this what you will. All I can say is, interesting times! Feels more like a fever dream.
+

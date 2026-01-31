@@ -1,5 +1,57 @@
 <script>
+  import ScrollReveal from "$lib/components/ScrollReveal.svelte";
+  import TextReveal from "$lib/components/TextReveal.svelte";
+  import FloatingElement from "$lib/components/FloatingElement.svelte";
+
   const projects = [
+    {
+      title: "Pterodactyl",
+      link: "https://github.com/yail259/pterodactyl",
+      timeframe: "2025",
+      description:
+        "A CLI-based alternative (think shadcn) to Docusaurus for Svelte. A documentation framework for SvelteKit that gets out of your way.",
+      stack: ["SvelteKit", "CLI", "Documentation", "OSS"],
+    },
+    {
+      title: "Playertwo",
+      link: "https://github.com/yail259/martini",
+      timeframe: "2025",
+      description:
+        "A simple, declarative library for easily building multiplayer games with peer connection support. Build games like Agar.io, Fireboy & Watergirl, or Among Us without writing a single line of sync or networking code.",
+      stack: ["Multiplayer", "Peer-to-Peer", "Game Dev", "OSS"],
+    },
+    {
+      title: "Overnight",
+      link: "https://github.com/yail259/overnight",
+      timeframe: "2026",
+      description:
+        "A Claude Code harness for running CC overnight fully autonomously and securely. A self-repairing, fully autonomous harness that reduces human involvement from once every 10 minutes to once every 10 hours.",
+      stack: ["Claude Code", "Automation", "AI Agents"],
+    },
+    {
+      title: "rlint",
+      link: "https://github.com/yail259/renderlint",
+      timeframe: "2026",
+      description:
+        "A visual CSS bug checker for websites. Features a CLI mode for inspecting individual pages and a proxy mode that flags overflow, overlapping, and other CSS issues as you navigate your site.",
+      stack: ["CSS", "Visual Testing", "CLI", "Proxy"],
+    },
+    {
+      title: "Hoist",
+      link: "https://github.com/yail259/Hoist",
+      timeframe: "2026",
+      description:
+        "A DSL inspired by the Recursive Language Model paper. Guarantees termination, limits execution scope, and allows expressive exploration of large string prompts — the right level of abstraction for AI agent tool use.",
+      stack: ["Programming Languages", "DSL", "AI Agents"],
+    },
+    {
+      title: "Tipos",
+      link: "#",
+      timeframe: "2026",
+      description:
+        "An online, 3D, MMO, Pokemon-esque game built with Rust and Bevy. Leverages the Rust compiler and Clippy for automatic verification instead of manual QA testing.",
+      stack: ["Rust", "Bevy", "3D", "Multiplayer", "Game Dev"],
+    },
     {
       title: "Design Analyser",
       link: "https://design-analyser.blueprintlab.io/",
@@ -70,81 +122,89 @@
 <div class="max-w-6xl mx-auto px-6 py-16">
   <!-- Header -->
   <div class="text-center mb-16">
-    <h1 class="font-serif text-4xl md:text-5xl font-bold text-primary mb-4">
-      Projects
-    </h1>
-    <p class="text-lg text-secondary max-w-2xl mx-auto">
-      A collection of things I've built, experiments I've run, and problems I've tried to solve.
-    </p>
+    <FloatingElement amplitude={2} duration={8}>
+      <TextReveal
+        text="Projects"
+        as="h1"
+        class="font-serif text-4xl md:text-5xl font-bold text-primary mb-4"
+        staggerDelay={0.04}
+      />
+    </FloatingElement>
+    <ScrollReveal delay={0.3}>
+      <p class="text-lg text-secondary max-w-2xl mx-auto">
+        A collection of things I've built, experiments I've run, and problems
+        I've tried to solve.
+      </p>
+    </ScrollReveal>
   </div>
 
   <!-- Projects Grid -->
   <div class="grid gap-8">
-    {#each projects as project}
-      <div class="project-card group">
-        <div class="flex flex-col md:flex-row md:items-start gap-6">
-          <!-- Project Info -->
-          <div class="flex-1">
-            <div class="flex items-start justify-between mb-3">
-              <h2 class="text-2xl font-semibold text-primary group-hover:text-primary-hover transition-colors">
-                {project.title}
-              </h2>
-              <span class="text-sm text-tertiary bg-tertiary px-3 py-1 rounded-full whitespace-nowrap">
-                {project.timeframe}
+    {#each projects as project, i}
+      <ScrollReveal delay={0.08 * i} direction="up">
+        <div class="project-card group">
+          <div class="flex flex-col md:flex-row md:items-start gap-6">
+            <!-- Project Info -->
+            <div class="flex-1">
+              <div class="flex items-start justify-between mb-3">
+                <h2
+                  class="text-2xl font-semibold text-primary group-hover:text-primary-hover transition-colors"
+                >
+                  {project.title}
+                </h2>
+                <span
+                  class="text-sm text-tertiary bg-tertiary px-3 py-1 rounded-full whitespace-nowrap"
+                >
+                  {project.timeframe}
+                </span>
+              </div>
+
+              <p class="text-secondary mb-6 leading-relaxed">
+                {project.description}
+              </p>
+
+              <!-- Tech Stack -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                {#each project.stack as tech}
+                  <span class="tag">{tech}</span>
+                {/each}
+              </div>
+
+              <!-- Link -->
+              <span
+                class="inline-flex items-center text-primary text-sm font-medium kinetic-underline"
+              >
+                View Project
+                <svg
+                  class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
               </span>
             </div>
-
-            <p class="text-secondary mb-6 leading-relaxed">
-              {project.description}
-            </p>
-
-            <!-- Tech Stack -->
-            <div class="flex flex-wrap gap-2 mb-4">
-              {#each project.stack as tech}
-                <span class="tag">
-                  {tech}
-                </span>
-              {/each}
-            </div>
-
-            <!-- Link -->
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center text-primary hover:text-primary-hover text-sm font-medium transition-colors"
-            >
-              View Project
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-            </a>
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     {/each}
   </div>
 
   <!-- More Projects Coming -->
-  <div class="text-center mt-16 pt-16 border-t border-border">
-    <p class="text-tertiary text-sm">More projects in development...</p>
-  </div>
+  <ScrollReveal delay={0.5}>
+    <div class="text-center mt-16 pt-16 border-t border-border">
+      <p class="text-tertiary text-sm">More projects in development...</p>
+    </div>
+  </ScrollReveal>
 </div>
 
 <style>
-  .project-card {
-    background-color: var(--color-bg-primary);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    transition: var(--transition-base);
-  }
-
-  .project-card:hover {
-    border-color: var(--color-border-hover);
-    box-shadow: var(--shadow-md);
-  }
-
   .tag {
     background-color: var(--color-bg-tertiary);
     color: var(--color-text-tertiary);
@@ -153,5 +213,18 @@
     font-size: 0.75rem;
     font-weight: 500;
     font-family: var(--font-mono);
+    transition: all 0.2s ease;
+  }
+
+  .tag:hover {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+  }
+
+  .kinetic-underline {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
   }
 </style>

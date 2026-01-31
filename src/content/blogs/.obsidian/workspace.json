@@ -95,16 +95,68 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "The Jockey Coding Handbook/Chapter 3 - Prototyping.svx",
+                "file": "The Jockey Coding Handbook/Chapter 5 - Too much talking, let's do something.svx",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chapter 3 - Prototyping"
+              "title": "Chapter 5 - Too much talking, let's do something"
+            }
+          },
+          {
+            "id": "9411eb2990ea5dee",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.10.3"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.10.3"
+            }
+          },
+          {
+            "id": "19e87c7977fab48f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Why LLMs are misunderstood.svx",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Why LLMs are misunderstood"
+            }
+          },
+          {
+            "id": "429ad34c3d243bf4",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.10.6"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.10.6"
+            }
+          },
+          {
+            "id": "0cb59819ad5dd1e4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "I Create 6 Massive Code Projects (10K lines+) In 3 Months.svx",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "I Create 6 Massive Code Projects (10K lines+) In 3 Months"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 10
       }
     ],
     "direction": "vertical"
@@ -253,22 +305,25 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "3ee1b02201e6c93a",
+  "active": "0cb59819ad5dd1e4",
   "lastOpenFiles": [
-    "The Jockey Coding Handbook/Chapter 2 - Choose your stack.svx",
-    "The Jockey Coding Handbook/Chapter 4 - Prototyping.md",
-    "The Jockey Coding Handbook/Chapter 3 - Prototyping.svx",
-    "AI getting gold in IMO is not that surprising.svx",
+    "I Create 6 Massive Code Projects (10K lines+) In 3 Months.svx",
+    "Rust Impressions.svx",
+    "New Project- Blueprint.svx",
+    "Hiring.svx",
     "The Jockey Coding Handbook/Chapter 0 - Is this for you.svx",
+    "Temp.md",
+    "The Jockey Coding Handbook/Chapter 4 - Ok, let's lock our doors.svx",
+    "The Jockey Coding Handbook/Chapter 5 - Too much talking, let's do something.svx",
+    "The Jockey Coding Handbook/Untitled.md",
+    "The Jockey Coding Handbook/Chapter 2 - Choose your stack.svx",
     "The Jockey Coding Handbook/Chapter 1 - Data data data.svx",
+    "The Jockey Coding Handbook/Chapter 3 - Prototyping.svx",
+    "The Jockey Coding Handbook/Chapter 4 - Prototyping.md",
+    "AI getting gold in IMO is not that surprising.svx",
     "The Jockey Coding Handbook/Chapter 2, Choose your tools.md",
-    "The Jockey Coding Handbook/Chapter 2, Choose your tools.svx",
-    "The Jockey Coding Handbook/Chapter 1, Data, data, data.svx",
-    "The Jockey Coding Handbook/Chapter 0, Is this for you?.svx",
     "The Jockey Coding Handbook/Chapter 1, Data, data, data.md",
     "The Jockey Coding Handbook/Chapter 0, Is this for you?.md",
-    "The Jockey Coding Handbook",
-    "Coding is dead; Designing is alive;.svx",
     "AI getting gold in IMO is not that surprising.md",
     "New Project- Blueprint.md",
     "Hiring.md",

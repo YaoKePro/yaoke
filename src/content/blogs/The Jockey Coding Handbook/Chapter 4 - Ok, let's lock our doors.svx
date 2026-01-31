@@ -1,0 +1,17 @@
+---
+title: Jockey Coding - Ok, let's lock our doors
+description: We actually need to not get hacked...
+date: 2025-10-30
+category: coding
+tags:
+  - programming
+  - ai
+  - handbook
+  - database
+  - architecture
+series: Jockey Coding
+chapter: 4
+---
+Now that your app, or at least its most critical logic is largely working, let's actually make sure that it actually makes you money instead of leaking your credit card into the rest of the world. 
+
+WIP...

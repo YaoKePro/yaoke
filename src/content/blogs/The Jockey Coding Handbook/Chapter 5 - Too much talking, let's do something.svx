@@ -1,0 +1,17 @@
+---
+title: Jockey Coding - Too much talking, let's do something
+description: All sounds great, I still can't jockey-code
+date: 2025-10-30
+category: coding
+tags:
+  - programming
+  - ai
+  - handbook
+  - database
+  - architecture
+series: Jockey Coding
+chapter: 5
+---
+You should at this point be able to create a highly complex app rapidly, in say, less than a day. So let's actually do it!
+
+WIP...

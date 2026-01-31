@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from "svelte";
+  
   let { series, currentChapter, allPosts } = $props();
 
   // Filter posts in the same series and sort by chapter number
@@ -16,9 +18,34 @@
   const nextChapter = $derived(
     currentIndex < seriesPosts.length - 1 ? seriesPosts[currentIndex + 1] : null
   );
+  
+  let navElement = $state();
+  
+  onMount(() => {
+    if (navElement) {
+      const items = navElement.querySelectorAll('.chapter-item');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add('revealed');
+              }, i * 50);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      
+      items.forEach(item => observer.observe(item));
+      
+      return () => observer.disconnect();
+    }
+  });
 </script>
 
-<div class="series-nav">
+<div class="series-nav" bind:this={navElement}>
   <!-- Series Info -->
   <div class="series-header">
     <div class="series-badge">Series</div>
@@ -26,6 +53,14 @@
     <p class="series-progress">
       Chapter {currentChapter + 1} of {seriesPosts.length}
     </p>
+    
+    <!-- Progress Bar -->
+    <div class="progress-bar-container">
+      <div 
+        class="progress-bar" 
+        style="width: {((currentChapter + 1) / seriesPosts.length) * 100}%"
+      ></div>
+    </div>
   </div>
 
   <!-- All Chapters List -->
@@ -37,6 +72,11 @@
       >
         <span class="chapter-number">Chapter {post.metadata.chapter}</span>
         <span class="chapter-title">{post.metadata.title.split(':')[1] || post.metadata.title}</span>
+        {#if post.metadata.chapter === currentChapter}
+          <svg class="current-indicator" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/>
+          </svg>
+        {/if}
       </a>
     {/each}
   </div>
@@ -78,6 +118,18 @@
     border-radius: var(--radius-lg);
     padding: 2rem;
     margin: 3rem 0;
+    animation: slide-up-fade 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes slide-up-fade {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .series-header {
@@ -89,7 +141,7 @@
 
   .series-badge {
     display: inline-block;
-    background-color: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
     color: white;
     font-size: 0.75rem;
     font-weight: 600;
@@ -98,6 +150,16 @@
     padding: 0.25rem 0.75rem;
     border-radius: var(--radius-sm);
     margin-bottom: 0.75rem;
+    animation: badge-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes badge-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0);
+    }
   }
 
   .series-title {
@@ -110,6 +172,33 @@
   .series-progress {
     font-size: 0.875rem;
     color: var(--color-text-tertiary);
+    margin-bottom: 1rem;
+  }
+
+  .progress-bar-container {
+    width: 100%;
+    height: 4px;
+    background-color: var(--color-bg-tertiary);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-hover));
+    border-radius: 2px;
+    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: progress-shimmer 2s infinite;
+    background-size: 200% 100%;
+  }
+
+  @keyframes progress-shimmer {
+    0% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
   }
 
   .chapters-list {
@@ -128,17 +217,26 @@
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     text-decoration: none;
-    transition: var(--transition-fast);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  .chapter-item.revealed {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   .chapter-item:hover {
     border-color: var(--color-border-hover);
     background-color: var(--color-bg-secondary);
+    transform: translateX(4px);
   }
 
   .chapter-item.active {
     border-color: var(--color-primary);
-    background-color: var(--color-bg-primary);
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.05), transparent);
+    box-shadow: 0 0 0 1px var(--color-primary);
   }
 
   .chapter-number {
@@ -164,6 +262,22 @@
     font-weight: 500;
   }
 
+  .current-indicator {
+    width: 1rem;
+    height: 1rem;
+    color: var(--color-primary);
+    animation: check-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @keyframes check-pop {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
   .nav-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -181,17 +295,31 @@
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     text-decoration: none;
-    transition: var(--transition-fast);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .nav-btn:hover {
     border-color: var(--color-primary);
     background-color: var(--color-bg-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
   }
 
   .nav-btn.next {
     justify-content: flex-end;
     text-align: right;
+  }
+
+  .nav-btn.prev:hover svg {
+    transform: translateX(-4px);
+  }
+
+  .nav-btn.next:hover svg {
+    transform: translateX(4px);
+  }
+
+  .nav-btn svg {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .nav-label {

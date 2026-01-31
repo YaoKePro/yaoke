@@ -12,11 +12,11 @@ tags:
 series: "Jockey Coding"
 chapter: 1
 ---
-Most apps are CRUD apps. This is a fancy way of saying, most apps just create instances of something, read it, update it and then delete it. For instance you might create users, read users, update users and delete users.
+Most apps are CRUD apps. This is a fancy way of saying, most apps just create instances of something, read it, update it and then delete it. For instance you might create users, read users, update users data and delete users.
 
 Hence, the core to every app, rather unsurprisingly, is data. We want to store how many shoes we have in stock, or messages sent in our social media app. 
 
-The first *keystone* document we should create for any app, with the help of ai, before we start coding is, *what are the use cases and scenarios in your app, and how does this inform our data design*? It doesn't matter how strong or studious you or your horse is, if you have no damn clue where you are trying to go, and how you are going to end up there. We want to really understand what we are building! Nowadays since building is a lot quicker, understanding the system, talking to clients and carefully designing the solution requires significant attention, an area unfortunately oft neglected :(.
+The first *keystone* document we should create for any app, with the help of ai, before we start coding is, *what are the use cases and scenarios in your app, and how does this inform our data design*? It doesn't matter how strong or studious you or your horse is, if you have no damn clue where you are trying to go, and how you are going to end up there! We want to really understand what we are building! Nowadays since building is a lot quicker, understanding the system, talking to clients and carefully designing the solution requires significant attention. This is an area that is unfortunately oft neglected :(.
 
 For instance, a car dealership has 5 locations, and each location has a number of cars. A user might want to see all cars at a particular location etc. etc. This will inform our *database.md*, a critical file for the rest of our development. If you are unfamiliar with how SQL or noSQL databases work, start by learning the basics of a SQL database. Then understanding noSQL databases or other types of databases should not be too tricky. Here's a Fireship video to get an overview in 10 minutes: https://www.youtube.com/watch?v=W2Z7fbCLSTw.
 
@@ -27,3 +27,169 @@ Later on when the AI is building business logic, as long as it reads this docume
 Start with your database schema, define basic operations. You'll be well set up for the rest of your coding journey. Does each dealership have fields like name? How do we know which cars are in which dealership? How do we move cars between dealerships?
 
 This is also reminiscent of Domain Driven Development. 
+
+Here's an example database.md!
+
+```
+# database.md — Car Dealership App
+
+## Overview
+This schema models multiple dealership locations, their available cars, customers, and sales transactions. It supports CRUD operations for each entity and defines relationships that maintain business logic integrity.
+
+---
+
+## Entities and Relationships
+
+### 1. Dealership
+Each dealership represents a physical location that holds cars and employs sales staff.
+
+**Fields**
+- `id` (PK, UUID)  
+- `name` (VARCHAR, unique)  
+- `address` (VARCHAR)  
+- `phone_number` (VARCHAR)  
+- `manager_id` (FK → Employee.id)  
+- `created_at` (TIMESTAMP)  
+- `updated_at` (TIMESTAMP)
+
+**Relationships**
+- One dealership has many `cars`.  
+- One dealership has many `employees`.  
+- One dealership has many `sales`.
+
+---
+
+### 2. Car
+Each car record belongs to exactly one dealership.
+
+**Fields**
+- `id` (PK, UUID)  
+- `dealership_id` (FK → Dealership.id)  
+- `vin` (VARCHAR, unique)  
+- `make` (VARCHAR)  
+- `model` (VARCHAR)  
+- `year` (INTEGER)  
+- `price` (DECIMAL)  
+- `status` (ENUM: 'available', 'sold', 'maintenance', 'transferred')  
+- `mileage` (INTEGER)  
+- `color` (VARCHAR)  
+- `created_at` (TIMESTAMP)  
+- `updated_at` (TIMESTAMP)
+
+**Relationships**
+- Belongs to one `dealership`.  
+- May be part of one `sale`.  
+
+---
+
+### 3. Customer
+Customers can buy multiple cars.
+
+**Fields**
+- `id` (PK, UUID)  
+- `first_name` (VARCHAR)  
+- `last_name` (VARCHAR)  
+- `email` (VARCHAR, unique)  
+- `phone_number` (VARCHAR)  
+- `address` (VARCHAR)  
+- `created_at` (TIMESTAMP)  
+- `updated_at` (TIMESTAMP)
+
+**Relationships**
+- One customer can have many `sales`.
+
+---
+
+### 4. Employee
+Dealership staff including managers and sales representatives.
+
+**Fields**
+- `id` (PK, UUID)  
+- `dealership_id` (FK → Dealership.id)  
+- `first_name` (VARCHAR)  
+- `last_name` (VARCHAR)  
+- `email` (VARCHAR, unique)  
+- `role` (ENUM: 'manager', 'sales', 'mechanic', 'admin')  
+- `hire_date` (DATE)  
+- `salary` (DECIMAL)  
+- `created_at` (TIMESTAMP)  
+- `updated_at` (TIMESTAMP)
+
+**Relationships**
+- Belongs to one `dealership`.  
+- May participate in many `sales`.
+
+---
+
+### 5. Sale
+Represents a completed transaction between a dealership, customer, and salesperson.
+
+**Fields**
+- `id` (PK, UUID)  
+- `car_id` (FK → Car.id)  
+- `dealership_id` (FK → Dealership.id)  
+- `customer_id` (FK → Customer.id)  
+- `employee_id` (FK → Employee.id)  
+- `sale_date` (DATE)  
+- `sale_price` (DECIMAL)  
+- `payment_method` (ENUM: 'cash', 'finance', 'lease')  
+- `created_at` (TIMESTAMP)  
+- `updated_at` (TIMESTAMP)
+
+---
+
+### 6. Transfer
+Tracks vehicle movement between dealerships.
+
+**Fields**
+- `id` (PK, UUID)  
+- `car_id` (FK → Car.id)  
+- `from_dealership_id` (FK → Dealership.id)  
+- `to_dealership_id` (FK → Dealership.id)  
+- `transfer_date` (DATE)  
+- `approved_by` (FK → Employee.id)  
+- `status` (ENUM: 'pending', 'in_transit', 'completed')  
+- `created_at` (TIMESTAMP)
+
+---
+
+## Common Operations
+
+### Dealership
+- `CREATE`: Add new dealership.  
+- `READ`: Get all dealerships or by ID.  
+- `UPDATE`: Change address or manager.  
+- `DELETE`: Remove closed dealership (cascade if necessary).
+
+### Car
+- `CREATE`: Add car to dealership inventory.  
+- `READ`: Query by dealership, make, or status.  
+- `UPDATE`: Modify car details or transfer dealership.  
+- `DELETE`: Remove car when scrapped or sold.
+
+### Customer
+- `CREATE`: Add new customer.  
+- `READ`: Search by name or email.  
+- `UPDATE`: Update contact info.  
+- `DELETE`: Remove inactive record.
+
+### Sale
+- `CREATE`: Record transaction.  
+- `READ`: View sales by dealership, customer, or date range.  
+- `UPDATE`: Adjust sale details (with audit log).  
+- `DELETE`: Admin-only rollback.
+
+### Transfer
+- `CREATE`: Initiate transfer between dealerships.  
+- `READ`: Track by car or status.  
+- `UPDATE`: Update status as it progresses.  
+- `DELETE`: Cancel pending transfer.
+
+---
+
+## Notes
+- Enforce foreign key constraints for relational integrity.  
+- Index fields like `vin`, `email`, and `dealership_id`.  
+- If using NoSQL, collections mirror entities with embedded references for performance.  
+- All timestamps use UTC for consistency.
+```
