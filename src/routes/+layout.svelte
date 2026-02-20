@@ -85,7 +85,10 @@
     font-weight: 500;
     font-size: 0.875rem;
     transition: color 0.2s ease;
-    padding: 0.25rem 0;
+    padding: 0.5rem 0.25rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
     position: relative;
   }
 
@@ -103,6 +106,7 @@
     border-radius: 2px;
     opacity: 0;
     margin-left: 0 !important;
+    pointer-events: none;
   }
 
   .nav-container:hover .nav-morph-line {

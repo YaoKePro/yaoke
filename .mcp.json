@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "rlint": {
+      "command": "bun",
+      "args": ["run", "/Users/yao/projects/rlint/renderlint/src/mcp-server.ts"]
+    }
+  }
+}
