@@ -22,7 +22,7 @@ Whilst the below ideas are mine and they are largely supervised by me, the code 
 I will dive deeper into individual projects in subsequent posts but here's the high level overview
 
 Some unreleased projects built with 4.5 Sonnet from a while back that I'm releasing now:
-- Pterodactyl: a CLI based alternative (think shadcn) to Docusaurus for Sveltem. Finally a good (I hope) documentation framework for SvelteKit! (https://github.com/yail259/pterodactyl)
+- Ptero: Docusaurus for Svelte — a shadcn-style documentation engine built on SvelteKit. Finally a good (I hope) documentation framework for SvelteKit! (https://github.com/yail259/ptero)
 - Playertwo: a simple, declarative library for easily building simple multiplayer games, with peer connection support. Think coding Agar.io, remote Fireboy & Watergirl, Among Us, that type of social/party multiplayer games without having to write a single line of sync or networking code. (https://github.com/yail259/martini)
 
 Some new projects with various scopes created with Opus 4.5 (all are still preview and lack testing/maturity, but feel free to browse around):

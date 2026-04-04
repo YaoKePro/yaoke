@@ -1,0 +1,323 @@
+---
+title: How I Benchmarked Claude, DeepSeek, and 5 Other LLMs to Find the Best Teacher for Kids
+description: I built a custom evaluation harness with kid simulators and 9 pedagogical judges to find which LLM makes the best coding tutor. The most expensive model was the worst teacher.
+date: 2026-04-04
+edited: 2026-04-04
+tags:
+  - llm
+  - evaluation
+  - education
+  - benchmark
+  - tutoring
+category: coding
+---
+
+_I got curious about a question that standard benchmarks can't answer: which LLM makes the best coding tutor for a 12-year-old? Not which model knows the most, or writes the best code — but which one can actually teach a kid without being a terrible teacher about it. The kind that asks questions instead of giving answers, lets kids struggle productively, and never says "actually..."_
+
+_This is the story of how I built a custom evaluation harness from scratch to answer that question._
+
+---
+
+## The Problem
+
+Most LLM benchmarks measure what models know. MMLU tests factual recall. HumanEval tests code generation. Chatbot Arena tests vibes. None of them test whether a model can _teach a 12-year-old to code_ without being a terrible teacher about it.
+
+The behaviours that make a good coding tutor are weirdly specific:
+
+- **Ask, don't tell.** Before explaining anything, ask the kid what they think. Chi's tutoring research (2001) found that tutor explanations had _no significant correlation_ with learning gains — but student self-explanations did.
+- **Give hints, not answers.** Follow Graesser's hierarchy: pump → hint → prompt → splice → tell. Never skip steps.
+- **Let kids struggle productively.** Kapur's productive failure research shows that struggle _before_ instruction leads to deeper understanding. The AI needs to tolerate the kid being stuck.
+- **Keep messages short.** Kids stop reading after 2-3 sentences.
+- **Never say "actually" or "technically."** These words make kids feel dumb.
+- **Discover, don't lecture.** Concepts should emerge from the work ("oh interesting, this broke because..."), not be delivered as lessons ("let me teach you about variables").
+
+No standard benchmark measures any of this. So I built one.
+
+---
+
+## The Evaluation Harness
+
+### Architecture Overview
+
+The harness has three layers:
+
+1. **Kid Simulators** — LLM-powered personas that simulate different types of children
+2. **Tutor Under Test** — the LLM being evaluated, using a system prompt I designed
+3. **Judge Panel** — 9 independent LLM judges, each scoring a specific pedagogical dimension
+
+Here's how a single evaluation run works:
+
+```
+Kid Simulator (Grok 3 Mini)
+    ↓ opens conversation
+Tutor Under Test (e.g., Sonnet 4.6)
+    ↑↓ back-and-forth for 16 turns
+    ↓ produces transcript
+9 Judges (Haiku 4.5) in parallel
+    ↓ each scores their dimension
+Aggregator
+    ↓ weighted average
+Final Score (0-100%)
+```
+
+Everything runs through OpenRouter for model routing. The code is a ~600-line TypeScript pipeline: `simulate.ts` generates conversations, `evaluate.ts` runs the judges, `aggregator.ts` computes scores.
+
+### Kid Simulators: 6 Personas
+
+The key insight: an enthusiastic kid makes every tutor look good. The real quality differences emerge with _difficult_ kids.
+
+I designed 6 personas based on real patterns I've seen teaching programming at the University of Sydney:
+
+| Persona                  | Behaviour                                                 | Why it matters                                                     |
+| ------------------------ | --------------------------------------------------------- | ------------------------------------------------------------------ |
+| **Engaged Beginner**     | Enthusiastic but clueless                                 | Baseline — every model should handle this                          |
+| **Reluctant Starter**    | "idk", "whatever", one-word answers                       | Tests whether the tutor can win a kid over                         |
+| **Confident Rusher**     | "yeah I know", skips ahead, bluffs                        | Tests whether the tutor catches bluffs without being condescending |
+| **Shy & Uncertain**      | "maybe...?", "sorry", afraid of mistakes                  | Tests emotional sensitivity and safety-building                    |
+| **Off-Topic Explorer**   | Every 3 turns: "can we make a game instead?"              | Tests redirection without crushing enthusiasm                      |
+| **Misconception Holder** | Confident wrong mental models ("variables are permanent") | Tests whether the tutor lets reality teach, not lectures           |
+
+Each persona has strict realism constraints baked into the system prompt:
+
+- Keep all messages under 3 sentences
+- Never correctly guess programming keywords
+- Give vague or partly wrong answers at least half the time
+- Use casual language with spelling mistakes
+- Sometimes just say "ok" or "yeah" — not every response needs substance
+
+This matters enormously. My first simulator was too smart — it correctly guessed programming keywords and wrote paragraphs. Scores dropped 10-15% when I made the simulator realistic, because the tutor models had to work harder.
+
+### Judges: 9 Dimensions, 49 Criteria
+
+The rubric is grounded in actual pedagogical research — Lepper's INSPIRE model, Chi's tutoring research, Graesser's tutoring moves, VanLehn's impasse-driven learning, Vygotsky/Bruner scaffolding theory, and Schoenfeld's metacognitive coaching.
+
+Each judge evaluates a single dimension with 4-8 binary criteria per turn:
+
+| Judge            | Weight | What it measures                                        | Example criterion                                                                      |
+| ---------------- | ------ | ------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Elicitation      | 20%    | Does the tutor make the kid think, or just explain?     | G1: Asks before telling — "What do you think happened?" before "Here's what happened." |
+| Agency           | 15%    | Does the kid drive, or does the tutor take over?        | A7: Kid constructs the solution — the kid does the thinking, not the tutor.            |
+| Metacognition    | 15%    | Does the tutor prompt planning, prediction, reflection? | M2: Prompts prediction — "What do you think will happen?" before running code.         |
+| Discovery        | 15%    | Are concepts discovered through problems, not lectures? | D1: No unprompted lectures — never explains a concept the kid hasn't encountered yet.  |
+| Scaffolding      | 15%    | Is help calibrated and fading over time?                | S2: Contingent support shift — increases help after failure, decreases after success.  |
+| Frustration      | 10%    | Does the tutor handle struggle well?                    | F4: Validates struggle — "Yeah this part is tricky" (never "don't worry").             |
+| Interaction      | 5%     | Short messages, simple language, warm tone?             | I1: Messages ≤ 3 sentences.                                                            |
+| Error Handling   | 3%     | Are mistakes used as teaching moments?                  | E1: Syntax errors fixed silently, logic errors explored.                               |
+| Concept Boundary | 2%     | Does the tutor stay within the allowed concept set?     | C1: Only introduces concepts in the "available" set.                                   |
+
+Elicitation gets the highest weight (20%) because Chi's research is unambiguous: what the _kid_ says matters more than what the tutor says. Agency (15%) is second because the entire product thesis is "the kid is the builder."
+
+The scoring is per-turn, binary (0 or 1), criterion-level. A turn where the tutor asks "What do you think will happen?" before running code gets M2=1. A turn where the tutor just dumps an explanation gets G1=0. Category scores are the average of applicable criteria across all turns. The overall score is a weighted average.
+
+### Why LLM Judges?
+
+I considered human annotation. But:
+
+- A single conversation is 16 turns. Scoring 49 criteria per turn across 7 models × 4 personas = ~1,600 human judgements per run. That's days of work.
+- I needed to iterate on prompts rapidly — run, read scores, tweak, re-run. Human annotation can't keep up with that cadence.
+- Binary criteria with clear rubric definitions are well within LLM judge capability. Haiku 4.5 is cheap and consistent for this kind of structured evaluation.
+
+I use Haiku 4.5 as the judge model. It's fast, cheap ($0.80/$4 per million tokens), and performs well on structured evaluation tasks. Each judge runs independently — one for agency, one for elicitation, etc. — and the aggregator combines their outputs.
+
+---
+
+## The Shootout
+
+### Round 1: Elimination (7 models, 1 persona, 1 prompt)
+
+I started with a broad field and a single "soul" prompt (v1-soul) — the initial system prompt defining the AI's identity as a coding partner, not a tutor.
+
+**Models tested:** Claude Sonnet 4.6, Claude Opus 4.6, MiniMax M2.7, DeepSeek V3.2, Kimi K2.5, GLM-5, MiMo V2 Pro
+
+**Results with the engaged-beginner persona:**
+
+| Model         | Overall | Agency | Elicitation | Metacognition | Discovery | Scaffolding |
+| ------------- | ------- | ------ | ----------- | ------------- | --------- | ----------- |
+| Sonnet 4.6    | 78%     | 87%    | 90%         | 58%           | 85%       | 80%         |
+| MiniMax M2.7  | 76%     | 84%    | 65%         | 71%           | 73%       | 88%         |
+| GLM-5         | 67%     | 72%    | 49%         | 60%           | 63%       | 70%         |
+| DeepSeek V3.2 | 65%     | 70%    | 55%         | 55%           | 62%       | 68%         |
+| Kimi K2.5     | 61%     | 68%    | 50%         | 48%           | 58%       | 63%         |
+
+DeepSeek V3.2, Kimi K2.5, and GLM-5 were eliminated. Their core failure mode: **they couldn't resist giving the full answer.** When a kid asked "how do we check if the answer is right?", these models would dump the complete if/else code block instead of asking "What would you need to compare?"
+
+GLM-5 also had a tendency to write Python instead of JavaScript, which... is a problem when you're teaching web development.
+
+Kimi K2.5's failure was more subtle: it gave _too-short_ responses that ended without giving the kid anything to do. "Exactly! Next?" — no question, no action, no prompt to think. The kid is left hanging.
+
+### Round 2: Contenders (3 models, 4 personas, optimised prompts)
+
+The remaining three — Sonnet 4.6, MiMo V2 Pro, MiniMax M2.7 — went through multi-persona testing with per-model prompt tuning.
+
+This is where it got interesting. A prompt that works for Sonnet can actively _hurt_ a cheaper model.
+
+**Key finding: prompts don't scale down.**
+
+My v1.1 prompt ("elicitation") added a "golden rule" section and a strict help ladder (ask → pump → hint → bigger hint → do it together). On Sonnet, it pushed elicitation from 90% to 93%. On MiniMax, the same prompt _dropped_ scores by 8% because the model couldn't handle the conditional logic — it got confused about when to apply which rule.
+
+The fix was to write different prompts for different model tiers:
+
+- **Sonnet** (`v1.2-adaptive.txt`, 173 lines): Full adaptive persona instructions with nuanced conditional logic. "If kid gives 'idk' for 3+ turns, skip to step 3-4 faster. Pumping a kid who won't talk just frustrates them."
+- **MiMo** (`v1.1-mimo.txt`, 101 lines): Natural format, 6 BAD/GOOD example pairs, arrow notation. Simpler rules, more examples.
+- **MiniMax** (`v1.3-minimax.txt`, 114 lines): XML tags, few-shot examples, strict 2-sentence limit. Maximum structure, minimum ambiguity.
+
+**Final results (best prompt per model):**
+
+|                     | Sonnet 4.6 | MiMo V2 Pro | MiniMax M2.7 |
+| ------------------- | ---------- | ----------- | ------------ |
+| Misconception kid   | 91%        | 87%         | 74%          |
+| Confident rusher    | 84%        | 76%         | 68%          |
+| Reluctant starter   | 77%        | 71%         | 62%          |
+| Shy uncertain       | 83%        | 53%         | 76%          |
+| **Average**         | **84%**    | **72%**     | **70%**      |
+| Cost (in/out per M) | $3/$15     | $1/$3       | $0.30/$1.20  |
+
+### The Opus Surprise
+
+I also tested Claude Opus 4.6 ($5/$25 per million tokens) — the most expensive model in the lineup. It scored 62-80%. Worse than Sonnet at 3x the price.
+
+Why? Opus is _too helpful_. It gives more complete, more detailed responses — which is great for coding tasks but _terrible_ for teaching. When a kid says "it doesn't work," Opus explains the entire problem, identifies the root cause, and provides the fix. Sonnet is more likely to say "What's it doing wrong?" — which is the correct tutoring behaviour.
+
+The most expensive model is not the best teacher. This was genuinely surprising and saved me a lot of money.
+
+---
+
+## What I Learned About Prompt Engineering for Teaching
+
+### What works
+
+**1. Few-shot BAD/GOOD examples are the single most effective technique.**
+
+Models pattern-match against examples far more reliably than they follow abstract rules. This was the biggest lever across all models.
+
+```
+BAD (rescues too fast):
+Kid: "it doesnt work"
+Tutor: "I see the problem — you need to change line 3 to use === instead of =."
+
+GOOD (lets kid diagnose):
+Kid: "it doesnt work"
+Tutor: "What's it doing that's wrong?"
+```
+
+After adding 6 such pairs to MiMo's prompt, its elicitation score jumped 12%.
+
+**2. Short, numbered rules beat long prose paragraphs.**
+
+MiniMax especially can't follow nuanced conditional instructions. When I rewrote "if the kid is disengaged, you should consider showing something first rather than asking questions" as:
+
+```
+<stuck-kid>
+If the kid says "idk" or gives one-word answers 3 times:
+- STOP asking open questions
+- Show them something small: "Check this out" → show result
+- Then ask: "What do you notice?" or "Want to change anything?"
+</stuck-kid>
+```
+
+MiniMax's reluctant-starter score went from 52% to 62%.
+
+**3. "What do you think will happen?" before running code is the single highest-value tutoring move.**
+
+Easy to prompt. Huge pedagogical impact. Every prompt now has this as an explicit rule.
+
+**4. Behavioral rules beat personality descriptions.**
+
+"NEVER say 'don't worry'" is more effective than "you are warm and encouraging." The model doesn't need to know _who it is_ — it needs to know _what to do_.
+
+### What doesn't work
+
+**1. Complex prompts don't scale down.**
+
+A prompt written for Sonnet will degrade on cheaper models. This is the most important practical lesson. Each model tier needs its own prompt complexity level. You can't write one prompt and expect it to work everywhere.
+
+**2. XML tags help some models, hurt others.**
+
+XML-structured prompts (`<rules>`, `<examples>`, `<teaching>`) improved MiniMax's compliance significantly but made MiMo's responses more robotic. Markdown headers work better for models that have seen more natural-language training data.
+
+**3. Long conditional blocks confuse cheaper models.**
+
+When I added adaptive persona instructions ("if the kid is disengaged, do X; if rushing, do Y; if shy, do Z") to MiniMax's prompt, its confident-rusher score _dropped 24%_. The model tried to apply all persona strategies simultaneously and ended up applying none of them well. The fix was to keep the prompt simpler and let the model adapt naturally.
+
+**4. Personality descriptions have almost no effect.**
+
+Adding "you are warm and encouraging" to a prompt changed scores by less than 1%. Adding "NEVER say 'don't worry', say 'yeah this is tricky' instead" changed scores by 5-8%. Models respond to behavioral constraints, not character descriptions.
+
+---
+
+## The Decision: MiniMax M2.7 for Launch
+
+Despite Sonnet scoring 14 points higher on average, I chose MiniMax M2.7 ($0.30/$1.20 per million tokens) as the launch model. It's 12x cheaper than Sonnet.
+
+**Why:**
+
+1. **Cost compounds.** An afterschool product running 30-minute sessions for thousands of kids burns through tokens fast. At Sonnet pricing, each session costs ~$0.15. At MiniMax pricing, ~$0.01. Over 10,000 sessions, that's $1,500 vs $100.
+2. **70% is good enough for launch.** The eval scores measure _adherence to ideal tutoring behaviour_. A 70% model is still a decent tutor — it asks questions most of the time, hints instead of answering most of the time, and keeps messages short most of the time.
+3. **Prompts iterate faster than models.** MiniMax's weaknesses (weak on reluctant starters, weak on confident rushers) are addressable through prompt iteration. I've already closed the gap by 8-10% through the v1.3 prompt.
+4. **Model routing is the future.** Once the product has usage data, I can route by detected kid difficulty:
+
+| Tier              | Model        | When to use                               |
+| ----------------- | ------------ | ----------------------------------------- |
+| Tier 1 (default)  | MiniMax M2.7 | Engaged kids, easy sessions               |
+| Tier 2 (upgrade)  | MiMo V2 Pro  | Rushers, misconceptions, disengaged kids  |
+| Tier 3 (escalate) | Sonnet 4.6   | Shy/fragile kids, emotional shutdown risk |
+
+Detection signals: 3+ one-word answers → Tier 2. Self-blame or silence → Tier 3.
+
+---
+
+## Methodology Lessons (What I'd Do Differently)
+
+**1. Run each config 3x and average.**
+
+I didn't do this — each (model, persona, prompt) combination was run once. LLM outputs have variance. A model that scored 74% might score 68% or 80% on a different run. The relative rankings are probably stable, but the exact numbers have error bars I can't quantify.
+
+**2. Kid simulator realism matters enormously.**
+
+Early simulators were too articulate. Real kids don't say "I believe the computer stores the value in a variable for later retrieval." They say "its like a box right?" When I added realism constraints (short answers, wrong guesses, no programming keywords), scores dropped 10-15% across the board because tutors had to work harder. This is a feature, not a bug — the eval got more accurate.
+
+**3. Easy personas inflate scores.**
+
+An engaged beginner makes every model look good. The hard personas (reluctant starter, confident rusher) are where real quality differences emerge. If I'd only tested with the engaged beginner, the gap between Sonnet and MiniMax would look like 78% vs 76% — barely different. Across all personas, it's 84% vs 70%.
+
+**4. Judge-per-category is the right granularity.**
+
+I tried one monolithic judge first. It missed things — a single judge can't simultaneously track agency, elicitation, metacognition, discovery, scaffolding, frustration, interaction, error handling, and concept boundary in one pass. Per-criterion judges are more accurate but overkill. One judge per category (9 judges) hits the sweet spot.
+
+**5. The hardest thing to evaluate is what the tutor _doesn't_ do.**
+
+A good tutor doesn't lecture. A good tutor doesn't give answers. A good tutor doesn't take over. Measuring the _absence_ of bad behaviour is harder than measuring the presence of good behaviour. The binary per-criterion scoring helps here — D1 ("no unprompted lectures") is scored 0 if the tutor _ever_ explains a concept the kid hasn't encountered.
+
+---
+
+## What's Next
+
+1. **Stability testing** — run each config 3x, average to reduce variance
+2. **Real kid testing** — simulators can only take us so far. The next step is running the eval against transcripts from real sessions with real children
+3. **System message re-injection** — re-inject key rules every N turns to prevent drift in long conversations
+4. **Output validation layer** — check tutor response before showing to kid, re-prompt if it violates rules
+5. **Tiered model routing** — detect kid difficulty from chat patterns and route to the appropriate model tier
+
+---
+
+## The Code
+
+The full evaluation harness is [open source on GitHub](https://github.com/yail259/benchmark) — ~600 lines of TypeScript with the complete rubric, 6 kid personas, 9 judge modules, and example prompts.
+
+The rubric is the IP. It encodes 50+ years of tutoring research into a machine-readable scoring system. Each criterion is grounded in a specific finding: Chi on self-explanation, Lepper on indirectness, VanLehn on impasse-driven learning, Vygotsky on scaffolding, Schoenfeld on metacognition.
+
+---
+
+## Takeaways
+
+If you're evaluating LLMs for a domain-specific task — especially one where standard benchmarks don't apply — build your own eval. The process of designing the eval teaches you as much as the results do.
+
+The three most important design decisions I made:
+
+1. **Simulate the user, not just the task.** Standard evals give the model a question and check the answer. Teaching is interactive — the "user" pushes back, gets confused, gives up, tries things. Simulating that interaction is essential.
+
+2. **Judge the process, not the output.** In tutoring, the _way_ the model responds matters more than whether the kid eventually builds the thing. A model that builds a perfect app for the kid scores 0% on my eval. A model that guides the kid to build a messy app themselves scores 90%.
+
+3. **Test with hard cases, not average cases.** Every model handles an enthusiastic kid fine. The differences only show up when things go wrong — when the kid is disengaged, confused, or confidently wrong. That's where model selection actually matters.
+
+The best LLM for your use case probably isn't the one that scores highest on general benchmarks. It's the one that handles your hardest cases well enough, cheaply enough, to ship.

@@ -1,35 +1,36 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 /* Typography - Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&display=swap");
 
 /* CSS Custom Properties for Design System */
 :root {
   /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'IBM Plex Mono', 'Menlo', 'Monaco', monospace;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "IBM Plex Mono", "Menlo", "Monaco", monospace;
+  --font-serif: "Playfair Display", Georgia, serif;
 
   /* Colors - Light theme */
-  --color-primary: #3B82F6;
-  --color-primary-hover: #2563EB;
-  --color-bg-primary: #FFFFFF;
-  --color-bg-secondary: #F8FAFC;
-  --color-bg-tertiary: #F1F5F9;
-  --color-text-primary: #0F172A;
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-bg-tertiary: #f1f5f9;
+  --color-text-primary: #0f172a;
   --color-text-secondary: #475569;
-  --color-text-tertiary: #64748B;
-  --color-border: #E2E8F0;
-  --color-border-hover: #CBD5E1;
+  --color-text-tertiary: #64748b;
+  --color-border: #e2e8f0;
+  --color-border-hover: #cbd5e1;
 
   /* Accent colors */
-  --color-accent-amber: #F59E0B;
-  --color-accent-green: #10B981;
-  --color-accent-cyan: #06B6D4;
+  --color-accent-amber: #f59e0b;
+  --color-accent-green: #10b981;
+  --color-accent-cyan: #06b6d4;
 
   /* Spacing scale (rem) */
   --space-px: 1px;
@@ -57,7 +58,8 @@
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 
   /* Transitions */
   --transition-fast: 0.15s ease-out;
@@ -68,12 +70,12 @@
 /* Dark theme */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg-primary: #0F172A;
-    --color-bg-secondary: #1E293B;
+    --color-bg-primary: #0f172a;
+    --color-bg-secondary: #1e293b;
     --color-bg-tertiary: #334155;
-    --color-text-primary: #F8FAFC;
-    --color-text-secondary: #CBD5E1;
-    --color-text-tertiary: #94A3B8;
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #cbd5e1;
+    --color-text-tertiary: #94a3b8;
     --color-border: #334155;
     --color-border-hover: #475569;
   }
@@ -165,7 +167,8 @@ a:focus {
 }
 
 /* Code styling */
-code, pre {
+code,
+pre {
   font-family: var(--font-mono);
 }
 
@@ -191,17 +194,35 @@ pre code {
 }
 
 /* Utility classes */
-.font-sans { font-family: var(--font-sans); }
-.font-mono { font-family: var(--font-mono); }
-.font-serif { font-family: var(--font-serif); }
+.font-sans {
+  font-family: var(--font-sans);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+.font-serif {
+  font-family: var(--font-serif);
+}
 
-.text-primary { color: var(--color-text-primary); }
-.text-secondary { color: var(--color-text-secondary); }
-.text-tertiary { color: var(--color-text-tertiary); }
+.text-primary {
+  color: var(--color-text-primary);
+}
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+.text-tertiary {
+  color: var(--color-text-tertiary);
+}
 
-.bg-primary { background-color: var(--color-bg-primary); }
-.bg-secondary { background-color: var(--color-bg-secondary); }
-.bg-tertiary { background-color: var(--color-bg-tertiary); }
+.bg-primary {
+  background-color: var(--color-bg-primary);
+}
+.bg-secondary {
+  background-color: var(--color-bg-secondary);
+}
+.bg-tertiary {
+  background-color: var(--color-bg-tertiary);
+}
 
 /* ============================================
    GLOBAL CARD STYLES FOR ANIMATION COMPONENTS
@@ -299,7 +320,7 @@ pre code {
 }
 
 .kinetic-underline::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -339,8 +360,9 @@ pre code {
 .article-reveal {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .article-reveal.revealed {
@@ -349,6 +371,12 @@ pre code {
 }
 
 /* Border utility */
-.border-border { border-color: var(--color-border); }
-.border-t { border-top-width: 1px; }
-.border-t { border-top-style: solid; }
+.border-border {
+  border-color: var(--color-border);
+}
+.border-t {
+  border-top-width: 1px;
+}
+.border-t {
+  border-top-style: solid;
+}

@@ -37,11 +37,11 @@
       stack: ["Svelte", "React", "Marked", "Spec", "OSS"],
     },
     {
-      title: "Pterodactyl",
-      link: "https://github.com/yail259/pterodactyl",
+      title: "Ptero",
+      link: "https://github.com/yail259/ptero",
       timeframe: "2025",
       description:
-        "A CLI-based alternative (think shadcn) to Docusaurus for Svelte. A documentation framework for SvelteKit that gets out of your way.",
+        "Docusaurus for Svelte — a shadcn-style documentation engine built on SvelteKit that gets out of your way.",
       stack: ["SvelteKit", "CLI", "Documentation", "OSS"],
     },
     {

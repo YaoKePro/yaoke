@@ -66,7 +66,7 @@
     <!-- Bottom Copyright -->
     <div class="border-t border-border mt-8 pt-8 text-center">
       <p class="text-sm text-tertiary">
-        © {new Date().getFullYear()} Yao Ke. Built with SvelteKit.
+        © {new Date().getFullYear()} Yao Ke.
       </p>
     </div>
   </div>

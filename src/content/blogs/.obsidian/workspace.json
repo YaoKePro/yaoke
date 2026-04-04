@@ -154,9 +154,21 @@
               "icon": "lucide-file",
               "title": "I Create 6 Massive Code Projects (10K lines+) In 3 Months"
             }
+          },
+          {
+            "id": "c50af8c3b9f6b6c7",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.11.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.11.7"
+            }
           }
         ],
-        "currentTab": 10
+        "currentTab": 11
       }
     ],
     "direction": "vertical"
@@ -305,7 +317,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "0cb59819ad5dd1e4",
+  "active": "c50af8c3b9f6b6c7",
   "lastOpenFiles": [
     "I Create 6 Massive Code Projects (10K lines+) In 3 Months.svx",
     "Rust Impressions.svx",
