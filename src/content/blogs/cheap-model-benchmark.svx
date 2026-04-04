@@ -27,7 +27,7 @@ The judges are a separate LLM (Haiku 4.5) scoring each conversation across 9 cat
 
 Every configuration was run 3 times and I report the average plus standard deviation. Total: 131 conversations, about 4,280 API calls, roughly 24 USD in API costs, approximately 85,000 individual pedagogical judgments.
 
-The full methodology, raw data, and per-category breakdowns are in the [technical report on GitHub](https://github.com/yaokehnes/benchmark).
+The full methodology, raw data, and per-category breakdowns are in the [technical report on GitHub](https://github.com/yail259/benchmark).
 
 ## Round 1: 8 models, generic prompt
 
@@ -187,4 +187,4 @@ If yes, the ranking tells you which model is most forgiving of bad prompts. That
 
 The cheapest model in my benchmark, with the right prompt, beat the most expensive models by 5-16 points. That is not a rounding error. That is the prompt doing more work than the model selection.
 
-The full technical report with methodology details, per-category breakdowns, raw transcripts, and all 131 result files is [available on GitHub](https://github.com/yaokehnes/benchmark).
+The full technical report with methodology details, per-category breakdowns, raw transcripts, and all 131 result files is [available on GitHub](https://github.com/yail259/benchmark).
