@@ -8,7 +8,10 @@ export async function load() {
       const slug = path
         .split("/")
         .pop()
-        .replace(/\.(svx|md)/, "");
+        .replace(/\.(svx|md)/, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
 
       return {
         slug,

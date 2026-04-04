@@ -1,10 +1,13 @@
+import { error } from "@sveltejs/kit";
 import { loadBlogPosts } from "$lib/content";
 
 export async function load({ params }) {
   const posts = await loadBlogPosts();
   const post = posts.find((p) => p.slug === params.slug);
 
-  return post ? { post, allPosts: posts } : { status: 404 };
+  if (!post) throw error(404, "Post not found");
+
+  return { post, allPosts: posts };
 }
 
 export const prerender = true;

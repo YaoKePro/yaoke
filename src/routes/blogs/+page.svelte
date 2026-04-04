@@ -71,7 +71,10 @@
                 class="flex items-center space-x-4 text-sm text-tertiary"
               >
                 <time>{new Date(post.metadata.date).toLocaleDateString()}</time>
-                {#if post.metadata.edited}
+              {#if post.metadata.edited}
+                <span
+                  >• Updated {new Date(post.metadata.edited).toLocaleDateString()}</span>
+              {/if}                {#if post.metadata.edited}
                   <span
                     >• Updated {new Date(
                       post.metadata.edited

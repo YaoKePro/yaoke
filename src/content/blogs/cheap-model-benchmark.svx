@@ -1,0 +1,190 @@
+---
+title: "A 0.30-Dollar Model Beat GPT-5.4 and Sonnet at Teaching Kids to Code - Why Fair Benchmarks Are Deeply Unfair"
+description: "I benchmarked 8 LLMs as coding tutors for kids across 131 conversations. The cheapest model beat the most expensive ones, but only when I gave it the right prompt. Same model, different prompt: a 30-point swing."
+date: 2026-04-04
+tags:
+  - llm
+  - evaluation
+  - education
+  - benchmark
+  - tutoring
+category: coding
+---
+
+I wanted to know which LLM makes the best coding tutor for a 12-year-old. Not which one writes the best code or aces the most benchmarks. Which one can actually teach a kid without being a terrible teacher about it.
+
+So I built a custom evaluation harness, ran 131 simulated conversations, and found something I didn't expect: a model costing 0.30 USD per million tokens beat GPT-5.4 (2.50 USD) and Sonnet 4.6 (3.00 USD). Then I re-ran the same model with a "fair" generic prompt and it dropped to dead last. Same model. Different prompt. A 23-point swing.
+
+This is the story of how I discovered that "fair" LLM benchmarks are deeply unfair, and why per-model prompt optimization might be the most underrated factor in choosing an LLM.
+
+## The setup
+
+I built an evaluation harness with three parts: a kid simulator, an LLM tutor, and 9 pedagogical judges.
+
+The kid simulator is an LLM (Grok 3 Mini) role-playing as a specific child persona. I created 6 personas ranging from "engaged beginner" (enthusiastic 12-year-old who guesses wrong) to "misconception holder" (13-year-old who firmly believes variables are permanent and x = x + 1 is impossible).
+
+The judges are a separate LLM (Haiku 4.5) scoring each conversation across 9 categories with 60 binary criteria: does the tutor let the kid drive (agency), ask before telling (elicitation), force predictions before running code (metacognition), let concepts emerge naturally (discovery), and so on. Each category is weighted: elicitation at 20%, discovery at 15%, agency at 15%, scaffolding at 15%, metacognition at 15%, frustration handling at 10%, interaction quality at 5%, error handling at 3%, and concept boundaries at 2%.
+
+Every configuration was run 3 times and I report the average plus standard deviation. Total: 131 conversations, about 4,280 API calls, roughly 24 USD in API costs, approximately 85,000 individual pedagogical judgments.
+
+The full methodology, raw data, and per-category breakdowns are in the [technical report on GitHub](https://github.com/yaokehnes/benchmark).
+
+## Round 1: 8 models, generic prompt
+
+I tested 8 models with a generic "coding partner" prompt and an engaged-beginner persona. The prompt was straightforward: you are a coding partner, not a teacher. Ask questions. Let the kid struggle. Don't lecture.
+
+| Model | Overall | Runs |
+|-------|---------|------|
+| Gemini 3.1 Pro | 80% +/- 10% | 74, 71, 94 |
+| Sonnet 4.6 | 78% +/- 3% | 77, 75, 82 |
+| Kimi K2.5 | 75% +/- 9% | 86, 63, 76 |
+| GPT-5.4 | 69% +/- 9% | 72, 79, 57 |
+| GLM-5 | 69% +/- 7% | 70, 60, 77 |
+| MiMo V2 Pro | 67% +/- 5% | 70, 71, 61 |
+| DeepSeek V3.2 | 64% +/- 4% | 63, 70, 59 |
+| MiniMax M2.7 | 58% +/- 15% | 62, 74, 39 |
+
+Sonnet was the most consistent (+/-3%). MiniMax was all over the place (+/-15%). One MiniMax run scored 74%, the next scored 39%. That is a 35-point spread from the same model on the same task.
+
+Two things jumped out immediately. GPT-5.4 scored 0% on frustration handling and 0% on error handling across all 3 runs. When a kid said "it doesn't work", GPT-5.4 would just move on. No validation, no diagnosis. Meanwhile it scored 82% on agency. It is great when things go well and falls apart when they don't.
+
+And MiniMax, the cheapest model in the lineup at 0.30/1.20 USD per million tokens, was dead last. Disappointing. Or so I thought.
+
+## Round 2 and 3: Harder personas
+
+I eliminated the bottom 3 and tested the top 5 against reluctant starters, confident rushers, shy kids, off-topic explorers, and kids with deep misconceptions.
+
+The biggest surprise was GPT-5.4. With an engaged beginner, it scored 0% on frustration. With a reluctant starter ("idk", "whatever", one-word answers), it scored 87% on frustration. Same model, same system prompt, completely different tutor. The kid's behavior rewired the tutoring personality. GPT-5.4 won more hard personas than any other model, but its variance was wild.
+
+Sonnet was always second or third. Never first, never below third. If you need predictability, Sonnet is the safe bet.
+
+## The nagging feeling
+
+After Round 1, something bothered me. The V1 version of this benchmark (before I fixed the methodology) had ranked MiniMax 2nd and MiMo 3rd. In V2, with the "fair" generic prompt, they were dead last and second to last.
+
+What changed? I assumed V2 was just more accurate. V1 had flaws: single runs instead of triples, the simulator generated its own opening messages (3 out of 5 models ended up building different projects), and the simulator was too articulate.
+
+But the models didn't change. The prompts did.
+
+In V1, each model got its own tuned prompt. MiniMax got a structured XML prompt with explicit help sequences, per-kid-type handling sections, and scenario examples. MiMo got a concise prompt with direct instructions, 6 good/bad example pairs, and short behavioral rules. These were carefully designed to play to each model's strengths.
+
+In V2, I gave every model the same generic "coding partner" prompt to be fair. Same words, same instructions, same examples.
+
+Fair to the models. But fair to the user who is actually trying to pick the best tool?
+
+## The ablation: 24 conversations to find the truth
+
+I ran an ablation study. Two models (MiMo and MiniMax), 4 conditions, 3 runs each, 24 conversations total. Each condition isolated one variable:
+
+**A. V1 prompt + V1 flow** -- Model-specific tuned prompt, simulator generates opening, no language constraint. Closest to V1 conditions.
+
+**B. V1 prompt + V2 flow** -- Same tuned prompt but with fixed opening message and language/project constraints. Tests whether V2's flow changes help or hurt.
+
+**C. V2 prompt + V1 flow** -- Generic prompt but with V1's free-form opening and no language constraint. Tests whether the generic prompt alone causes the drop.
+
+**D. V2 prompt + V2 flow** -- Current V2 setup. The "fair" baseline we already had.
+
+If the V2 flow changes (fixed openings, language constraints) caused the score drop, conditions A and C should be similar, and B and D should be similar. If the prompt caused the drop, A and B should be similar, and C and D should be similar.
+
+### MiMo V2 Pro
+
+| Condition | Prompt | Flow | Score | Delta from A |
+|-----------|--------|------|-------|--------------|
+| A | V1 tuned | V1 | 79% +/- 2% | baseline |
+| B | V1 tuned | V2 | 82% +/- 7% | +3% |
+| C | V2 generic | V1 | 47% +/- 2% | -32% |
+| D | V2 generic | V2 | 68% +/- 14% | -11% |
+
+### MiniMax M2.7
+
+| Condition | Prompt | Flow | Score | Delta from A |
+|-----------|--------|------|-------|--------------|
+| A | V1 tuned | V1 | 85% +/- 2% | baseline |
+| B | V1 tuned | V2 | 83% +/- 5% | -2% |
+| C | V2 generic | V1 | 62% +/- 8% | -23% |
+| D | V2 generic | V2 | 62% +/- 4% | -23% |
+
+The pattern is unmistakable. A and B are nearly identical. C and D are nearly identical. The prompt is everything.
+
+Switching from V1 flow to V2 flow (conditions A to B and C to D) changed scores by 2-11 points. Switching from the tuned prompt to the generic one (conditions A to C and B to D) changed scores by 23-32 points. The V2 flow improvements were real but small. The prompt change was enormous.
+
+MiMo dropped 32 points when you took away its tuned prompt. 32 points. That is the difference between "excellent tutor" and "actively harmful." And MiMo's tuned prompt isn't even long or complicated. It is 101 lines of concise instructions with 6 concrete example pairs.
+
+MiniMax dropped 23 points. But here is the kicker: MiniMax with its tuned prompt scored 85%. That beats Sonnet (78%), GPT-5.4 (69%), and Gemini (80%). A model costing 0.30/1.20 USD per million tokens beat models costing 3/15, 2.50/15, and 2/12 USD. Not by a little. By 5-16 points.
+
+## Why the generic prompt fails on cheap models
+
+The V2 generic prompt reads like this: "You are a coding partner. You believe in the kid. Ask questions before giving answers. Use 2-3 sentences max. Don't lecture." It is 78 lines of well-intentioned prose.
+
+For Sonnet-class models, this works great. Sonnet has the training depth to interpret vague instructions and apply them flexibly. "Let the kid struggle productively" means something specific to Sonnet, and it does it.
+
+For cheaper models, vague instructions are noise. MiMo and MiniMax need structure. MiMo's tuned prompt doesn't say "let the kid struggle productively." It says:
+
+> When the kid needs help:
+> 1. Ask: "What do you think?"
+> 2. Hint: Give one small clue
+> 3. Bigger hint: Narrow it down
+> 4. Do it together: Last resort only
+
+Not "be a good partner." Concrete steps. And for each kid type:
+
+> If kid says "idk" repeatedly: Stop asking open questions. Show something small. Give A-or-B choices.
+> If kid says "I get it": Don't trust it. Test: "What will this print?"
+
+Not "adapt to the kid." Explicit behavioral triggers.
+
+MiniMax's XML prompt is even more structured. Every instruction lives in a named tag. rules, helping, stuck-kid, rusher-kid, frustrated-kid. The model doesn't have to interpret a wall of prose. It follows tagged instructions.
+
+This is the real finding: the prompt isn't a minor tuning knob. For some models, it is the difference between competent and catastrophic.
+
+## The cost implications
+
+Let's talk money. For an afterschool coding product running 30-minute sessions:
+
+| Model | Cost per 1M tokens (in/out) | Est. per session | 10K sessions |
+|-------|---------------------------|-----------------|-------------|
+| Sonnet 4.6 | 3.00 / 15.00 | ~0.15 | 1,500 |
+| GPT-5.4 | 2.50 / 15.00 | ~0.13 | 1,300 |
+| Gemini 3.1 Pro | 2.00 / 12.00 | ~0.10 | 1,000 |
+| MiMo V2 Pro | 1.00 / 3.00 | ~0.05 | 500 |
+| MiniMax M2.7 | 0.30 / 1.20 | ~0.01 | 100 |
+
+MiniMax with a tuned prompt scored 85% at roughly 1/15th the cost of Sonnet. For 10,000 sessions, that is 100 USD vs 1,500 USD. Even if you spend 10 hours crafting the perfect prompt for MiniMax, you make it back in the first month of production.
+
+This isn't about MiniMax specifically. It is about the structure of the decision. The "fair" benchmark told me to buy the expensive model. The ablation told me to invest in the prompt instead.
+
+## Why "fair" benchmarks are unfair
+
+The standard approach to LLM evaluation is to give every model the same prompt and rank them. This feels fair. Same input, same task, compare outputs. What could be more equitable?
+
+Here is the problem: it measures which model is most robust to generic prompting, not which model can perform best in production. In production, you will optimize the prompt. Nobody ships a product with a generic system prompt. You iterate, you test, you tune. The question isn't "how does this model do with my first draft of a prompt?" It is "what's the best this model can do?"
+
+When you give Sonnet the same prompt as MiniMax, Sonnet wins because Sonnet is more robust. It handles vagueness better. It doesn't need explicit instructions to be helpful. But when you give each model its own optimized prompt, the ranking completely flips. MiniMax jumps from 8th to 2nd. MiMo jumps from 7th to 3rd.
+
+A "fair" benchmark that ranks models without prompt optimization is measuring the wrong thing. It is ranking the models' ability to compensate for your lazy prompting, not their actual capability ceiling.
+
+This matters enormously for purchasing decisions. If you are choosing between a 3 USD/M-token model and a 0.30 USD/M-token model, the "fair" benchmark tells you to buy the expensive one. The ablation tells you the cheap one might be better if you invest 10 hours in prompt engineering. At scale, that is a 15x cost difference.
+
+## What I learned
+
+Five things I wish I knew before running 131 conversations:
+
+1. **Optimize the prompt per model before comparing.** The prompt was worth 23-32 points. Model selection on a fixed prompt was worth 20 points. The leaderboard completely flips when you tune.
+
+2. **Run everything 3 times.** MiniMax looked decent at 58% average until a 39% run showed up. Without variance data you are publishing noise.
+
+3. **Overall scores are meaningless without context.** GPT-5.4 scored 69% with one kid and 86% with another. A single-number ranking would miss this entirely.
+
+4. **Discovery is the universal failure mode.** Every model, even the best, struggles to let kids discover concepts through problems. The "helpful teacher" instinct is too strong. This is the biggest opportunity for prompt improvement.
+
+5. **Cheaper models need structure, not motivation.** Don't tell MiMo to "be a good partner." Tell it exactly what to do when a kid says "idk" three times. The specificity of instructions matters more than the quality of the prose.
+
+## The takeaway
+
+The next time someone shows you an LLM benchmark ranking, ask one question: did they use the same prompt for every model?
+
+If yes, the ranking tells you which model is most forgiving of bad prompts. That is useful information, but it is not the same as which model is best. To find that, you need to optimize each model's prompt individually and then compare.
+
+The cheapest model in my benchmark, with the right prompt, beat the most expensive models by 5-16 points. That is not a rounding error. That is the prompt doing more work than the model selection.
+
+The full technical report with methodology details, per-category breakdowns, raw transcripts, and all 131 result files is [available on GitHub](https://github.com/yaokehnes/benchmark).

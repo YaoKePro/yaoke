@@ -1,0 +1,282 @@
+---
+title: "107 Conversations Later, the Answer Changed"
+description: I rebuilt the benchmark harness from scratch, ran 107 conversations across 6 kid personas, and found that variance matters more than averages. Also GPT-5.4 has a personality disorder.
+date: 2026-04-04
+edited: 2026-04-04
+tags:
+  - llm
+  - evaluation
+  - education
+  - benchmark
+  - tutoring
+category: coding
+---
+
+_In the last post, I built an evaluation harness to find which LLM makes the best coding tutor for kids. I ran it, got results, and wrote up the findings. But the harness had three fundamental flaws: the kid simulator was too articulate, it generated different opening messages for different models, and every config was only run once. The data was interesting but I couldn't trust it enough to ship a product on._
+
+_So I rebuilt the whole thing. This is what happened when I ran it properly._
+
+[Part 1 is here](/blogs/how-i-benchmarked-7-llms-to-find-the-best-teacher-for-kids) if you want the full story of how the benchmark was built.
+
+---
+
+## What Changed: V1 to V2
+
+Three things were wrong with V1, and they compounded each other.
+
+**The kid simulator was too smart.** My first simulator correctly guessed programming keywords and wrote paragraphs. Real 12-year-olds don't say "I believe the computer stores the value in a variable for later retrieval." They say "its like a box right?" When I added realism constraints (short answers, wrong guesses, no programming keywords), tutor scores dropped 10-15% across the board because the tutors actually had to work.
+
+**No fixed opening message.** The simulator generated its own first message, and different models got completely different conversations. Three out of five models built a different app than what I asked for. The context said "quiz about animals" but MiniMax built a number guessing game, GLM-5 built a number guessing game, and Kimi built a number guessing game in Python. I was comparing models on different tasks.
+
+**One run, no error bars.** Each config ran once. A model that scored 74% might score 68% or 80% on a different run. There was no way to distinguish real differences from noise.
+
+V2 fixes all three. Fixed opening messages (every kid says the same thing), realistic kid behaviour, 3 runs per config with standard deviation, and a JavaScript language constraint. I also expanded the model lineup to 8: Claude Sonnet 4.6, GPT-5.4, Gemini 3.1 Pro, Kimi K2.5, GLM-5, MiMo V2 Pro, MiniMax M2.7, DeepSeek V3.2.
+
+---
+
+## Round 1: 8 Models, Engaged Beginner
+
+Same format as before. 8 models, 1 persona (engaged-beginner), 1 generic prompt, 3 runs each.
+
+| Model | Overall | Agency | Elicit | Meta | Discovery | Scaffolding | Frustration | Error |
+|-------|---------|--------|--------|------|-----------|-------------|-------------|-------|
+| **Gemini 3.1 Pro** | **80% plus or minus 10%** | 69% | 86% | 96% | 66% | 92% | 51% | 67% |
+| **Sonnet 4.6** | **78% plus or minus 3%** | 76% | 79% | 84% | 74% | 99% | 51% | 33% |
+| **Kimi K2.5** | **75% plus or minus 9%** | 74% | 68% | 73% | 49% | 97% | 81% | 83% |
+| **GPT-5.4** | **69% plus or minus 9%** | 82% | 72% | 89% | 52% | 96% | **0%** | **0%** |
+| **GLM-5** | **69% plus or minus 7%** | 62% | 66% | 74% | 41% | 98% | 69% | 33% |
+| **MiMo V2 Pro** | **67% plus or minus 5%** | 49% | 62% | 79% | 37% | 96% | 63% | 94% |
+| **DeepSeek V3.2** | **64% plus or minus 4%** | 47% | 56% | 77% | 66% | 96% | 25% | 33% |
+| **MiniMax M2.7** | **58% plus or minus 15%** | 60% | 61% | 69% | 40% | 68% | 32% | 11% |
+
+Per-run breakdown (this is why 3 runs matters):
+
+| Model | Run 1 | Run 2 | Run 3 | Spread |
+|-------|-------|-------|-------|--------|
+| Gemini 3.1 Pro | 74% | 71% | 94% | 23pts |
+| Sonnet 4.6 | 77% | 75% | 82% | 7pts |
+| Kimi K2.5 | 86% | 63% | 76% | 23pts |
+| GPT-5.4 | 72% | 79% | 57% | 22pts |
+| GLM-5 | 70% | 60% | 77% | 17pts |
+| MiMo V2 Pro | 70% | 71% | 61% | 10pts |
+| DeepSeek V3.2 | 63% | 70% | 59% | 11pts |
+| MiniMax M2.7 | 62% | 74% | 39% | **35pts** |
+
+The first thing that jumps out: Gemini beat Sonnet. Not what I expected. Gemini scored 80% vs Sonnet's 78%. But Gemini swung from 71% to 94% across runs. Sonnet was rock steady at 77%, 75%, 82%. Different kind of "best" depending on whether you value ceiling or floor.
+
+The second thing: GPT-5.4 scored 0% on frustration handling and 0% on error handling. Across all 3 runs. When a kid said "it doesn't work", GPT-5.4 would just move on. No validation, no diagnosis, nothing. Meanwhile it scored 82% on agency and 100% on interaction. It's a tutor who's great when things are going well and completely falls apart when they're not.
+
+Kimi is the emotional support champion. 81% frustration handling, 83% error handling, best in the field on both. Not the best overall tutor, but the one you want when a kid is struggling.
+
+MiniMax is all over the place. 15% standard deviation. One run scored 74% (decent!), the next scored 39% (catastrophic). The 39% run happened because MiniMax dumped entire code blocks repeatedly without asking the kid to think. The scaffolding score caught it: 68% vs 96%+ for everyone else.
+
+The boring win: every single model built a quiz about animals in JavaScript in every run. No more number guessing games. No more Python. Fixed openings work.
+
+---
+
+## Round 2: Top 5 vs Hard Personas
+
+Bottom 3 eliminated (MiniMax, DeepSeek, MiMo). Top 5 faced reluctant-starter, confident-rusher, and shy-uncertain.
+
+### Reluctant Starter ("idk", "whatever", one-word answers)
+
+| Model | Overall | Notable |
+|-------|---------|---------|
+| **GPT-5.4** | **86%** | 87% frustration, 96% elicitation |
+| Sonnet 4.6 | 79% | 86% frustration, 82% elicitation |
+| GLM-5 | 76% | 98% frustration handling |
+| Gemini 3.1 Pro | 71% | 80% frustration, 82% metacognition |
+| Kimi K2.5 | 68% | 55% frustration, weak discovery (21%) |
+
+GPT-5.4 dominated. Remember, this is the model that scored **0% frustration** with an engaged beginner. With a reluctant starter it scored **87% frustration**. Same model, same prompt, completely different tutor. This is the most surprising finding in the entire benchmark and I'll come back to it.
+
+GLM-5 also did well here. 98% frustration handling with a kid who says "whatever" every turn. Some models are specifically good with disengaged kids.
+
+### Confident Rusher ("yeah I know", skips ahead, bluffs)
+
+| Model | Overall | Notable |
+|-------|---------|---------|
+| Gemini 3.1 Pro | 74% | 88% metacognition, 97% error handling |
+| GPT-5.4 | 74% | 91% metacognition, but huge variance |
+| Sonnet 4.6 | 71% | 89% elicitation, rock steady |
+| Kimi K2.5 | 55% | Collapsed with rusher |
+| GLM-5 | 55% | One run scored 26% |
+
+This is where variance becomes a real problem. GPT-5.4 averaged 74% but swung between 54% and 88%. GLM-5 was worse. One run scored 26%, which basically means "the tutor made things worse."
+
+Kimi and GLM-5 collapsed here. When a kid says "yeah I know" and bluffs understanding, these models couldn't slow them down without being condescending.
+
+### Shy and Uncertain ("maybe...?", "sorry", afraid of mistakes)
+
+| Model | Overall | Notable |
+|-------|---------|---------|
+| **GPT-5.4** | **82%** | 86% discovery |
+| Gemini 3.1 Pro | 72% | 89% metacognition |
+| Sonnet 4.6 | 72% | 96% discovery |
+| GLM-5 | 70% | Inconsistent |
+| Kimi K2.5 | 70% | Steady but unspectacular |
+
+GPT-5.4 led again. With shy kids, its warm interaction style (100% interaction score) really shines. Sonnet's 96% discovery score is remarkable. It lets shy kids discover concepts at their own pace instead of pushing them.
+
+GPT-5.4 won 2 out of 3 hard personas. Sonnet was consistently second. Gemini showed flashes of brilliance but with worrying variance. Kimi and GLM-5 were eliminated.
+
+---
+
+## Round 3: Top 3 vs the Hardest Personas
+
+Gemini, Sonnet, and GPT-5.4 faced off-topic-explorer and misconception-holder.
+
+### Off-Topic Explorer
+
+| Model | Overall | Notable |
+|-------|---------|---------|
+| Gemini 3.1 Pro | 77% | 70% agency |
+| GPT-5.4 | 76% | Great when focused, lost when kid rambles |
+| Sonnet 4.6 | 74% | 95% agency, kid is firmly in control |
+
+### Misconception Holder
+
+| Model | Overall | Notable |
+|-------|---------|---------|
+| **GPT-5.4** | **80%** | 93% metacognition, 78% discovery |
+| Sonnet 4.6 | 76% | 77% elicitation, 83% error handling |
+| Gemini 3.1 Pro | 73% | Run 2 scored 56% |
+
+GPT-5.4 won both Round 3 personas. But its variance is much wider than Sonnet's. If you need predictability, Sonnet is still the safer bet.
+
+---
+
+## The Five Surprising Things
+
+### 1. GPT-5.4 has a personality disorder
+
+With an engaged beginner: 0% frustration, 0% error handling, 69% overall.
+With a reluctant starter: 87% frustration, 33% error handling, 86% overall.
+
+Same model. Same system prompt. The kid's behaviour rewired the tutoring personality. When a kid is enthusiastic and things are going well, GPT-5.4 doesn't bother handling frustration because there isn't any. When a kid says "whatever" and "idk", GPT-5.4 suddenly becomes an expert at winning them over.
+
+This means overall scores are meaningless without knowing which persona produced them. "GPT-5.4 scored 69%" is actively misleading. It scored 69% with one type of kid and 86% with another.
+
+And it's not just GPT-5.4. GLM-5 went from 69% to 76%. Gemini dropped from 80% to 71%. Every model has a best and worst persona, and the swings are huge.
+
+### 2. Variance is the finding
+
+MiniMax: 62%, 74%, 39%. That's a 35-point spread. The average is 58%, but that number tells you almost nothing. Sometimes MiniMax is decent. Sometimes it's catastrophic.
+
+Sonnet: 77%, 75%, 82%. Seven-point spread. You always know what you're getting.
+
+This matters enormously for production. You don't just need to know the average, you need to know the floor. A model that averages 58% but sometimes scores 39% is dangerous. A model that averages 78% and never drops below 75% is shippable. Standard deviation tells you more about production readiness than average.
+
+And variance itself varies by persona. GPT-5.4 had 15% variance on confident-rusher but 3% on reluctant-starter. The model is predictable with some kids and chaotic with others. You'd never know this from a single-persona test.
+
+### 3. Prompt tuning does different things to different models
+
+I added explicit frustration handling rules to the generic prompt and tested on confident-rusher:
+
+| Model | Before | After | Change |
+|-------|--------|-------|--------|
+| Sonnet 4.6 | 71% | 79% | **+8% avg** |
+| GPT-5.4 | 74% | 73% | Same avg, **variance halved** |
+
+Sonnet got better. GPT-5.4 didn't get better on average, it got more predictable. The prompt halved its standard deviation from 15% to 4% without moving the average at all.
+
+You're not just tuning for score. You're tuning for reliability. And those are different things.
+
+I also tested per-model tuned prompts on the eliminated models. MiniMax with its own XML-structured prompt went from 58% to **70%** on engaged-beginner. +12% average, variance cut by 2/3. The 39% catastrophe run disappeared entirely.
+
+But on reluctant-starter, even the tuned MiniMax only scored 58%. MiMo with its tuned prompt scored 48%, the lowest in the entire benchmark. Prompt tuning helped on the easy persona but didn't generalize to the hard one.
+
+### 4. V1's core finding was right, just tested wrong
+
+V1 predicted MiniMax at roughly 70% with its tuned prompt. V2 showed 58% on the generic prompt. Was V1 wrong?
+
+Not exactly. When I ran MiniMax with its tuned XML prompt through the V2 harness, it scored 70%. Almost exactly the V1 prediction.
+
+V1 had three confounds (articulate simulator, no fixed openings, single run) but it also had something V2 didn't by default: per-model prompt tuning. The V1 finding that "prompts don't scale down", that a Sonnet-level prompt degrades on cheaper models, is confirmed by V2 data. MiniMax on a Sonnet-complexity generic prompt scored 58%. MiniMax on its own tuned prompt scored 70%.
+
+V1's ship decision (MiniMax at $0.30/$1.20 per million tokens instead of Sonnet at $3/$15) might still be correct. But we only know this because V2 retested with the tuned prompt. Bad methods produced a correct conclusion, but you can't trust it until you verify.
+
+### 5. Discovery is the universal failure mode
+
+Every model's weakest dimension was discovery. The art of letting concepts emerge from problems rather than introducing them as lessons.
+
+| Model | Discovery Score |
+|-------|----------------|
+| Sonnet 4.6 | 74% |
+| DeepSeek V3.2 | 66% |
+| Gemini 3.1 Pro | 66% |
+| GPT-5.4 | 52% |
+| Kimi K2.5 | 49% |
+| MiniMax M2.7 | 40% |
+| GLM-5 | 41% |
+| MiMo V2 Pro | 37% |
+
+The prompt says "never explain a concept the kid hasn't encountered yet" but every model sometimes introduces variables or if/else before the kid has struggled with a problem that requires them. It's the AI equivalent of a tutor who can't resist saying "so basically, a variable is like a box."
+
+Sonnet scored 74% by waiting for natural impasses. When the kid needed to store a question, Sonnet asked "Where do you think we should put it?" instead of saying "Let me teach you about variables."
+
+---
+
+## The Grand Summary
+
+**107 conversations, 4,280 API calls, about $24 in API costs.**
+
+| Model | Engaged | Reluctant | Rusher | Shy | Off-Topic | Misconception | Average |
+|-------|---------|-----------|--------|-----|-----------|---------------|---------|
+| **GPT-5.4** | 69% | **86%** | 74% | **82%** | 76% | **80%** | **78%** |
+| **Sonnet 4.6** | **78%** | 79% | 71% | 72% | 74% | 76% | **75%** |
+| **Gemini 3.1 Pro** | **80%** | 71% | **74%** | 72% | **77%** | 73% | **75%** |
+| GLM-5 | 69% | 76% | 55% | 70% | | | 68% |
+| Kimi K2.5 | 75% | 68% | 55% | 70% | | | 67% |
+| MiMo V2 Pro* | 67% | | | | | | 67% |
+| DeepSeek V3.2 | 64% | | | | | | 64% |
+| MiniMax M2.7* | 58% | | | | | | 58% |
+
+*\*MiMo and MiniMax also tested with tuned prompts, where MiniMax reached 70% on engaged-beginner.*
+
+GPT-5.4 wins on average but has the widest variance. Sonnet is the most consistent. Gemini has the highest single-run ceiling (94%).
+
+The choice depends on what you value:
+- Ceiling performance: Gemini 3.1 Pro
+- Floor performance / consistency: Sonnet 4.6
+- Average across hard personas: GPT-5.4
+- Cost efficiency: MiniMax M2.7 with a tuned prompt
+
+---
+
+## Cost Analysis
+
+For an afterschool coding product running 30-minute sessions:
+
+| Model | Cost per 1M tokens (in/out) | Est. per session | 10K sessions |
+|-------|---------------------------|-----------------|-------------|
+| Sonnet 4.6 | $3.00 / $15.00 | ~$0.15 | $1,500 |
+| GPT-5.4 | $2.50 / $15.00 | ~$0.13 | $1,300 |
+| Gemini 3.1 Pro | $2.00 / $12.00 | ~$0.10 | $1,000 |
+| GLM-5 | $0.72 / $2.30 | ~$0.04 | $400 |
+| Kimi K2.5 | $0.38 / $1.72 | ~$0.02 | $200 |
+| MiMo V2 Pro | $1.00 / $3.00 | ~$0.05 | $500 |
+| MiniMax M2.7 | $0.30 / $1.20 | ~$0.01 | $100 |
+| DeepSeek V3.2 | $0.26 / $0.38 | ~$0.01 | $100 |
+
+The benchmark cost about $24 total. ~$17 for tutor models, ~$6 for judges (Haiku 4.5), ~$1 for kid simulators (Grok 3 Mini). 107 conversations, roughly 1,700 tutor-kid exchanges, each scored by 9 judges on ~50 criteria. About 85,000 individual pedagogical judgements total.
+
+---
+
+## Takeaways
+
+If you're evaluating LLMs for a domain-specific task, especially one where standard benchmarks don't apply, build your own eval. The process of designing it teaches you as much as the results do.
+
+Five things I wish I knew before starting:
+
+1. **Run everything 3 times.** Without variance data you're publishing noise. MiniMax looked decent at 58% average until the 39% run showed up.
+
+2. **Overall scores are meaningless without persona context.** GPT-5.4 scored 69% with one kid and 86% with another. A single-number ranking would miss this entirely.
+
+3. **Prompt tuning affects reliability, not just quality.** GPT-5.4's variance halved with a better prompt but its average didn't change. You might be tuning for the wrong thing.
+
+4. **V1 to V2 is itself a finding.** The first benchmark had fundamental confounds, but its core conclusion (per-model prompt tuning matters) was confirmed by the rigorous retest. Bad methods can produce correct conclusions. You just can't trust them until you verify.
+
+5. **Discovery is the universal failure mode.** Every model, even the best ones, struggles to let kids discover concepts through problems. The "helpful teacher" instinct is too strong. This is the biggest opportunity for prompt engineering improvement.
+
+The best LLM for your use case probably isn't the one that scores highest on general benchmarks. It's the one that handles your hardest cases well enough, consistently enough, cheaply enough, to ship.

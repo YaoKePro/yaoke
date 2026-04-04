@@ -4,12 +4,15 @@ export async function loadBlogPosts() {
   });
 
   return Object.entries(modules)
-    .filter(([path]) => !path.includes("/Templates/")) // Exclude template files
+    .filter(([path]) => !path.includes("/Templates/") && !path.includes("/.archive/") && !path.includes("/.obsidian/"))
     .map(([path, module]) => {
       const slug = path
         .split("/")
         .pop()
-        .replace(/\.(svx|md)/, "");
+        .replace(/\.(svx|md)/, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
 
       return {
         slug,
@@ -17,5 +20,6 @@ export async function loadBlogPosts() {
         component: module.default,
       };
     })
+    .filter((post) => post.metadata?.date)
     .sort((a, b) => new Date(b.metadata.date) - new Date(a.metadata.date));
 }
