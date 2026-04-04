@@ -29,8 +29,7 @@
     />
     <ScrollReveal delay={0.3}>
       <p class="text-lg text-secondary max-w-2xl mx-auto">
-        Thoughts on programming, startups, and building things that might
-        actually matter.
+        Thoughts on programming, AI, and building things.
       </p>
     </ScrollReveal>
   </div>

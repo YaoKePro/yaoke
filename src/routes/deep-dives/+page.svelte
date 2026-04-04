@@ -21,7 +21,7 @@
     </FloatingElement>
     <ScrollReveal delay={0.4}>
       <p class="text-lg text-secondary max-w-2xl mx-auto">
-        In-depth, multi-chapter explorations of complex topics.
+        Long-form guides and series.
       </p>
     </ScrollReveal>
   </div>

@@ -133,8 +133,6 @@
     <ScrollReveal delay={0.3}>
       <p class="text-lg text-secondary max-w-2xl mx-auto">
         Things I've built.
-        <br>Experiments I've run, 
-        <br>Problems I've tried to solve.
       </p>
     </ScrollReveal>
   </div>

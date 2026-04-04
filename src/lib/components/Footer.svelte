@@ -11,7 +11,7 @@
           Yao Ke
         </h3>
         <p class="text-sm text-secondary max-w-xs">
-          I enjoy solving problems with creativity.
+          Developer and occasional writer.
         </p>
       </div>
 

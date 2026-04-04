@@ -23,8 +23,8 @@
 
     <ScrollReveal delay={0.5} direction="up">
       <p class="text-lg md:text-xl text-secondary max-w-2xl mx-auto leading-relaxed">
-        Developer, dreamer, and occasional writer. <br />
-        I enjoy solving problems with creativity.
+        Developer and occasional writer. <br />
+        I enjoy solving problems creatively.
       </p>
     </ScrollReveal>
 
