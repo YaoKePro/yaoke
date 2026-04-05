@@ -188,3 +188,7 @@ If yes, the ranking tells you which model is most forgiving of bad prompts. That
 The cheapest model in my benchmark, with the right prompt, beat the most expensive models by 5-16 points. That is not a rounding error. That is the prompt doing more work than the model selection.
 
 The full technical report with methodology details, per-category breakdowns, raw transcripts, and all 131 result files is [available on GitHub](https://github.com/yail259/benchmark).
+
+---
+
+Want help optimizing your prompts for cheaper models? [Get in touch](mailto:hello@yaoke.pro).

@@ -28,6 +28,7 @@
       <!-- Right side - Social Links -->
       <div class="footer-section">
         <h4 class="text-sm font-semibold text-primary mb-4">Connect</h4>
+        <a href="mailto:hello@yaoke.pro" class="footer-link">hello@yaoke.pro</a>
         <div class="flex space-x-2">
           <a 
              href="https://github.com/yail259/"
