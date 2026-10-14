@@ -59,6 +59,7 @@
           <a href="/blogs" class="nav-link" class:active={activeLink?.getAttribute('href') === '/blogs'}>Blog</a>
           <a href="/deep-dives" class="nav-link" class:active={activeLink?.getAttribute('href') === '/deep-dives'}>Deep Dives</a>
           <a href="/projects" class="nav-link" class:active={activeLink?.getAttribute('href') === '/projects'}>Projects</a>
+          <a href="https://blog.yaoke.pro" class="nav-link">How to Be Human</a>
           <div class="nav-morph-line" bind:this={morphLine}></div>
         </div>
       </div>

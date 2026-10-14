@@ -7,7 +7,7 @@
   const posts = data.posts;
 
   // Extract all unique categories
-  const categories = ["coding", "life"];
+  const categories = ["coding"];
 
   // Selected category (default to first one or 'All')
   let selectedCategory = $state(categories[0]);

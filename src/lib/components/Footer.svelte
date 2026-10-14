@@ -22,6 +22,7 @@
           <a href="/" class="footer-link">Home</a>
           <a href="/blogs" class="footer-link">Blog</a>
           <a href="/projects" class="footer-link">Projects</a>
+          <a href="https://blog.yaoke.pro" class="footer-link">How to Be Human</a>
         </nav>
       </div>
 
