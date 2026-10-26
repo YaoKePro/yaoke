@@ -1,9 +1,15 @@
-/blogs/tool-choice /blogs 301
-/blogs/coding-is-dead-designing-is-alive /blogs 301
-/blogs/chapter-3-prototyping /deep-dives 301
-/blogs/chapter-4-ok-let-s-lock-our-doors /deep-dives 301
-/blogs/chapter-5-too-much-talking-let-s-do-something /deep-dives 301
-/blogs/read-more /blogs 301
-/blogs/new-project-blueprint /blogs 301
-/blogs/concrete-llm-use-cases /blogs 301
-/blogs/specialness /blogs 301
+# Retired posts
+/blogs/tool-choice /writing 301
+/blogs/coding-is-dead-designing-is-alive /writing 301
+/blogs/chapter-3-prototyping /writing?tag=engineering 301
+/blogs/chapter-4-ok-let-s-lock-our-doors /writing?tag=engineering 301
+/blogs/chapter-5-too-much-talking-let-s-do-something /writing?tag=engineering 301
+/blogs/read-more /writing 301
+/blogs/new-project-blueprint /writing 301
+/blogs/concrete-llm-use-cases /writing 301
+/blogs/specialness /writing 301
+
+# Old sections moved into Writing
+/blogs /writing 301
+/blogs/* /writing/:splat 301
+/deep-dives /writing?tag=engineering 301

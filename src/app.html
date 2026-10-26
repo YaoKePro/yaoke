@@ -2,9 +2,21 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<script defer src="https://cloud.umami.is/script.js" data-website-id="ba5e38be-d7b4-4f9a-8d2d-362e18b0ef96"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.svg" type="image/svg+xml" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" sizes="32x32" />
+		<link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.png" />
+		<link rel="alternate" type="application/rss+xml" title="Yao Ke" href="/rss.xml" />
+		<meta name="theme-color" content="#FDFDFC" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#121211" media="(prefers-color-scheme: dark)" />
+		<script>
+			// Apply a saved theme before first paint so there is no flash.
+			try {
+				const theme = localStorage.getItem('theme');
+				if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
+			} catch {}
+		</script>
+		<script defer src="https://cloud.umami.is/script.js" data-website-id="ba5e38be-d7b4-4f9a-8d2d-362e18b0ef96"></script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

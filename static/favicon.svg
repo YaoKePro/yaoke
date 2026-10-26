@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .m { fill: #fdfdfc; stroke: #18181b; } .t { fill: #18181b; }
+    @media (prefers-color-scheme: dark) { .m { fill: #121211; stroke: #ededea; } .t { fill: #ededea; } }
+  </style>
+  <circle class="m" cx="16" cy="16" r="14.6" stroke-width="2"/>
+  <text class="t" x="16" y="21" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="15.5" letter-spacing="-1">yk</text>
+</svg>

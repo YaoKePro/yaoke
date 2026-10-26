@@ -1,0 +1,33 @@
+That Time I Was Attacked 
+
+March, 2026. I was driving home after the vet told me that fixing my dog's ears was going to cost anything from $5000 to $8000. I park at a red light. 
+
+From my periphery I see a man waving aggressively at me and yelling at me. I was confused as to why and just gave him the finger. 
+
+Then he chucked a water bottle at my car, swerved in front of me to brake check me and when I turned left on to a small road he started following my car. 
+
+I parked up and got out to try to talk with him and de-escalate. Big mistake. 
+
+He walked up to me yelling, shoved me and began punching. We ended up in a scuffle and He ran off when some bystanders came out of their house. 
+
+I grew up in nice neighbourhoods and was never really exposed much to violence. And by violence I mean real violence. Not the clean, theatrical kind in movies and video games or the refereed kind in professional fights. I mean real chaos, things can go horribly wrong type violence. This event really traumatised me for months and was a big bubble popping moment into how dangerous the world can be if someone wants to hurt you physically. There's not much that can stop them in the moment. That's the nature of crime really, in the moment, there's not much stopping the criminal. 
+
+Let me do my best to describe what panic feels like to someone who's rarely experienced it. First your reaction to it is completely subconscious. It can be a visual cue of an incoming person. In my case it was an auditory cue of him yelling at me. Then the reasoning part of your brain completely shuts down and you just feel blank in the head. Next you get tunnel vision and lose all your peripheral vision, your memory becomes choppy and your senses feel like they are operating wirelessly outside your body, lossy, choppy and hard to control. For me it kind of feels like when I'm dreaming and can't control my body well, not sure if this applies to other people. 
+
+Then you get a huge chemical spikes of adrenaline in your system. The adrenaline spikes your heart rate and largely removes your sense of pain. Your breathing becomes difficult to control and you can start to hyperventilate. You can start to feel weird as blood is re-allocated to your big muscles and your body can feel hard to control. You get a surge of energy that makes you feel restless. Your whole body can start to shake and tremble. Your mind will start racing. 
+
+The irony here of course is that all these changes can signal to your body that you are in danger and you get more stressed, entering a vicious cycle. The easy way to understand this is that under perceived threat, you go full lizard brain. This is when the flight, flight, freeze response kicks in. I was stuck somewhere between fight and freeze which is not good in a physical altercation, you've both responded with escalation and not followed through. 
+
+Since the incident I had signs of PTSD. Fear of driving, sensitive to loud noises and strangers, paranoia for my safety. I had two psychologist sessions and felt a lot better and over time it settled down. 
+
+After the incident I did some research into how to better handle myself in future situations like this. The first thing I found was that what I felt in the moment and afterwards are very common. Even professional emergency responders get overwhelmed all the time and we as humans are all susceptible, especially to truly unexpected incidents. In moments like this, our thinking and problem solving brain is limited and we have to rely on our lizard brain. 
+
+This is where training under pressure and ensuring the appropriate responses are well rehearsed pay off. Handling emergencies is a practiced skill. Much like learning to play the guitar, just thinking about it doesn't do you much good. One thing this reminds me is that if something like this ever happens to you, people are going to be armchair experts with a lot of advice and make you feel like shit. In my case it was the ambulance guy, and most people in my life really, who pointed out what I did wrong and how I should've done X and Y. My psychologist on the other hand was an expert in handling trauma victims and assured me that these people don't know what they are talking about. It's a bit like saying "just don't be sick". In the moment you are running on pure primal autopilot and can barely get a thought in, let alone make the correct decisions about things you've never imagined would happen to you. 
+
+The proper trained response I researched after the fact is to start with 4 4 4 4 box breathing. Breath in over 4 seconds, hold for 4 seconds, breath out for 4 seconds, hold for 4 seconds, repeat. This should be well practiced for any stressful or overwhelming situation in your life. It helps lower your heart rate, control yourself from either holding your breath or hyperventilating and in general is a cue to help yourself calm down. Then you want to use your rehearsed skill of responding well under pressure. Obviously most people don't practice this but a self-defence class with pressure testing can help. You want to check your surroundings and either escape or protect yourself in a safe space, i.e. your car. In the event that you aren't able to escape, for instance if you are cornered, or in the toilet, or if someone's just plain faster than you, you want to negotiate and de-escalate if possible. Then if they are still closing the distance on you physically, you want to strike as hard and fast as possible with whatever self-defence skills you have. Kick them in the balls, whatever works. Here you want to stay in fight mode. Don't do what I did and waver or freeze. Keep fighting until the threat is over and you are safe. Scream, yell, do whatever you can to get attention and be a nuisance. 
+
+Then today in October, 2026, a neighbour yelling at me activated my panic response like some sort of Winter Soldier code. I went into a spiral in my head and felt like I was about to feint from the adrenaline dump. Nothing happened this time and I just went about my walk ignoring him. Thankfully I was safe and could sit down on a bench to unwind. 
+
+It turns out that what I thought was behind me wasn't fully. My brain is still conditioned to be hypersensitive and fearful of yelling and aggression. I tried to use it as an opportunity to work and act under the adrenaline and practice shadow boxing after I had calmed down a bit. It was a wake up call for me to re-evaluate how I'd come a long way but still had work to do. 
+
+For me personally, I noticed that if I talk to myself, it helps me calm myself down and get out of my own head. For the reader, it's always good to experiment in stressful situations and see what helps you stay calmer and respond better. 
