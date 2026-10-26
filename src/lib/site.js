@@ -10,6 +10,9 @@ export const SITE = {
 	}
 };
 
+/** The name of the writing (the old How to Be Human blog plus engineering posts). */
+export const WRITING_NAME = 'Second Thoughts';
+
 export const TAGS = {
 	human: 'Being human',
 	engineering: 'Engineering'

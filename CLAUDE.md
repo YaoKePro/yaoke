@@ -1,6 +1,6 @@
 # yaoke.pro
 
-Yao Ke's personal site: projects and writing in one place. SvelteKit + Vite + MDsveX, prerendered with adapter-static. No Tailwind: plain CSS with tokens in `src/app.css`.
+Yao Ke's personal site: projects and writing in one place. The writing is called **Second Thoughts** (`WRITING_NAME` in `src/lib/site.js`). SvelteKit + Vite + MDsveX, prerendered with adapter-static. No Tailwind: plain CSS with tokens in `src/app.css`.
 
 ## Dev
 

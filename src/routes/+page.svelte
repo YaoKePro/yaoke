@@ -3,7 +3,7 @@
 	import ProjectList from '$lib/components/ProjectList.svelte';
 	import FeaturedProject from '$lib/components/FeaturedProject.svelte';
 	import Seo from '$lib/components/Seo.svelte';
-	import { FEATURED, SELECTED, TOYS } from '$lib/site.js';
+	import { FEATURED, SELECTED, TOYS, WRITING_NAME } from '$lib/site.js';
 
 	let { data } = $props();
 </script>
@@ -35,7 +35,7 @@
 	</section>
 
 	<section aria-labelledby="writing">
-		<h2 id="writing" class="label">Writing</h2>
+		<h2 id="writing" class="label">{WRITING_NAME}</h2>
 		<PostList posts={data.posts} />
 		<a href="/writing" class="more">
 			<span>All {data.total} posts</span>

@@ -4,7 +4,7 @@
 	import PostList from '$lib/components/PostList.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { year } from '$lib/format.js';
-	import { TAGS } from '$lib/site.js';
+	import { TAGS, WRITING_NAME } from '$lib/site.js';
 
 	let { data } = $props();
 
@@ -37,11 +37,11 @@
 	}
 </script>
 
-<Seo title="Writing" description="Essays on being human, and notes on engineering with AI." />
+<Seo title={WRITING_NAME} description="Essays on being human, and notes on engineering with AI." />
 
 <div class="column page">
 	<header class="head">
-		<h1>Writing</h1>
+		<h1>{WRITING_NAME}</h1>
 		<div class="filters" role="group" aria-label="Filter posts">
 			{#each filters as f (f.key)}
 				<button type="button" aria-pressed={tag === f.key} onclick={() => pick(f.key)}>{f.label}</button>
