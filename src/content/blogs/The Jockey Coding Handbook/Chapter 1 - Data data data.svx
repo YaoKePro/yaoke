@@ -12,7 +12,7 @@ tags:
 series: "Jockey Coding"
 chapter: 1
 ---
-Most apps are CRUD apps. This is a fancy way of saying, most apps just create instances of something, read it, update it and then delete it. For instance you might create users, read users, update users data and delete users.
+Most apps are CRUD apps. This is a fancy way of saying, most apps just create instances of something, read it, update it and then delete it. For instance you might create users, read users, update users' data and delete users.
 
 Hence, the core to every app, rather unsurprisingly, is data. We want to store how many shoes we have in stock, or messages sent in our social media app. 
 

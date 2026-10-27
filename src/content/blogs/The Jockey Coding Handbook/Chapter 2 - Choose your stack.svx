@@ -18,7 +18,7 @@ Machine code is imperative to the CPU, it tells the CPU exactly what it needs to
 
 My experience coding with AI is that we want to speak English in as imperative a way as possible, "Use Postgres", "use the observer pattern", "create a base class here" to get the most reliable performance out of them. However, we want the tools that the AI is using to build with to be as declarative as possible. 
 
-So if we think about development like a sandwich and assume the human is a true expert. We have something like this:
+So if we think about development like a sandwich and assume the human is a true expert, we have something like this:
 
 - Human: Source of truth, assumed to be correct
 - AI coding tool: transforming human English into code

@@ -21,7 +21,7 @@ Let's take a step back and ask, "is there a human which everyone likes?". A rath
 
 There is an underlying social element to all human interactions. In real life, or even online, tones, gestures, facial expression and wording all shape the dynamics of our interactions. You might be polite and verbose in front of your boss, but crude and direct with your friends. This makes interactions *feel human* and is a demonstration of free-will, social skills and autonomous decision making. Beyond that, individuals have personalities, quirks, temperament, and personal life experiences that shape who we are.
 
-LLMs however, lack these skills. By default LLM providers have to ship a "vanilla" model. It can't have political opinions, sound aggressive, hold strong opinions, or throw tantrums. In essence. It is the average of all humans. It is the average of *humanity*.
+LLMs however, lack these skills. By default LLM providers have to ship a "vanilla" model. It can't have political opinions, sound aggressive, hold strong opinions, or throw tantrums. In essence, it is the average of all humans. It is the average of *humanity*.
 
 We can escape this feeling by leveraging their incredible ability of one-shot learning, where including examples or giving instructions as part of the input can trigger internal neural activations inside the model, causing it to mimic our autonomous social context. 
 
