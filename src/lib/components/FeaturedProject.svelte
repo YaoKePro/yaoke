@@ -1,12 +1,19 @@
 <script>
-	import Mosaic from './Mosaic.svelte';
-
-	let { project, tiles } = $props();
+	let { project } = $props();
 </script>
 
 <a class="card" href={project.href}>
-	<div class="art" aria-hidden="true">
-		<div class="mosaic"><Mosaic {tiles} /></div>
+	<div class="art">
+		<img
+			src={project.cover.src}
+			srcset={`${project.cover.small} 600w, ${project.cover.src} 1200w`}
+			sizes="(max-width: 720px) 100vw, 520px"
+			alt={project.cover.alt}
+			width="1200"
+			height="750"
+			loading="lazy"
+			decoding="async"
+		/>
 	</div>
 	<div class="body">
 		<div class="top">
@@ -38,18 +45,17 @@
 		aspect-ratio: 16 / 10;
 		background: var(--wash);
 		border-bottom: 1px solid var(--line);
-		display: flex;
-		align-items: center;
-		justify-content: center;
 		overflow: hidden;
 	}
-	.mosaic {
-		width: 46%;
-		aspect-ratio: 1;
-		transition: transform 0.6s var(--ease);
+	.art img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.8s var(--ease);
 	}
-	.card:hover .mosaic {
-		transform: rotate(-4deg) scale(1.04);
+	.card:hover .art img {
+		transform: scale(1.03);
 	}
 	.body {
 		padding: 16px 18px 18px;

@@ -4,7 +4,6 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import { FEATURED, SELECTED, TOYS } from '$lib/site.js';
 
-	let { data } = $props();
 </script>
 
 <Seo title="Projects" description="Things Yao Ke has built: Restless, FrankenSurf, Markdown UI and more." />
@@ -16,7 +15,7 @@
 		<h2 id="building" class="label">Now building</h2>
 		<div class="featured">
 			{#each FEATURED as project (project.slug)}
-				<FeaturedProject {project} tiles={data.mosaics[project.slug]} />
+				<FeaturedProject {project} />
 			{/each}
 		</div>
 	</section>

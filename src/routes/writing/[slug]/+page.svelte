@@ -8,12 +8,14 @@
 	let post = $derived(data.post);
 </script>
 
-<Seo title={post.title} description={post.description ?? post.title} type="article" published={post.date} />
+<Seo title={post.title} description={post.description ?? post.title} type="article" published={post.date} image={post.cover?.src} />
 
 {#if post.cover}
 	<figure class="cover">
 		<img
 			src={post.cover.src}
+			srcset={post.cover.small ? `${post.cover.small} 840w, ${post.cover.src} ${post.cover.width}w` : undefined}
+			sizes="(max-width: 1040px) 100vw, 1040px"
 			alt={post.cover.alt}
 			width={post.cover.width}
 			height={post.cover.height}

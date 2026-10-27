@@ -25,7 +25,12 @@ export const FEATURED = [
 		slug: 'restless',
 		year: '2026',
 		line: 'A busy day. 1 decision.',
-		href: 'https://restless.run'
+		href: 'https://restless.run',
+		cover: {
+			src: '/images/projects/restless.webp',
+			small: '/images/projects/restless-600.webp',
+			alt: 'Winslow Homer, The Blue Boat (1892): two men paddling a blue canoe on a still river. Public domain.'
+		}
 	},
 	{
 		name: 'FrankenSurf',
@@ -33,7 +38,12 @@ export const FEATURED = [
 		year: '2026',
 		stars: 101,
 		line: 'One call that gets your agent through any site, stitched from 28 browsing tools.',
-		href: 'https://github.com/yail259/frankensurf'
+		href: 'https://github.com/yail259/frankensurf',
+		cover: {
+			src: '/images/projects/frankensurf.webp',
+			small: '/images/projects/frankensurf-600.webp',
+			alt: "Winslow Homer, Prout's Neck, Surf on Rocks (1895): waves breaking on dark rocks under a red evening sky. Public domain."
+		}
 	}
 ];
 

@@ -20,7 +20,7 @@
 		<h2 id="building" class="label">Now building</h2>
 		<div class="featured">
 			{#each FEATURED as project (project.slug)}
-				<FeaturedProject {project} tiles={data.mosaics[project.slug]} />
+				<FeaturedProject {project} />
 			{/each}
 		</div>
 	</section>

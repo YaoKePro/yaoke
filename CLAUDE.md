@@ -19,7 +19,8 @@ npm run build && npx vite preview --port 4180
 
 - **Essays** (formerly the How to Be Human blog): `src/content/human/<slug>.html` holds the body as plain HTML (paragraphs verbatim, HTML-escaped; `<h2>` for section headings; links as `<a href>`). `src/content/human/posts.json` lists them: `slug`, `title`, `date` (ISO with timezone, first publication), `tag: "human"`, optional `description`, `draft: true`, and `cover`.
 - **Engineering posts**: `.svx` files in `src/content/blogs/` with frontmatter (`title`, `description`, `date`). A subfolder is a series.
-- **Cover art** (optional, per essay): `"cover": {"src": "/images/covers/<file>", "alt": "…", "width": 2100, "height": 900, "credit": "Artist, Title. Public domain.", "href": "<source page>"}`. Public domain works only, chosen by the author; image file in `static/images/covers/`.
+- **Cover art** (every post has one): `src/content/covers.json` maps each slug to a public domain painting from Wikimedia Commons (`src`, `small`, `alt`, `width`, `height`, `credit`, `href`). Images are 21:9 WebP in `static/images/covers/<slug>.webp` (1680 wide) and `<slug>-840.webp`, cropped with Pillow around a vertical focus point. Public domain works only, no AI art; give a new post one when it's published.
+- **Project art**: featured projects in `src/lib/site.js` carry a `cover` (public domain watercolours, 16:10, `static/images/projects/`).
 - **Mosaics**: after adding a post, run `python3 scripts/mosaics.py`; it regenerates `src/lib/data/mosaics.json` (each slug seeds its own tiles). The build fails if a post has no mosaic.
 - **Projects**: `src/lib/site.js` (`FEATURED`, `SELECTED`, `TOYS`).
 

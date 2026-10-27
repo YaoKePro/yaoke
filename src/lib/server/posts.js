@@ -2,6 +2,8 @@
 // Build-time only: pages get plain HTML strings, never the post components.
 import { render } from 'svelte/server';
 import humanIndex from '../../content/human/posts.json';
+// Public domain cover art per slug, for both kinds of post.
+import covers from '../../content/covers.json';
 
 const humanBodies = import.meta.glob('/src/content/human/*.html', {
 	query: '?raw',
@@ -35,7 +37,13 @@ const posts = [];
 for (const entry of humanIndex) {
 	const html = humanBodies[`/src/content/human/${entry.slug}.html`];
 	if (!html) throw new Error(`Missing body for ${entry.slug}`);
-	posts.push({ ...entry, date: new Date(entry.date).toISOString(), minutes: minutes(html), html });
+	posts.push({
+		...entry,
+		date: new Date(entry.date).toISOString(),
+		cover: covers[entry.slug] ?? entry.cover ?? null,
+		minutes: minutes(html),
+		html
+	});
 }
 
 for (const [path, module] of Object.entries(engineeringModules)) {
@@ -44,8 +52,10 @@ for (const [path, module] of Object.entries(engineeringModules)) {
 	if (!meta.date) continue;
 	const html = render(module.default).body;
 	const series = path.match(/\/blogs\/([^/]+)\//)?.[1];
+	const slug = slugify(path);
 	posts.push({
-		slug: slugify(path),
+		slug,
+		cover: covers[slug] ?? null,
 		title: meta.title,
 		description: meta.description,
 		date: new Date(`${ymd(meta.date)}T09:00:00+10:00`).toISOString(),

@@ -24,8 +24,7 @@ for path in sorted((ROOT / 'src/content/blogs').rglob('*.svx')):
     slugs.append(engineering_slug(path))
 
 out = {}
-# Featured projects get their own mosaics as card art.
-for slug in slugs + ['home', 'project:restless', 'project:frankensurf']:
+for slug in slugs:
     out[slug] = [
         {k: (round(v, 3) if isinstance(v, float) else v) for k, v in tile.items() if k in ('d', 'colour', 'x', 'y', 'rotation', 'cx', 'cy')}
         for tile in composition(slug)
