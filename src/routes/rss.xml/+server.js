@@ -8,7 +8,6 @@ const escape = (s) =>
 
 export function GET() {
 	const items = listPosts()
-		.filter((p) => !p.draft)
 		.map((p) => {
 			const url = `${SITE.url}/writing/${p.slug}`;
 			const html = getPost(p.slug).post.html;

@@ -73,15 +73,19 @@ for (const post of posts) {
 	seen.add(post.slug);
 }
 
-/** Post metadata without bodies, newest first. */
-export function listPosts() {
-	return posts.map(({ html, ...meta }) => meta);
+// Drafts still get a page at their address, but no list, feed, search or sitemap links to them.
+const published = posts.filter((p) => !p.draft);
+
+/** Post metadata without bodies, newest first. Drafts only when asked for. */
+export function listPosts({ drafts = false } = {}) {
+	return (drafts ? posts : published).map(({ html, ...meta }) => meta);
 }
 
 export function getPost(slug) {
-	const index = posts.findIndex((p) => p.slug === slug);
-	if (index < 0) return null;
-	const post = posts[index];
+	const post = posts.find((p) => p.slug === slug);
+	if (!post) return null;
+	const index = published.indexOf(post);
 	const strip = (p) => p && { slug: p.slug, title: p.title };
-	return { post, newer: strip(posts[index - 1]), older: strip(posts[index + 1]) };
+	if (index < 0) return { post, newer: null, older: null };
+	return { post, newer: strip(published[index - 1]), older: strip(published[index + 1]) };
 }
