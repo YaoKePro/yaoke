@@ -24,7 +24,7 @@ export const FEATURED = [
 		name: 'Restless',
 		slug: 'restless',
 		year: '2026',
-		line: 'A busy day. 1 decision.',
+		line: 'A busy day. 1 interruption.',
 		href: 'https://restless.run',
 		cover: {
 			src: '/images/projects/restless.webp',
