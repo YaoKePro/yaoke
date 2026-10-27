@@ -13,6 +13,7 @@ npm run build && npx vite preview --port 4180
 
 - Every word of editorial copy (posts, intro, about, project lines) belongs to the author. Never rewrite or add prose unless asked; only fix typos or facts when asked ("fix those"). Never use em dashes.
 - Design: "quiet craft". Calm editorial look (Newsreader for reading and headlines, Inter for interface text), near-white light mode by default with a dark mode, polish from small interactions rather than loud visuals. Reading progress in the corner of posts is a public domain nature drawing that redraws itself as you read, stroke by stroke in a plausible artist's order (no pen tip, no underdrawing). The order is worked out by `scripts/flowers.py`.
+- Logo: the yk cube (`src/lib/components/Logo.svelte`). Five inner lines spell yk; the six outer edges quietly come and go in a slow loop that rests on the whole cube (still under reduced motion). Favicons are the whole cube: `static/favicon.svg` by hand, PNGs from `node scripts/icons.mjs`.
 - Keep pages fast and accessible: no heavy animation libraries, everything prerendered, works at phone width, respects reduced motion.
 
 ## Content
