@@ -19,7 +19,7 @@ npm run build && npx vite preview --port 4180
 ## Content
 
 - **Essays** (formerly the How to Be Human blog): `src/content/human/<slug>.html` holds the body as plain HTML (paragraphs verbatim, HTML-escaped; `<h2>` for section headings; links as `<a href>`). `src/content/human/posts.json` lists them: `slug`, `title`, `date` (ISO with timezone, first publication), `tag: "human"` (shown as Human), optional `description` and `draft: true`.
-- **Machine posts** (engineering, tag `machine`): `.svx` files in `src/content/blogs/` with frontmatter (`title`, `description`, `date`). A subfolder is a series.
+- **Machine posts** (engineering, tag `machine`): `.svx` files in `src/content/blogs/` with frontmatter (`title`, `description`, `date`, optional `slug`). The address comes from the title unless `slug` is set (only for very long titles). A subfolder is a series.
 - **Cover art** (every post has one): `src/content/covers.json` maps each slug to a public domain painting from Wikimedia Commons (`src`, `small`, `alt`, `width`, `height`, `credit`, `href`). Images are WebP in `static/images/covers/<slug>.webp` (the whole painting, never cropped, fitted inside 1680 × 1260) and a half-size `<slug>-840.webp`; tall paintings are capped in height and centred on the page. Public domain works only, no AI art; give a new post one when it's published.
 - **Project art**: featured projects in `src/lib/site.js` carry a `cover` (public domain watercolours, 16:10, `static/images/projects/`).
 - **Projects**: `src/lib/site.js` (`FEATURED`, `SELECTED`, `TOYS`).
@@ -36,4 +36,4 @@ Edits to an existing post just update its file; there is no version history any 
 
 ## URLs
 
-Posts live at `/writing/<slug>`. `static/_redirects` maps the old `/blogs/*` and `/deep-dives` paths. The old blog at blog.yaoke.pro redirects every path to `https://yaoke.pro/writing/…`.
+Posts live at `/writing/<slug>`. `static/_redirects` maps the old `/blogs/*` and `/deep-dives` paths, and old slugs of renamed posts. When a slug changes, add a redirect from the old one. The old blog at blog.yaoke.pro redirects every path to `https://yaoke.pro/writing/…`.

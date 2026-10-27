@@ -22,11 +22,9 @@ function minutes(html) {
 // Frontmatter dates arrive as strings or Date objects depending on how they were written.
 const ymd = (value) => (value instanceof Date ? value.toISOString() : String(value)).slice(0, 10);
 
-function slugify(path) {
-	return path
-		.split('/')
-		.pop()
-		.replace(/\.svx$/, '')
+// A post's address comes from its title, so the two always match.
+function slugify(text) {
+	return text
 		.toLowerCase()
 		.replace(/[^a-z0-9]+/g, '-')
 		.replace(/^-|-$/g, '');
@@ -52,7 +50,7 @@ for (const [path, module] of Object.entries(engineeringModules)) {
 	if (!meta.date) continue;
 	const html = render(module.default).body;
 	const series = path.match(/\/blogs\/([^/]+)\//)?.[1];
-	const slug = slugify(path);
+	const slug = meta.slug ?? slugify(meta.title);
 	posts.push({
 		slug,
 		cover: covers[slug] ?? null,

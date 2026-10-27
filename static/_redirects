@@ -9,6 +9,28 @@
 /blogs/concrete-llm-use-cases /writing 301
 /blogs/specialness /writing 301
 
+# Renamed to match their titles
+/writing/67-shades-of-grey-pt-2 /writing/i-get-why-people-hate-ai-i-also-get-why-people-love-it 301
+/blogs/67-shades-of-grey-pt-2 /writing/i-get-why-people-hate-ai-i-also-get-why-people-love-it 301
+/writing/67-shades-of-grey-pt-1 /writing/praise-be-to-big-oil-nuance-pt-1 301
+/blogs/67-shades-of-grey-pt-1 /writing/praise-be-to-big-oil-nuance-pt-1 301
+/writing/gambling /writing/you-should-learn-to-gamble 301
+/blogs/gambling /writing/you-should-learn-to-gamble 301
+/writing/architecting /writing/architecting-in-the-age-of-ai 301
+/blogs/architecting /writing/architecting-in-the-age-of-ai 301
+/writing/hiring /writing/what-are-the-key-signals-in-startup-hiring 301
+/blogs/hiring /writing/what-are-the-key-signals-in-startup-hiring 301
+/writing/rust-impressions /writing/rust-first-impressions 301
+/blogs/rust-impressions /writing/rust-first-impressions 301
+/writing/chapter-0-is-this-for-you /writing/jockey-coding-chapter-0-is-this-for-you 301
+/blogs/chapter-0-is-this-for-you /writing/jockey-coding-chapter-0-is-this-for-you 301
+/writing/chapter-1-data-data-data /writing/jockey-coding-chapter-1-data-data-data 301
+/blogs/chapter-1-data-data-data /writing/jockey-coding-chapter-1-data-data-data 301
+/writing/chapter-2-choose-your-stack /writing/jockey-coding-chapter-2-choose-your-tools 301
+/blogs/chapter-2-choose-your-stack /writing/jockey-coding-chapter-2-choose-your-tools 301
+/writing/cheap-model-benchmark /writing/a-0-30-dollar-model-beat-gpt-5-4-and-sonnet-at-teaching-kids-to-code 301
+/blogs/cheap-model-benchmark /writing/a-0-30-dollar-model-beat-gpt-5-4-and-sonnet-at-teaching-kids-to-code 301
+
 # Old sections moved into Writing
 /blogs /writing 301
 /blogs/* /writing/:splat 301

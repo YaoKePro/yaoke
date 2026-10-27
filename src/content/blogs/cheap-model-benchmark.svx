@@ -1,5 +1,6 @@
 ---
 title: "A 0.30-Dollar Model Beat GPT-5.4 and Sonnet at Teaching Kids to Code - Why Fair Benchmarks Are Deeply Unfair"
+slug: a-0-30-dollar-model-beat-gpt-5-4-and-sonnet-at-teaching-kids-to-code
 description: "I benchmarked 8 LLMs as coding tutors for kids across 131 conversations. The cheapest model beat the most expensive ones, but only when I gave it the right prompt. Same model, different prompt: a 30-point swing."
 date: 2026-04-04
 tags:
