@@ -8,14 +8,9 @@
 
 	const SOFT = 0.004; // width of the drawing edge
 	const clamp = (v) => Math.max(0, Math.min(1, v));
-	const smooth = (v) => {
-		const t = clamp(v);
-		return t * t * (3 - 2 * t);
-	};
 
 	let canvas;
 	let amount = $state(0);
-	let finish = $state(0);
 	let shown = $state(false);
 
 	onMount(() => {
@@ -77,8 +72,6 @@
 		let goal = 0;
 		let frame = 0;
 		let last = 0;
-		let complete = false;
-		let finishStarted = null;
 		let first = true;
 
 		function animate(time) {
@@ -87,9 +80,8 @@
 			last = time;
 			amount += (goal - amount) * (1 - Math.exp(-elapsed / 95));
 			if (Math.abs(goal - amount) < 0.0005) amount = goal;
-			finish = complete ? (reduced.matches ? 1 : clamp((time - finishStarted) / 900)) : 0;
 			paint();
-			if (amount !== goal || (complete && finish < 1)) frame = requestAnimationFrame(animate);
+			if (amount !== goal) frame = requestAnimationFrame(animate);
 			else last = 0;
 		}
 
@@ -100,14 +92,8 @@
 			const end = Math.max(start + 1, bounds.bottom + scrollY - innerHeight + margin);
 			goal = clamp((scrollY - start) / (end - start));
 			if (bounds.bottom <= innerHeight - margin) goal = 1;
-			const was = complete;
-			if (goal >= 0.9999) complete = true;
-			else if (goal < 0.97) complete = false;
-			if (complete !== was) finishStarted = complete ? performance.now() : null;
 			if (first || reduced.matches) {
 				amount = goal;
-				if (first && complete) finishStarted = performance.now() - 900;
-				finish = complete ? 1 : 0;
 				first = false;
 			}
 			if (!frame) frame = requestAnimationFrame(animate);
@@ -146,7 +132,6 @@
 	aria-valuemin="0"
 	aria-valuemax="100"
 	aria-valuenow={Math.round(amount * 100)}
-	style:transform="scale({1 + 0.04 * Math.sin(Math.PI * smooth(finish))})"
 ></canvas>
 
 <style>
@@ -156,7 +141,6 @@
 		height: 100%;
 		object-fit: contain;
 		color: var(--ink);
-		transform-origin: 50% 100%;
 	}
 	.hidden {
 		visibility: hidden;
