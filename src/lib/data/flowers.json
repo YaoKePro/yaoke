@@ -1,0 +1,163 @@
+[
+	{
+		"src": "/flowers/roses.png",
+		"width": 302,
+		"height": 400,
+		"credit": "Philippe Wolfers, Roses (1894)",
+		"href": "https://commons.wikimedia.org/wiki/File:D2017.023.019.014.jpg"
+	},
+	{
+		"src": "/flowers/columbine.png",
+		"width": 323,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Columbine (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_Ackeley1.jpg"
+	},
+	{
+		"src": "/flowers/gladiolus.png",
+		"width": 222,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Gladiolus (1545)",
+		"href": "https://commons.wikimedia.org/wiki/File:Gladiolus_luteus_Fuchs.png"
+	},
+	{
+		"src": "/flowers/marsh-mallow.png",
+		"width": 242,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Marsh mallow (1545)",
+		"href": "https://commons.wikimedia.org/wiki/File:Alth%C3%A6a_Fuchs.png"
+	},
+	{
+		"src": "/flowers/asarum.png",
+		"width": 263,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Asarabacca (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Asarum_Fuchs.png"
+	},
+	{
+		"src": "/flowers/speedwell.png",
+		"width": 198,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Speedwell (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Ehrenpreis.png"
+	},
+	{
+		"src": "/flowers/solomons-seal.png",
+		"width": 258,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Solomon's seal (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_1543_P._multiflorum.jpg"
+	},
+	{
+		"src": "/flowers/whorled-seal.png",
+		"width": 230,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Whorled Solomon's seal (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_1543_P._verticillata.jpg"
+	},
+	{
+		"src": "/flowers/elecampane.png",
+		"width": 263,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Elecampane (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_Alant.jpg"
+	},
+	{
+		"src": "/flowers/mugwort.png",
+		"width": 208,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Mugwort (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_Beyfu%C3%9F.jpg"
+	},
+	{
+		"src": "/flowers/pansy.png",
+		"width": 250,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Heartsease (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_Freyscham.jpg"
+	},
+	{
+		"src": "/flowers/yarrow.png",
+		"width": 214,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Yarrow (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_Garben.jpg"
+	},
+	{
+		"src": "/flowers/bugle.png",
+		"width": 234,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Bugle (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_Gulden_Guntzel.jpg"
+	},
+	{
+		"src": "/flowers/agrimony.png",
+		"width": 241,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Agrimony (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_Odermennig.jpg"
+	},
+	{
+		"src": "/flowers/corncockle.png",
+		"width": 217,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Corncockle (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_Radten.jpg"
+	},
+	{
+		"src": "/flowers/swallow-wort.png",
+		"width": 303,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Swallow-wort (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_Schwalbenwurz.jpg"
+	},
+	{
+		"src": "/flowers/ladys-mantle.png",
+		"width": 269,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Lady's mantle (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_Synnaw.jpg"
+	},
+	{
+		"src": "/flowers/chicory.png",
+		"width": 254,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Chicory (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_Wegwart.jpg"
+	},
+	{
+		"src": "/flowers/spleenwort.png",
+		"width": 364,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Maidenhair spleenwort (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_Widertodt.jpg"
+	},
+	{
+		"src": "/flowers/wild-angelica.png",
+		"width": 255,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Wild angelica (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_Wild_Angelick.jpg"
+	},
+	{
+		"src": "/flowers/safflower.png",
+		"width": 278,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Wild safflower (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_Wilder_Garten_Saffran.jpg"
+	},
+	{
+		"src": "/flowers/wolfsbane.png",
+		"width": 241,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Wolfsbane (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Fuchs_Wolfswurz.jpg"
+	},
+	{
+		"src": "/flowers/ground-ivy.png",
+		"width": 308,
+		"height": 400,
+		"credit": "Leonhart Fuchs, Ground ivy (1543)",
+		"href": "https://commons.wikimedia.org/wiki/File:Gundelrebe_Fuchs.png"
+	}
+]

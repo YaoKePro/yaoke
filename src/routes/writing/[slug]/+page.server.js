@@ -1,15 +1,18 @@
 import { error } from '@sveltejs/kit';
 import { getPost, listPosts } from '$lib/server/posts.js';
-import mosaics from '$lib/data/mosaics.json';
+import flowers from '$lib/data/flowers.json';
 
 export function entries() {
 	return listPosts().map((p) => ({ slug: p.slug }));
 }
 
+// Posts take drawings in order of publication, so a new post never changes an older one's plant.
+const byAge = listPosts()
+	.map((p) => p.slug)
+	.reverse();
+
 export function load({ params }) {
 	const found = getPost(params.slug);
 	if (!found) error(404, 'Post not found');
-	const tiles = mosaics[params.slug];
-	if (!tiles) throw new Error(`No mosaic for ${params.slug}: run python3 scripts/mosaics.py`);
-	return { ...found, tiles };
+	return { ...found, flower: flowers[byAge.indexOf(params.slug) % flowers.length] };
 }

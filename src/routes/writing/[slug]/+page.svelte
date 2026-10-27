@@ -1,5 +1,5 @@
 <script>
-	import Mosaic from '$lib/components/Mosaic.svelte';
+	import Flower from '$lib/components/Flower.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { longDate } from '$lib/format.js';
 	import { TAGS } from '$lib/site.js';
@@ -64,7 +64,7 @@
 </nav>
 
 <div class="progress">
-	<Mosaic tiles={data.tiles} progress target="#article" />
+	<Flower src={data.flower.src} credit="Drawing: {data.flower.credit}" target="#article" />
 </div>
 
 <style>
@@ -181,19 +181,20 @@
 		position: fixed;
 		right: max(16px, env(safe-area-inset-right));
 		bottom: max(16px, env(safe-area-inset-bottom));
-		width: 116px;
-		height: 116px;
+		width: 112px;
+		height: 141px;
 		pointer-events: none;
 		z-index: 5;
 	}
 	@media (max-width: 900px) {
 		.progress {
-			width: 76px;
-			height: 76px;
+			width: 64px;
+			height: 80px;
+			padding: 4px;
 			right: 8px;
 			bottom: 8px;
 			background: var(--paper);
-			border-radius: 50%;
+			border-radius: 10px;
 		}
 	}
 	@media (max-width: 560px) {
