@@ -14,8 +14,8 @@ export const SITE = {
 export const WRITING_NAME = 'Second Thoughts';
 
 export const TAGS = {
-	human: 'Being human',
-	engineering: 'Engineering'
+	human: 'Human',
+	machine: 'Machine'
 };
 
 /** The two things I'm building now. */

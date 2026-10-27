@@ -1,5 +1,5 @@
 <script>
-	import Mosaic from '$lib/components/Mosaic.svelte';
+	import Flower from '$lib/components/Flower.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { longDate } from '$lib/format.js';
 	import { TAGS } from '$lib/site.js';
@@ -42,7 +42,7 @@
 			<a href="/writing?tag={post.tag}" class="u">{TAGS[post.tag]}</a>
 			{#if post.draft}<span class="flag">Draft</span>{/if}
 		</p>
-		{#if post.description && post.tag === 'engineering'}<p class="dek">{post.description}</p>{/if}
+		{#if post.description && post.tag === 'machine'}<p class="dek">{post.description}</p>{/if}
 	</header>
 
 	<div class="prose">
@@ -64,7 +64,7 @@
 </nav>
 
 <div class="progress">
-	<Mosaic tiles={data.tiles} progress target="#article" />
+	<Flower seed={post.slug} target="#article" />
 </div>
 
 <style>
@@ -182,7 +182,6 @@
 		height: 116px;
 		pointer-events: none;
 		z-index: 5;
-		filter: drop-shadow(0 3px 3px rgba(24, 47, 35, 0.09));
 	}
 	@media (max-width: 900px) {
 		.progress {

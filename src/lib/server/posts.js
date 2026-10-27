@@ -59,7 +59,7 @@ for (const [path, module] of Object.entries(engineeringModules)) {
 		title: meta.title,
 		description: meta.description,
 		date: new Date(`${ymd(meta.date)}T09:00:00+10:00`).toISOString(),
-		tag: 'engineering',
+		tag: 'machine',
 		series: series ?? null,
 		chapter: meta.chapter ?? null,
 		minutes: minutes(html),

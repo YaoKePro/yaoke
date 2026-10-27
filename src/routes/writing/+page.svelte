@@ -10,7 +10,7 @@
 
 	const filters = [{ key: 'all', label: 'All' }, ...Object.entries(TAGS).map(([key, label]) => ({ key, label }))];
 
-	// The filter lives in the URL (?tag=engineering) so it can be linked; the prerendered page shows all.
+	// The filter lives in the URL (?tag=machine) so it can be linked; the prerendered page shows all.
 	let tag = $state('all');
 	onMount(() => {
 		const wanted = new URL(location.href).searchParams.get('tag');
