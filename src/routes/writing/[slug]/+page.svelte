@@ -14,7 +14,7 @@
 	<figure class="cover">
 		<img
 			src={post.cover.src}
-			srcset={post.cover.small ? `${post.cover.small} 840w, ${post.cover.src} ${post.cover.width}w` : undefined}
+			srcset={post.cover.small ? `${post.cover.small} ${Math.round(post.cover.width / 2)}w, ${post.cover.src} ${post.cover.width}w` : undefined}
 			sizes="(max-width: 1040px) 100vw, 1040px"
 			alt={post.cover.alt}
 			width={post.cover.width}
@@ -68,17 +68,20 @@
 </div>
 
 <style>
+	/* The whole painting, never cropped: wide ones fill the column, tall ones are capped and centred. */
 	.cover {
-		max-width: 1040px;
+		width: fit-content;
+		max-width: min(1040px, 100%);
 		margin: 8px auto 0;
 		padding: 0 24px;
+		box-sizing: border-box;
 	}
 	.cover img {
 		display: block;
-		width: 100%;
+		width: auto;
 		height: auto;
-		aspect-ratio: 21 / 9;
-		object-fit: cover;
+		max-width: 100%;
+		max-height: min(68vh, 620px);
 		border-radius: 4px;
 		background: var(--wash);
 	}

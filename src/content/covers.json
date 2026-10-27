@@ -3,8 +3,8 @@
 		"src": "/images/covers/that-time-i-was-attacked.webp",
 		"small": "/images/covers/that-time-i-was-attacked-840.webp",
 		"alt": "A figure on a bridge clutching its face under a swirling orange sky",
-		"width": 1680,
-		"height": 720,
+		"width": 1015,
+		"height": 1260,
 		"credit": "Edvard Munch, The Scream (1893). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg"
 	},
@@ -12,8 +12,8 @@
 		"src": "/images/covers/how-to-easily-be-rich.webp",
 		"small": "/images/covers/how-to-easily-be-rich-840.webp",
 		"alt": "A moneylender weighing coins while his wife watches, a prayer book open in her hands",
-		"width": 1680,
-		"height": 720,
+		"width": 1339,
+		"height": 1260,
 		"credit": "Quentin Matsys, The Moneylender and His Wife (1514). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Massysm_Quentin_%E2%80%94_The_Moneylender_and_his_Wife_%E2%80%94_1514.jpg"
 	},
@@ -22,7 +22,7 @@
 		"small": "/images/covers/67-shades-of-grey-pt-2-840.webp",
 		"alt": "Blind monks each feeling a different part of an elephant",
 		"width": 1680,
-		"height": 720,
+		"height": 1217,
 		"credit": "Hanabusa Itchō, Blind Monks Examining an Elephant (c. 1700). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Blind_monks_examining_an_elephant.jpg"
 	},
@@ -30,8 +30,8 @@
 		"src": "/images/covers/67-shades-of-grey-pt-1.webp",
 		"small": "/images/covers/67-shades-of-grey-pt-1-840.webp",
 		"alt": "A steam train crossing a bridge through rain and haze",
-		"width": 1680,
-		"height": 720,
+		"width": 1678,
+		"height": 1260,
 		"credit": "J. M. W. Turner, Rain, Steam and Speed (1844). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:J._M._W._Turner_-_Rain%2C_Steam_and_Speed_%E2%80%93_The_Great_Western_Railway.jpg"
 	},
@@ -40,7 +40,7 @@
 		"small": "/images/covers/what-is-a-bell-curve-840.webp",
 		"alt": "Crowds of people relaxing on a riverbank, painted in dots",
 		"width": 1680,
-		"height": 720,
+		"height": 1118,
 		"credit": "Georges Seurat, A Sunday Afternoon on the Island of La Grande Jatte (1884). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:A_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg"
 	},
@@ -48,8 +48,8 @@
 		"src": "/images/covers/most-people-are-full-of-crap.webp",
 		"small": "/images/covers/most-people-are-full-of-crap-840.webp",
 		"alt": "A conjurer performing a cup trick while a pickpocket robs a spectator",
-		"width": 1680,
-		"height": 720,
+		"width": 1516,
+		"height": 1260,
 		"credit": "Hieronymus Bosch, The Conjurer (c. 1502). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Hieronymus_Bosch_051.jpg"
 	},
@@ -57,8 +57,8 @@
 		"src": "/images/covers/intuition-or-technical-study.webp",
 		"small": "/images/covers/intuition-or-technical-study-840.webp",
 		"alt": "Young dancers practising in a rehearsal room while a teacher leans on his cane",
-		"width": 1680,
-		"height": 720,
+		"width": 1097,
+		"height": 1260,
 		"credit": "Edgar Degas, The Ballet Class (1873–76). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Edgar_Degas_-_The_Ballet_Class_-_Google_Art_Project.jpg"
 	},
@@ -67,7 +67,7 @@
 		"small": "/images/covers/missed-opportunities-840.webp",
 		"alt": "Three women bending to pick up the last grain left in a harvested field",
 		"width": 1680,
-		"height": 720,
+		"height": 1257,
 		"credit": "Jean-François Millet, The Gleaners (1857). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project_2.jpg"
 	},
@@ -75,8 +75,8 @@
 		"src": "/images/covers/not-a-quant.webp",
 		"small": "/images/covers/not-a-quant-840.webp",
 		"alt": "Men sitting around a table playing cards",
-		"width": 1680,
-		"height": 720,
+		"width": 1536,
+		"height": 1260,
 		"credit": "Paul Cézanne, The Card Players (1890–92). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Les_Joueurs_de_cartes%2C_par_Paul_C%C3%A9zanne.jpg"
 	},
@@ -85,7 +85,7 @@
 		"small": "/images/covers/personality-theory-840.webp",
 		"alt": "A town square full of children playing dozens of different games",
 		"width": 1680,
-		"height": 720,
+		"height": 1220,
 		"credit": "Pieter Bruegel the Elder, Children's Games (1560). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_Children%E2%80%99s_Games_-_Google_Art_Project.jpg"
 	},
@@ -94,7 +94,7 @@
 		"small": "/images/covers/gambling-840.webp",
 		"alt": "A young man playing cards while a cheat signals his partner",
 		"width": 1680,
-		"height": 720,
+		"height": 1208,
 		"credit": "Caravaggio, The Cardsharps (c. 1595). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Caravaggio_-_The_Cardsharps_%281596-97%29_Kimbell_Art_Museum.jpg"
 	},
@@ -102,8 +102,8 @@
 		"src": "/images/covers/getting-to-yes.webp",
 		"small": "/images/covers/getting-to-yes-840.webp",
 		"alt": "Two commanders meeting between their armies as one hands over the keys of a city",
-		"width": 1680,
-		"height": 720,
+		"width": 1528,
+		"height": 1260,
 		"credit": "Diego Velázquez, The Surrender of Breda (1635). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Velazquez-The_Surrender_of_Breda.jpg"
 	},
@@ -111,8 +111,8 @@
 		"src": "/images/covers/50-shades-of-grey.webp",
 		"small": "/images/covers/50-shades-of-grey-840.webp",
 		"alt": "A woman in black seated in profile against a grey wall",
-		"width": 1680,
-		"height": 720,
+		"width": 1416,
+		"height": 1260,
 		"credit": "James McNeill Whistler, Arrangement in Grey and Black No. 1 (1871). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Whistlers_Mother_high_res.jpg"
 	},
@@ -121,7 +121,7 @@
 		"small": "/images/covers/i-love-george-carlin-840.webp",
 		"alt": "The philosopher Diogenes sitting in his barrel, lighting a lamp, surrounded by dogs",
 		"width": 1680,
-		"height": 720,
+		"height": 1234,
 		"credit": "Jean-Léon Gérôme, Diogenes (1860). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Jean-L%C3%A9on_G%C3%A9r%C3%B4me_-_Diogenes_-_Walters_37131.jpg"
 	},
@@ -129,8 +129,8 @@
 		"src": "/images/covers/i-need-to-confess.webp",
 		"small": "/images/covers/i-need-to-confess-840.webp",
 		"alt": "A kneeling son embraced by his father",
-		"width": 1680,
-		"height": 720,
+		"width": 966,
+		"height": 1260,
 		"credit": "Rembrandt, The Return of the Prodigal Son (c. 1668). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Rembrandt_Harmensz_van_Rijn_-_Return_of_the_Prodigal_Son_-_Google_Art_Project.jpg"
 	},
@@ -139,7 +139,7 @@
 		"small": "/images/covers/hiring-840.webp",
 		"alt": "Five guild officials at a table looking up as if someone has just walked in",
 		"width": 1680,
-		"height": 720,
+		"height": 1135,
 		"credit": "Rembrandt, Syndics of the Drapers' Guild (1662). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Rembrandt_-_De_Staalmeesters-_het_college_van_staalmeesters_%28waardijns%29_van_het_Amsterdamse_lakenbereidersgilde_-_Google_Art_Project.jpg"
 	},
@@ -147,8 +147,8 @@
 		"src": "/images/covers/llms-evaluated.webp",
 		"small": "/images/covers/llms-evaluated-840.webp",
 		"alt": "Surgeons gathered around a body as a doctor demonstrates the muscles of the arm",
-		"width": 1680,
-		"height": 720,
+		"width": 1672,
+		"height": 1260,
 		"credit": "Rembrandt, The Anatomy Lesson of Dr Nicolaes Tulp (1632). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Rembrandt_-_The_Anatomy_Lesson_of_Dr_Nicolaes_Tulp.jpg"
 	},
@@ -157,7 +157,7 @@
 		"small": "/images/covers/chapter-0-is-this-for-you-840.webp",
 		"alt": "Jockeys racing horses at full gallop",
 		"width": 1680,
-		"height": 720,
+		"height": 1226,
 		"credit": "Théodore Géricault, The 1821 Derby at Epsom (1821). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Le_Derby_de_1821_%C3%A0_Epsom_-_Th%C3%A9odore_G%C3%A9ricault_-_Mus%C3%A9e_du_Louvre_Peintures_MI_708.jpg"
 	},
@@ -165,8 +165,8 @@
 		"src": "/images/covers/chapter-1-data-data-data.webp",
 		"small": "/images/covers/chapter-1-data-data-data-840.webp",
 		"alt": "A chestnut racehorse rearing against a plain background",
-		"width": 1680,
-		"height": 720,
+		"width": 1051,
+		"height": 1260,
 		"credit": "George Stubbs, Whistlejacket (c. 1762). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Whistlejacket_by_George_Stubbs_edit.jpg"
 	},
@@ -175,7 +175,7 @@
 		"small": "/images/covers/chapter-2-choose-your-stack-840.webp",
 		"alt": "A racehorse with its jockey and trainer on an open heath",
 		"width": 1680,
-		"height": 720,
+		"height": 868,
 		"credit": "George Stubbs, Gimcrack on Newmarket Heath (c. 1765). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:George_Stubbs_010.jpg"
 	},
@@ -183,8 +183,8 @@
 		"src": "/images/covers/ai-getting-gold-in-imo-is-not-that-surprising.webp",
 		"small": "/images/covers/ai-getting-gold-in-imo-is-not-that-surprising-840.webp",
 		"alt": "Philosophers and mathematicians gathered in a vast arched hall",
-		"width": 1680,
-		"height": 720,
+		"width": 1624,
+		"height": 1260,
 		"credit": "Raphael, The School of Athens (1511). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg"
 	},
@@ -193,7 +193,7 @@
 		"small": "/images/covers/cheap-model-benchmark-840.webp",
 		"alt": "A teacher and her pupils in a one-room schoolhouse",
 		"width": 1680,
-		"height": 720,
+		"height": 933,
 		"credit": "Winslow Homer, The Country School (1871). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Winslow_Homer_-_The_Country_School_%281871%29.jpg"
 	},
@@ -202,7 +202,7 @@
 		"small": "/images/covers/i-create-6-massive-code-projects-10k-lines-in-3-months-840.webp",
 		"alt": "A colossal half-built tower rising over a harbour town",
 		"width": 1680,
-		"height": 720,
+		"height": 1229,
 		"credit": "Pieter Bruegel the Elder, The Tower of Babel (1563). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_%28Vienna%29_-_Google_Art_Project_-_edited.jpg"
 	},
@@ -211,7 +211,7 @@
 		"small": "/images/covers/architecting-840.webp",
 		"alt": "An architect reclining on a giant column, looking over temples from every era",
 		"width": 1680,
-		"height": 720,
+		"height": 1032,
 		"credit": "Thomas Cole, The Architect's Dream (1840). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Thomas_Cole_-_Architect%E2%80%99s_Dream_-_Google_Art_Project.jpg"
 	},
@@ -220,7 +220,7 @@
 		"small": "/images/covers/rust-impressions-840.webp",
 		"alt": "Workers hauling glowing iron through a smoky rolling mill",
 		"width": 1680,
-		"height": 720,
+		"height": 1043,
 		"credit": "Adolph Menzel, The Iron Rolling Mill (1875). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Adolph_Menzel_-_Eisenwalzwerk_-_Google_Art_Project.jpg"
 	},
@@ -228,8 +228,8 @@
 		"src": "/images/covers/why-llms-are-misunderstood.webp",
 		"small": "/images/covers/why-llms-are-misunderstood-840.webp",
 		"alt": "Two ambassadors beside a table of instruments, with a distorted skull across the floor",
-		"width": 1680,
-		"height": 720,
+		"width": 1279,
+		"height": 1260,
 		"credit": "Hans Holbein the Younger, The Ambassadors (1533). Public domain.",
 		"href": "https://commons.wikimedia.org/wiki/File:Hans_Holbein_the_Younger_-_The_Ambassadors_-_Google_Art_Project.jpg"
 	}
