@@ -22,7 +22,7 @@ const mdsvexOptions = {
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter({ strict: false }),
+		adapter: adapter({ strict: false, fallback: '404.html' }),
 		prerender: {
 			handleMissingId: 'warn'
 		}
