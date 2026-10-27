@@ -4,10 +4,10 @@ For each drawing in scripts/flowers.json:
 1. Fetch it from Wikimedia Commons (cached in ~/.cache/flowers-src), blank its printed labels,
    crop, and lift the lines off the paper as an alpha mask.
 2. Thin the ink to centre lines and split them into strokes at ends and junctions.
-3. Order the strokes the way an artist plausibly would: start at the focal point (the densest ink,
-   leaning towards the top, usually the bloom) and work locally, always moving to the nearest
-   unfinished stroke, with short shading strokes costing a little extra so an area gets its
-   outline before its hatching.
+3. Order the strokes so the plant seems to grow: start at the base (the densest ink near the
+   bottom) and work locally, always moving to the nearest unfinished stroke, with strokes that
+   reach above the highest point so far costing extra (so it climbs) and short shading strokes
+   costing a little extra (so an area gets its outline before its hatching).
 4. Time it: the pen draws at a steady speed and lifts briefly between strokes. Every ink pixel
    takes the time of the nearest centre-line point, so the original texture stays intact.
 
@@ -82,21 +82,33 @@ def strokes_of(skel):
 
 
 def order_of(strokes, lengths, work):
-    density = ndimage.gaussian_filter(work, work.shape[1] / 8) * np.linspace(1.0, 0.55, work.shape[0])[:, None]
-    pen = np.array(np.unravel_index(np.argmax(density), density.shape), dtype=np.float32)
+    # Start at the very bottom (the roots, or where the stem meets the ground), at the densest ink there.
+    rows = np.nonzero((work > 0.2).sum(axis=1) > 3)[0]
+    band = work[max(0, rows[-1] - work.shape[0] // 12): rows[-1] + 1]
+    x = int(np.argmax(ndimage.gaussian_filter1d(band.sum(axis=0), work.shape[1] / 30)))
+    pen = np.array([rows[-1], x], dtype=np.float32)
     starts = np.array([s[0] for s in strokes])
     ends = np.array([s[-1] for s in strokes])
+    tops = np.array([s[:, 0].min() for s in strokes])
     penalty = np.where(lengths < 12, 18.0, np.where(lengths < 36, 6.0, 0.0)) - 0.1 * np.minimum(lengths, 80)
+    # Grow upwards: strokes reaching above the highest point drawn so far cost extra, so the
+    # drawing climbs from the base like a plant growing instead of starting at the bloom.
+    front = float(pen[0])
     left = np.ones(len(strokes), dtype=bool)
     order = []
     while left.any():
         idx = np.nonzero(left)[0]
         d_start = np.hypot(*(starts[idx] - pen).T)
         d_end = np.hypot(*(ends[idx] - pen).T)
-        k = int(np.argmin(np.minimum(d_start, d_end) + penalty[idx]))
-        i, flip = int(idx[k]), bool(d_end[k] < d_start[k])
+        climb = 1.2 * np.maximum(0, front - tops[idx])
+        k = int(np.argmin(np.minimum(d_start, d_end) + penalty[idx] + climb))
+        i = int(idx[k])
+        # Draw each stroke from its lower end where that is close enough, so lines grow upwards.
+        lower_first = starts[i][0] >= ends[i][0]
+        flip = bool(d_end[k] < d_start[k]) if abs(d_end[k] - d_start[k]) > 20 else not lower_first
         order.append((i, flip))
         pen = (strokes[i][0] if flip else strokes[i][-1]).copy()
+        front = min(front, float(tops[i]))
         left[i] = False
     return order
 
