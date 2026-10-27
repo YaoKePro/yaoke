@@ -9,6 +9,15 @@
 /blogs/concrete-llm-use-cases /writing 301
 /blogs/specialness /writing 301
 
+# Old blog feed and page addresses (blog.yaoke.pro sends everything to /writing/...)
+/writing/rss.xml /rss.xml 301
+/writing/feed.xml /rss.xml 301
+/writing/index.xml /rss.xml 301
+/writing/sitemap.xml /sitemap.xml 301
+/writing/about /about 301
+/writing/tags /writing 301
+/writing/archive /writing 301
+
 # Drafts are not on the site; their old addresses go back to the list (remove a line when its post is published)
 /writing/most-people-are-full-of-crap /writing 302
 /writing/i-need-to-confess /writing 302
