@@ -1,7 +1,7 @@
 ---
 title: "A 0.30-Dollar Model Beat GPT-5.4 and Sonnet at Teaching Kids to Code - Why Fair Benchmarks Are Deeply Unfair"
 slug: a-0-30-dollar-model-beat-gpt-5-4-and-sonnet-at-teaching-kids-to-code
-description: "I benchmarked 8 LLMs as coding tutors for kids across 131 conversations. The cheapest model beat the most expensive ones, but only when I gave it the right prompt. Same model, different prompt: a 30-point swing."
+description: "I benchmarked 8 LLMs as coding tutors for kids across 131 conversations. The cheapest model beat the most expensive ones, but only when I gave it the right prompt. Same model, different prompt: up to a 32-point swing."
 date: 2026-04-04
 tags:
   - llm
@@ -61,7 +61,7 @@ Sonnet was always second or third. Never first, never below third. If you need p
 
 ## The nagging feeling
 
-After Round 1, something bothered me. The V1 version of this benchmark (before I fixed the methodology) had ranked MiniMax 2nd and MiMo 3rd. In V2, with the "fair" generic prompt, they were dead last and second to last.
+After Round 1, something bothered me. The V1 version of this benchmark (before I fixed the methodology) had ranked MiniMax 2nd and MiMo 3rd. In V2, with the "fair" generic prompt, MiniMax was dead last and MiMo was sixth of eight.
 
 What changed? I assumed V2 was just more accurate. V1 had flaws: single runs instead of triples, the simulator generated its own opening messages (3 out of 5 models ended up building different projects), and the simulator was too articulate.
 
@@ -160,7 +160,7 @@ The standard approach to LLM evaluation is to give every model the same prompt a
 
 Here is the problem: it measures which model is most robust to generic prompting, not which model can perform best in production. In production, you will optimize the prompt. Nobody ships a product with a generic system prompt. You iterate, you test, you tune. The question isn't "how does this model do with my first draft of a prompt?" It is "what's the best this model can do?"
 
-When you give Sonnet the same prompt as MiniMax, Sonnet wins because Sonnet is more robust. It handles vagueness better. It doesn't need explicit instructions to be helpful. But when you give each model its own optimized prompt, the ranking completely flips. MiniMax jumps from 8th to 2nd. MiMo jumps from 7th to 3rd.
+When you give Sonnet the same prompt as MiniMax, Sonnet wins because Sonnet is more robust. It handles vagueness better. It doesn't need explicit instructions to be helpful. But when you give each model its own optimized prompt, the ranking completely flips. MiniMax jumps from 8th to 1st. MiMo jumps from 6th into the top three.
 
 A "fair" benchmark that ranks models without prompt optimization is measuring the wrong thing. It is ranking the models' ability to compensate for your lazy prompting, not their actual capability ceiling.
 

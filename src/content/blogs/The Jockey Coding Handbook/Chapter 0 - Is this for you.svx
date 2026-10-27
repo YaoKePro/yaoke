@@ -25,4 +25,3 @@ Central to the "jockey coding" methodology is the idea of *source of truth*. We 
 
 In the past 3 months I have spent $500USD and countless hours prompting, editing, guiding and swearing at every AI tool out there and gained many experiences which I'll distill and summarise in this series. Since this is a methodology/guide, I will not be recommending any specific AI tools, since the learnings should be generalisable to any.
 
-I will be publishing new chapters weekly in my blog for free. If this series has helped you, please consider buying me a coffee (yet to set this up...). 

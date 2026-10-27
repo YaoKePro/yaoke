@@ -37,7 +37,8 @@
     "slug": "most-people-are-full-of-crap",
     "title": "Most people are full of crap",
     "date": "2026-10-10T00:49:27+11:00",
-    "tag": "human"
+    "tag": "human",
+    "draft": true
   },
   {
     "slug": "intuition-or-technical-study",
@@ -94,6 +95,7 @@
     "slug": "i-need-to-confess",
     "title": "I need to confess",
     "date": "2026-09-27T23:01:44+10:00",
-    "tag": "human"
+    "tag": "human",
+    "draft": true
   }
 ]

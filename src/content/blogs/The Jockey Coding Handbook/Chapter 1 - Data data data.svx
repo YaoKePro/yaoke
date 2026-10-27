@@ -26,7 +26,7 @@ Later on when the AI is building business logic, as long as it reads this docume
 
 Start with your database schema, define basic operations. You'll be well set up for the rest of your coding journey. Does each dealership have fields like name? How do we know which cars are in which dealership? How do we move cars between dealerships?
 
-This is also reminiscent of Domain Driven Development. 
+This is also reminiscent of Domain Driven Design. 
 
 Here's an example database.md!
 

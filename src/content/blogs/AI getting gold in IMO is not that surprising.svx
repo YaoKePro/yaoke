@@ -10,7 +10,7 @@ tags:
   - llm
 category: coding
 ---
-I remember last year reading the news of AI getting gold in the International Maths Olympiad and feeling a strong sense of dread. I was always good at maths growing up, but not IMO gold good. Now an artificial, scalable model can crush me in one of my core proficiencies.
+I remember reading the news earlier this year of AI getting gold in the International Maths Olympiad and feeling a strong sense of dread. I was always good at maths growing up, but not IMO gold good. Now an artificial, scalable model can crush me in one of my core proficiencies.
 
 But this got me wondering, how does the IMO actually work? From what I’ve found, the IMO problems aren’t just random puzzles or cutting edge research. They’re carefully designed challenges that echo the flavor of deeper mathematics. A mathematician or problem composer will take an interesting mathematical idea, strip it down to a high-school accessible form, and craft it into a problem that’s tough but solvable, while still keeping the spark of what makes the original idea compelling.
 

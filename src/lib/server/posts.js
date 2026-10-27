@@ -73,7 +73,7 @@ for (const post of posts) {
 	seen.add(post.slug);
 }
 
-// Drafts still get a page at their address, but no list, feed, search or sitemap links to them.
+// Drafts stay off the site entirely: no page, list, feed, search or sitemap entry.
 const published = posts.filter((p) => !p.draft);
 
 /** Post metadata without bodies, newest first. Drafts only when asked for. */
@@ -82,10 +82,9 @@ export function listPosts({ drafts = false } = {}) {
 }
 
 export function getPost(slug) {
-	const post = posts.find((p) => p.slug === slug);
-	if (!post) return null;
-	const index = published.indexOf(post);
+	const index = published.findIndex((p) => p.slug === slug);
+	if (index < 0) return null;
+	const post = published[index];
 	const strip = (p) => p && { slug: p.slug, title: p.title };
-	if (index < 0) return { post, newer: null, older: null };
 	return { post, newer: strip(published[index - 1]), older: strip(published[index + 1]) };
 }
