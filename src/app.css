@@ -13,9 +13,6 @@
 	--line-strong: #e0e0da;
 	--wash: #f4f4f1;
 	--accent: hsl(172 30% 34%);
-	--leaf: #5f8a5c;
-	--pollen: #e2b84b;
-	--pollen-edge: #b98d24;
 	--sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
 	--serif: 'Newsreader Variable', Georgia, 'Times New Roman', serif;
 	--mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
@@ -36,9 +33,6 @@
 		--line-strong: #33332f;
 		--wash: #1d1d1b;
 		--accent: hsl(172 35% 62%);
-		--leaf: #86ad80;
-		--pollen: #e2b84b;
-		--pollen-edge: #e2b84b;
 		color-scheme: dark;
 	}
 }
@@ -54,9 +48,6 @@
 	--line-strong: #33332f;
 	--wash: #1d1d1b;
 	--accent: hsl(172 35% 62%);
-	--leaf: #86ad80;
-	--pollen: #e2b84b;
-	--pollen-edge: #e2b84b;
 	color-scheme: dark;
 }
 

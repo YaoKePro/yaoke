@@ -12,7 +12,7 @@
 
 <div class="column home">
 	<section class="intro">
-		<h1>I build tools that let AI do real work, and write about being human.</h1>
+		<h1>I think about people and machines</h1>
 		<p>Developer and occasional writer. I enjoy solving problems creatively.</p>
 	</section>
 

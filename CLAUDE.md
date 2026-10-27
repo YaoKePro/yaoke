@@ -12,7 +12,7 @@ npm run build && npx vite preview --port 4180
 ## Rules
 
 - Every word of editorial copy (posts, intro, about, project lines) belongs to the author. Never rewrite or add prose unless asked; only fix typos or facts when asked ("fix those"). Never use em dashes.
-- Design: "quiet craft". Calm editorial look (Newsreader for reading and headlines, Inter for interface text), near-white light mode by default with a dark mode, polish from small interactions rather than loud visuals. Reading progress in the corner of posts is a line-art flower (`src/lib/flower.js`, `Flower.svelte`) grown from the post's slug: the stem draws, leaves unfurl, petals open, and it takes its colour at the end. Every post gets its own flower automatically.
+- Design: "quiet craft". Calm editorial look (Newsreader for reading and headlines, Inter for interface text), near-white light mode by default with a dark mode, polish from small interactions rather than loud visuals. Reading progress in the corner of posts is a black and white ink drawing of a flower (`src/lib/flower.js`, `Flower.svelte`), grown from the post's slug: the stem draws, leaves unfurl, the bud forms and the bloom opens. Every post gets its own variation automatically. Roses for now; more species can be added as new bloom drawings in `flower.js`.
 - Keep pages fast and accessible: no heavy animation libraries, everything prerendered, works at phone width, respects reduced motion.
 
 ## Content
