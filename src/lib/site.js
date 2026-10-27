@@ -37,7 +37,7 @@ export const FEATURED = [
 		slug: 'frankensurf',
 		year: '2026',
 		stars: 103,
-		line: 'One call that gets your agent through any site, stitched from 28 browsing tools.',
+		line: 'One read() call for AI agents, stitched from 41 web tools.',
 		href: 'https://github.com/yail259/frankensurf',
 		cover: {
 			src: '/images/projects/frankensurf.webp',
