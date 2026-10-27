@@ -22,7 +22,7 @@ One of the most obvious use cases of LLMs, and one that led to a panic bearish o
 There are some killer advantages of LLMs over traditional search engines:
 
 1. True semantic search
-I remember taking a workshop on how to use Google back around the 2020s. It was on how to break your search down into keywords, certain Google features like search for exact quotes and so on. At the time, I thought, this is quite unintuitive and hard to learn, and alas I was never diligent enough to master the ins and outs of Google's features. Now we are seeing a *true* paradigm shift: we can search for anything semantically. This is far beyond the usefulness of keywords and page ranking. An abstract query like:
+I remember taking a workshop on how to use Google back around the 2010s. It was on how to break your search down into keywords, certain Google features like search for exact quotes and so on. At the time, I thought, this is quite unintuitive and hard to learn, and alas I was never diligent enough to master the ins and outs of Google's features. Now we are seeing a *true* paradigm shift: we can search for anything semantically. This is far beyond the usefulness of keywords and page ranking. An abstract query like:
 
 > evaluate the effects of lamb prices on the New Zealand economy?
 
@@ -42,7 +42,7 @@ They also have almost no bias, and I say almost because, everything is a little 
 
 ## LLM as an agent
 
-The other major use case, or rather perspective on viewing LLMs is as an agent or persona with human like qualities. I believe the true persona of LLMs is an extremely knowledgable, slightly insecure, infinitely patient, somewhat wise, emotionally neutral, spineless, not logically or creatively intelligent person. 
+The other major use case, or rather perspective on viewing LLMs is as an agent or persona with human like qualities. I believe the true persona of LLMs is an extremely knowledgeable, slightly insecure, infinitely patient, somewhat wise, emotionally neutral, spineless, not logically or creatively intelligent person. 
 
 I say the above because of its following qualities:
 
@@ -62,4 +62,4 @@ Since LLMs generate new tokens based on past tokens, and your questions are the 
 Nowadays there's an increased reliance on LLMs to not only talk to us, but to call tools and interact with MCP servers. This turns a passive chatting buddy into a full-blown actor who can browse the newest shoes AND buy them for you. I've been playing around with this particular feature a lot lately, and I must say it's rather uncanny to see Cursor create new files on your computer (our computer). Tools are still in their early days, sometimes it's hard to get the model to use the tools exactly the way you want, and too many tools definitely overwhelm the model.
 
 ## Conclusion
-LLMs are a generational improvement on search engines, and for their improved experience on answering questions, will slice a huge chunk of traffic away from giants like Google (maybe right into their Gemini, haha). LLMs are best thought of as an extremely knowledgable, slightly insecure, infinitely patient, somewhat wise, emotionally neutral, spineless, not logically or creatively intelligent person. As such, they are immensely valuable if we ask the right questions. 
+LLMs are a generational improvement on search engines, and for their improved experience on answering questions, will slice a huge chunk of traffic away from giants like Google (maybe right into their Gemini, haha). LLMs are best thought of as an extremely knowledgeable, slightly insecure, infinitely patient, somewhat wise, emotionally neutral, spineless, not logically or creatively intelligent person. As such, they are immensely valuable if we ask the right questions. 

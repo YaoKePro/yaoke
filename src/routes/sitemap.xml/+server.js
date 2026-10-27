@@ -4,7 +4,7 @@ import { SITE } from '$lib/site.js';
 export const prerender = true;
 
 export function GET() {
-	const pages = ['', '/writing', '/projects', '/about', '/quotes'];
+	const pages = ['', '/writing', '/projects', '/about'];
 	const urls = [
 		...pages.map((p) => `<url><loc>${SITE.url}${p}</loc></url>`),
 		...listPosts().map((p) => `<url><loc>${SITE.url}/writing/${p.slug}</loc><lastmod>${p.date.slice(0, 10)}</lastmod></url>`)

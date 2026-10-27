@@ -20,7 +20,7 @@ As a systems level language, Rust does a wonderful job of implementing convenien
 
 One of the biggest positives of this language is immutability by default. No more unintended mutations or re-assignments.
 
-Also explicitly giving users the choice to check for overflow and underflow before the compilation is a very interesting design choice and concept, offering maximum flexibility. 
+Also explicitly giving users the choice to check for overflow and underflow at runtime is a very interesting design choice and concept, offering maximum flexibility. 
 
 Explicit casting in a strongly-typed language seems to be the way to go. 
 

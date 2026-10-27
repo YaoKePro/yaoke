@@ -55,3 +55,6 @@
 /blogs /writing 301
 /blogs/* /writing/:splat 301
 /deep-dives /writing?tag=machine 301
+
+# Retired page
+/quotes / 301

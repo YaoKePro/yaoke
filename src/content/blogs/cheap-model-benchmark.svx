@@ -170,7 +170,7 @@ This matters enormously for purchasing decisions. If you are choosing between a 
 
 Five things I wish I had known before running 131 conversations:
 
-1. **Optimize the prompt per model before comparing.** The prompt was worth 23-32 points. Model selection on a fixed prompt was worth 20 points. The leaderboard completely flips when you tune.
+1. **Optimize the prompt per model before comparing.** The prompt was worth 23-32 points. Model selection on a fixed prompt was worth 22 points. The leaderboard completely flips when you tune.
 
 2. **Run everything 3 times.** MiniMax looked decent at 58% average until a 39% run showed up. Without variance data you are publishing noise.
 
