@@ -1,5 +1,5 @@
 <script>
-	import Flower from '$lib/components/Flower.svelte';
+	import Mosaic from '$lib/components/Mosaic.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { longDate } from '$lib/format.js';
 	import { TAGS } from '$lib/site.js';
@@ -64,7 +64,7 @@
 </nav>
 
 <div class="progress">
-	<Flower seed={post.slug} target="#article" />
+	<Mosaic tiles={data.tiles} progress target="#article" />
 </div>
 
 <style>
