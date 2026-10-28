@@ -123,6 +123,7 @@ button {
 
 .label {
 	margin: 0;
+	scroll-margin-top: 32px;
 	font-size: 13px;
 	font-weight: 500;
 	color: var(--muted);

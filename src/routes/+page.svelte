@@ -28,7 +28,7 @@
 	<section aria-labelledby="selected">
 		<h2 id="selected" class="label">Selected projects</h2>
 		<ProjectList projects={SELECTED} />
-		<a href="/projects" class="more">
+		<a href="/projects#toys" class="more">
 			<span>Toy and learning projects</span>
 			<span class="arrow">{TOYS.length} more →</span>
 		</a>

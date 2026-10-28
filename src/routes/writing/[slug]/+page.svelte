@@ -1,4 +1,10 @@
+<script module>
+	// How many history entries back the writing list is, when the reader came from it.
+	let listSteps = 0;
+</script>
+
 <script>
+	import { afterNavigate } from '$app/navigation';
 	import Flower from '$lib/components/Flower.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { longDate } from '$lib/format.js';
@@ -6,6 +12,21 @@
 
 	let { data } = $props();
 	let post = $derived(data.post);
+
+	// Track the trip from the list through older/newer links, so "Writing" can return to the same spot.
+	afterNavigate(({ from, type, delta }) => {
+		const path = from?.url.pathname;
+		const step = type === 'popstate' ? (delta ?? -1) : 1;
+		if (path === '/writing') listSteps = step > 0 ? 1 : 0;
+		else if (path?.startsWith('/writing/') && listSteps > 0) listSteps = Math.max(0, listSteps + step);
+		else listSteps = 0;
+	});
+
+	function backToList(event) {
+		if (listSteps < 1) return;
+		event.preventDefault();
+		history.go(-listSteps);
+	}
 </script>
 
 <Seo title={post.title} description={post.description ?? post.title} type="article" published={post.date} image={post.cover?.src} />
@@ -32,7 +53,7 @@
 
 <article class="column post" id="article">
 	<header class="head">
-		<a href="/writing" class="back"><span class="arrow">←</span> Writing</a>
+		<a href="/writing" class="back" onclick={backToList}><span class="arrow">←</span> Writing</a>
 		<h1>{post.title}</h1>
 		<p class="meta">
 			<time datetime={post.date}>{longDate(post.date)}</time>
