@@ -74,7 +74,9 @@ for (const post of posts) {
 }
 
 // Drafts stay off the site entirely: no page, list, feed, search or sitemap entry.
-const published = posts.filter((p) => !p.draft);
+// So do posts with a publishAfter date still in the future, until a build after that date.
+const embargoed = (p) => p.publishAfter && new Date(p.publishAfter) > new Date();
+const published = posts.filter((p) => !p.draft && !embargoed(p));
 
 /** Post metadata without bodies, newest first. Drafts only when asked for. */
 export function listPosts({ drafts = false } = {}) {
