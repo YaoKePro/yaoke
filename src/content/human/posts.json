@@ -2,16 +2,8 @@
   {
     "slug": "that-time-i-was-attacked",
     "title": "That Time I Was Attacked",
-    "date": "2026-10-25T00:26:49+11:00",
-    "tag": "human",
-    "draft": true
-  },
-  {
-    "slug": "how-to-easily-be-rich",
-    "title": "How to easily be rich :(",
-    "date": "2026-10-20T23:22:36+11:00",
-    "tag": "human",
-    "draft": true
+    "date": "2026-10-28T22:46:52+11:00",
+    "tag": "human"
   },
   {
     "slug": "i-get-why-people-hate-ai-i-also-get-why-people-love-it-nuance-pt-2",
@@ -19,6 +11,13 @@
     "date": "2026-10-27T21:00:00+11:00",
     "tag": "human",
     "description": "As of October 2026, a lot of people hate AI. I am neither an AI worshipper nor a luddite, I am just here to paint the bigger picture."
+  },
+  {
+    "slug": "how-to-easily-be-rich",
+    "title": "How to easily be rich :(",
+    "date": "2026-10-20T23:22:36+11:00",
+    "tag": "human",
+    "draft": true
   },
   {
     "slug": "praise-be-to-big-oil-nuance-pt-1",
