@@ -19,7 +19,6 @@
 /writing/archive /writing 301
 
 # Drafts are not on the site; their old addresses go back to the list (remove a line when its post is published)
-/writing/most-people-are-full-of-crap /writing 302
 /writing/i-need-to-confess /writing 302
 /writing/that-time-i-was-attacked /writing 302
 /writing/how-to-easily-be-rich /writing 302
@@ -55,6 +54,9 @@
 /blogs /writing 301
 /blogs/* /writing/:splat 301
 /deep-dives /writing?tag=machine 301
+
+# Renamed post
+/writing/most-people-are-full-of-crap /writing/dont-take-advice-including-this-one 301
 
 # Retired page
 /quotes / 301
