@@ -8,7 +8,7 @@ Money is a social construct. It's a made up concept. A very long time ago we'd t
 
 I find that the best way to think about it is to treat it like a credit system. The more money you have, the more credit or trust you have to exchange it for other things of value. 
 
-I find that the easiest way to think about making money as an employee or starting any kind of business is to ask yourself: where can I deliver value?
+The easiest way to think about making money as an employee or starting any kind of business is to ask yourself: where can I deliver value?
 
 There are broadly speaking two kinds of value. The first is functional value. These are practical essential needs people can't skip. For instance, food, water and medicine. If you can diagnose and treat a disease for someone who's suffering, you are delivering immense functional value. This in turn means that the said person is likely to give you a lot of money for it. When you buy bread from the supermarket, or install electricity to a new house, or debug a nasty error for a software company, you are delivering concrete value and solving a problem for them.
 
